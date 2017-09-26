@@ -1,0 +1,12 @@
+{
+    "$schema": "./advancement.json",
+    "display": {
+        "icon": {
+            "item":"acacia_boat"
+        },
+        "title":[
+            {
+            }
+        ]
+    }
+}

@@ -1,4 +1,29 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "id":""
+	"$schema": "http://json-schema.org/schema#",
+	"id":"https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement.json",
+	"type":"object",
+	"properties": {
+		"display":{
+			"type":"object",
+			"properties": {
+				"icon":{
+					"properties":{
+						"item":{
+							"$ref": "minecraft_definitions.json#/item_name"
+						},
+						"data":{
+							"type":"integer",
+							"default":0
+						}
+					}
+				},
+				"title":{
+					"$ref": "minecraft_definitions.json#/json-text"
+				}
+			}
+		},
+		"definitions":{
+			
+		}
+	}
 }
