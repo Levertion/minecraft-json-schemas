@@ -18,7 +18,7 @@
 					}
 				},
 				"title":{
-					"$ref": "minecraft_definitions.json#/json-text"
+					"$ref": "minecraft_definitions.json#/json-component"
 				}
 			}
 		},
