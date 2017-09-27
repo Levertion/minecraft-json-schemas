@@ -19,6 +19,29 @@
 				},
 				"title":{
 					"$ref": "minecraft_definitions.json#/json-component"
+				},
+				"description":{
+					"$ref": "minecraft_definitions.json#/json-component"
+				},
+				"frame":{
+					"type":"string",
+					"enum": [
+						"challenge",
+						"task",
+						"goal"
+					]
+				},
+				"backgound":{
+					"type":"string"
+				},
+				"show_toast":{
+					"type":"boolean"
+				},
+				"announce_to_chat":{
+					"type":"boolean"
+				},
+				"hidden":{
+					"type":"boolean"
 				}
 			}
 		},
