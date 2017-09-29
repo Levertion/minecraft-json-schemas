@@ -1,13 +1,18 @@
 {
-    "$schema": "./advancement.json",
+    "$schema": "./advancement-strict.json",
     "display": {
         "icon": {
-            "item":"acacia_boat"
         },
-        "title":[
-            {
-                "text":"hi"
+        "title":{
+            "text": "hi",
+            "hoverEvent":{
+                "action": "show_item",
+                "value": "hi"
             }
-        ]
-    }
+        }
+    },
+    "criteria": [
+        {"trigger": ""}
+    ],
+    "nbt_test": ""
 }
