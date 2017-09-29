@@ -1,0 +1,375 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id":"https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement.json",
+	"type":"object",
+	"properties": {
+		"display":{
+			"type":"object",
+			"properties": {
+				"icon":{
+					"properties":{
+						"item":{
+							"$ref": "minecraft_definitions.json#/item_name"
+						},
+						"data":{
+							"type":"integer",
+							"default":0
+						}
+					}
+				},
+				"title":{
+					"$ref": "minecraft_definitions.json#/json-component"
+				},
+				"description":{
+					"$ref": "minecraft_definitions.json#/json-component"
+				},
+				"frame":{
+					"type":"string",
+					"enum": [
+						"challenge",
+						"task",
+						"goal"
+					]
+				},
+				"backgound":{
+					"type":"string"
+				},
+				"show_toast":{
+					"type":"boolean"
+				},
+				"announce_to_chat":{
+					"type":"boolean"
+				},
+				"hidden":{
+					"type":"boolean"
+				}
+			}
+		},
+		"parent":{
+			"type":"string"
+		},
+		"criteria":{
+			"type":"array",
+			"items": {
+				"$ref": "#/definitions/advancement_criterion"
+			},
+			"minItems":1
+		},
+		"requirements":{
+			"type":"array",
+			"items": {
+				"type":"array",
+				"items": {
+					"type":"string"
+				}
+			}
+		},
+		"rewards":{
+			"type":"object",
+			"properties": {
+				"recipes":{
+					"type":"array",
+					"items": {
+						"type":"string"
+					}
+				},
+				"loot":{
+					"type":"array",
+					"items": {
+						"type":"string"
+					}
+				},
+				"experience":{
+					"type":"integer"
+				},
+				"function":{
+					"type":"string"
+				}
+			}
+		},
+		"nbt_test":{
+			"$ref": "#/definitions/nbt_string"
+		}
+	},
+	"definitions":{
+		"advancement_criterion":{
+			"oneOf": [
+				{
+					"properties": {
+						"trigger":{
+							"type":"string",
+							"enum": [
+								""
+							]
+						},
+						"conditions":{
+							"type":"object",
+							"properties": {
+								"condition1":{
+									
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								""
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"condition1": {}
+							}
+						}
+					}
+				}
+			],
+			"required": [
+				"trigger"
+			],
+			"type":"object"
+		},
+		"range":{
+			"oneOf": [
+				{"type":"number"},
+				{"type":"object",
+					"properties": {
+						"min":{"type":"number"},
+						"max":{"type":"number"}
+					}
+				}
+			]
+		},
+		"distance":{
+			"type":"object",
+			"anyOf": [
+				{
+					"properties": {
+						"absolute":{
+							"$ref": "#/definitions/range"
+						}
+					}
+				},
+				{
+					"properties": {
+						"x": {
+							"$ref": "#/definitions/range"
+						},
+						"y": {
+							"$ref": "#/definitions/range"
+						},
+						"z": {
+							"$ref": "#/definitions/range"
+						}
+					}
+				},
+				{
+					"properties": {
+						"horizontal":{
+							"$ref": "#/definitions/range"
+						}
+					}
+				}
+			],
+			"additionalProperties": false
+		},
+		"entity":{
+			"properties": {
+				"distance":{
+					"$ref": "#/definitions/distance"
+				},
+				"effects":{
+					"$ref": "#/definition/effect"
+				},
+				"location": {
+					"$ref": "#/definitions/location"
+				},
+				"nbt":{
+					"$ref": "#/definitions/nbt_string"
+				},
+				"type":{
+					"enum": [
+						"minecraft:cow"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"location":{
+			"type":"object",
+			"properties": {
+				"biome":{
+					"enum": [
+						"beaches",
+						"birch_forest",
+						"birch_forest_hills",
+						"cold_beach",
+						"deep_ocean",
+						"desert",
+						"desert_hills",
+						"extreme_hills",
+						"extreme_hills_with_trees",
+						"forest",
+						"forest_hills",
+						"frozen_ocean",
+						"frozen_river",
+						"hell",
+						"ice_flats",
+						"ice_mountains",
+						"jungle",
+						"jungle_edge",
+						"jungle_hills",
+						"mesa",
+						"mesa_clear_rock",
+						"mesa_rock",
+						"mushroom_island",
+						"mushroom_island_shore",
+						"mutated_birch_forest",
+						"mutated_birch_forest_hills",
+						"mutated_desert",
+						"mutated_extreme_hills",
+						"mutated_extreme_hills_with_trees",
+						"mutated_forest",
+						"mutated_ice_flats",
+						"mutated_jungle",
+						"mutated_jungle_edge",
+						"mutated_mesa",
+						"mutated_mesa_clear_rock",
+						"mutated_mesa_rock",
+						"mutated_plains",
+						"mutated_redwood_taiga",
+						"mutated_redwood_taiga_hills",
+						"mutated_roofed_forest",
+						"mutated_savanna",
+						"mutated_savanna_rock",
+						"mutated_swampland",
+						"mutated_taiga",
+						"mutated_taiga_cold",
+						"ocean",
+						"plains",
+						"redwood_taiga",
+						"redwood_taiga_hills",
+						"river",
+						"roofed_forest",
+						"savanna",
+						"savanna_rock",
+						"sky",
+						"smaller_extreme_hills",
+						"stone_beach",
+						"swampland",
+						"taiga",
+						"taiga_cold",
+						"taiga_cold_hills",
+						"taiga_hills",
+						"void"
+					]
+				},
+				"dimension":{
+					"enum": [
+						"overworld", "the_end", "the_nether"
+					]
+				},
+				"structure":{
+					"enum": [
+						"EndCity", "Fortress", "Mansion", "Mineshaft", "Monument", "Stronghold", "Temple", "Village"
+					]
+				},
+				"position":{
+					"properties": {
+						"x": {
+							"$ref": "#/definitions/range"
+						},
+						"y": {
+							"$ref": "#/definitions/range"
+						},
+						"z": {
+							"$ref": "#/definitions/range"
+						}
+					},
+					"additionalProperties": false
+				}	
+			},
+			"additionalProperties": false
+		},
+		"effect":{
+			"additionalProperties": {
+				"type": "object",
+				"properties": {
+					"amplifier": {
+						"anyOf": [
+							{
+								"type": "integer"
+							},
+							{
+								"$ref": "#/definitions/range"
+							}
+						]
+					},
+					"duration": {
+						"anyOf": [
+							{
+								"type": "integer"
+							},
+							{
+								"$ref": "#/definitions/range"
+							}
+						]
+					},
+					"visible":{"type":"boolean"}
+				},
+				"additionalProperties": false
+			}
+		},
+		"item":{
+			"properties": {
+				"item":{
+					"$ref": "minecraft_definitions.json#/item_name"
+				},
+				"data": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 15
+				},
+				"durability":{
+					"$ref": "#/definitions/range"
+				},
+				"count":{
+					"$ref": "#/definitions/range"
+				},
+				"potion":{
+					"type":"string"
+				},
+				"enchantments":{
+					"properties": {
+						"enchantment":{
+							"type":"string"
+						},
+						"levels":{
+							"$ref": "#/definitions/range"
+						}
+					},
+					"additionalProperties": false
+				},
+				"nbt": {
+					"$ref": "#/definitions/nbt_string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"nbt_string":{
+			"type":"string",
+			"title": "NBT string",
+			"description": "A string of nbt, which is escaped using the json format (a \\ in front of each \\ or \")"
+		},
+		"block":{
+			"properties": {
+				
+			}
+		}
+	}
+}

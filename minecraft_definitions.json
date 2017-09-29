@@ -135,7 +135,7 @@
                                 "properties":{
                                     "action":{
                                         "type":"string",
-                                        "value":"show_text"
+                                        "enum":["show_text"]
                                     },
                                     "value":{
                                         "anyOf":[
@@ -151,6 +151,9 @@
                                 "properties": {
                                     "action": {
                                         "enum": ["show_item","show_entity"]
+                                    },
+                                    "value":{
+                                        "type":"string"
                                     }
                                 }
                             }
