@@ -96,7 +96,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"bred_animals"
+								"minecraft:bred_animals"
 							]
 						},
 						"conditions": {
@@ -120,7 +120,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"brewed_potion"
+								"minecraft:brewed_potion"
 							]
 						},
 						"conditions": {
@@ -138,7 +138,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"changed_dimension"
+								"minecraft:changed_dimension"
 							]
 						},
 						"conditions": {
@@ -159,7 +159,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"construct_beacon"
+								"minecraft:construct_beacon"
 							]
 						},
 						"conditions": {
@@ -177,8 +177,8 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"consume_item",
-								"used_totem"
+								"minecraft:consume_item",
+								"minecraft:used_totem"
 							]
 						},
 						"conditions": {
@@ -196,7 +196,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"cured_zombie_villager"
+								"minecraft:cured_zombie_villager"
 							]
 						},
 						"conditions": {
@@ -217,7 +217,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"effects_changed"
+								"minecraft:effects_changed"
 							]
 						},
 						"conditions": {
@@ -235,7 +235,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"enchanted_item"
+								"minecraft:enchanted_item"
 							]
 						},
 						"conditions": {
@@ -256,7 +256,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"trigger"
+								"minecraft:enter_block"
 							]
 						},
 						"conditions": {
@@ -269,7 +269,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"entity_hurt_player"
+								"minecraft:entity_hurt_player"
 							]
 						},
 						"conditions": {
@@ -287,8 +287,8 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"entity_killed_player",
-								"player_killed_entity"
+								"minecraft:entity_killed_player",
+								"minecraft:player_killed_entity"
 							]
 						},
 						"conditions": {
@@ -301,8 +301,8 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"impossible",
-								"tick"
+								"minecraft:impossible",
+								"minecraft:tick"
 							]
 						}
 					}
@@ -312,7 +312,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"inventory_changed"
+								"minecraft:inventory_changed"
 							]
 						},
 						"conditions": {
@@ -347,7 +347,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"item_durability_changed"
+								"minecraft:item_durability_changed"
 							]
 						},
 						"conditions": {
@@ -371,7 +371,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"levitation"
+								"minecraft:levitation"
 							]
 						},
 						"conditions": {
@@ -392,8 +392,8 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"location",
-								"slept_in_bed"
+								"minecraft:location",
+								"minecraft:slept_in_bed"
 							]
 						},
 						"conditions": {
@@ -406,7 +406,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"nether_travel"
+								"minecraft:nether_travel"
 							]
 						},
 						"conditions": {
@@ -430,7 +430,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"placed_block"
+								"minecraft:placed_block"
 							]
 						},
 						"conditions": {
@@ -451,7 +451,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"recipe_unlocked"
+								"minecraft:recipe_unlocked"
 							]
 						},
 						"conditions": {
@@ -469,8 +469,8 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"summoned_entity",
-								"tame_animal"
+								"minecraft:summoned_entity",
+								"minecraft:tame_animal"
 							]
 						},
 						"conditions": {
@@ -488,7 +488,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"used_ender_eye"
+								"minecraft:used_ender_eye"
 							]
 						},
 						"conditions": {
@@ -506,7 +506,7 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								"villager_trade"
+								"minecraft:villager_trade"
 							]
 						},
 						"conditions": {
