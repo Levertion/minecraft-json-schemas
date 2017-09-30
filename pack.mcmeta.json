@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/schema#",
+    "title": "Resource pack information",
+    "description": "Information about a resource pack for Minecraft",
+    "properties": {
+        "pack": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "pack_format": {
+                    "default": 3,
+                    "type": "integer",
+                    "title": "Resource pack version",
+                    "description": "This will be 1 for pre-1.9 versions, 2 for 1.9-1.10 and 3 in 1.11 and 1.12"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Pack description",
+                    "description": "The description for this pack. Any text which doesn't fit on two lines will be removed"
+                }
+            }
+        },
+        "language": {
+            "type": "object",
+            "title": "Custom languages",
+            "description": "Each sub-object is the full code for the language, which the pack's lang folder has a language file with the name <code>.lang",
+            "additionalProperties": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Language name",
+                        "description": "The displayed name of the custom language, e.g. English"
+                    },
+                    "region": {
+                        "type": "string",
+                        "title": "Language Region",
+                        "description": "The place where this version of the language is spoken (area or country). E.g. United Kingdom"
+                    },
+                    "bidirectional": {
+                        "type": "boolean",
+                        "default": false,
+                        "title": "RTL support?",
+                        "description": "When true, the language reads right to left"
+                    }
+                }
+            }
+        }
+    }
+}
