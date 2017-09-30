@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement.json",
+	"id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement-strict.json",
 	"type": "object",
 	"properties": {
 		"display": {
