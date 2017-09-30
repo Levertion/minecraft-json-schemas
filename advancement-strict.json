@@ -1,113 +1,108 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"id":"https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement.json",
-	"type":"object",
+	"id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement.json",
+	"type": "object",
 	"properties": {
-		"display":{
-			"type":"object",
+		"display": {
+			"type": "object",
 			"properties": {
-				"icon":{
-					"properties":{
-						"item":{
+				"icon": {
+					"properties": {
+						"item": {
 							"$ref": "minecraft_definitions.json#/item_name"
 						},
-						"data":{
-							"type":"integer",
-							"default":0
+						"data": {
+							"type": "integer",
+							"default": 0
 						}
 					}
 				},
-				"title":{
-					"$ref": "minecraft_definitions.json#/json-component"
+				"title": {
+					"$ref": "minecraft_definitions.json#/json_component"
 				},
-				"description":{
-					"$ref": "minecraft_definitions.json#/json-component"
+				"description": {
+					"$ref": "minecraft_definitions.json#/json_component"
 				},
-				"frame":{
-					"type":"string",
+				"frame": {
+					"type": "string",
 					"enum": [
 						"challenge",
 						"task",
 						"goal"
 					]
 				},
-				"backgound":{
-					"type":"string"
+				"backgound": {
+					"type": "string"
 				},
-				"show_toast":{
-					"type":"boolean"
+				"show_toast": {
+					"type": "boolean"
 				},
-				"announce_to_chat":{
-					"type":"boolean"
+				"announce_to_chat": {
+					"type": "boolean"
 				},
-				"hidden":{
-					"type":"boolean"
+				"hidden": {
+					"type": "boolean"
 				}
 			}
 		},
-		"parent":{
-			"type":"string"
+		"parent": {
+			"type": "string"
 		},
-		"criteria":{
-			"type":"array",
+		"criteria": {
+			"type": "array",
 			"items": {
 				"$ref": "#/definitions/advancement_criterion"
 			},
-			"minItems":1
+			"minItems": 1
 		},
-		"requirements":{
-			"type":"array",
+		"requirements": {
+			"type": "array",
 			"items": {
-				"type":"array",
+				"type": "array",
 				"items": {
-					"type":"string"
+					"type": "string"
 				}
 			}
 		},
-		"rewards":{
-			"type":"object",
+		"rewards": {
+			"type": "object",
 			"properties": {
-				"recipes":{
-					"type":"array",
+				"recipes": {
+					"type": "array",
 					"items": {
-						"type":"string"
+						"type": "string"
 					}
 				},
-				"loot":{
-					"type":"array",
+				"loot": {
+					"type": "array",
 					"items": {
-						"type":"string"
+						"type": "string"
 					}
 				},
-				"experience":{
-					"type":"integer"
+				"experience": {
+					"type": "integer"
 				},
-				"function":{
-					"type":"string"
+				"function": {
+					"type": "string"
 				}
 			}
-		},
-		"nbt_test":{
-			"$ref": "#/definitions/nbt_string"
 		}
 	},
-	"definitions":{
-		"advancement_criterion":{
+	"definitions": {
+		"advancement_criterion": {
 			"oneOf": [
 				{
 					"properties": {
-						"trigger":{
-							"type":"string",
+						"trigger": {
+							"type": "string",
 							"enum": [
 								""
 							]
 						},
-						"conditions":{
-							"type":"object",
+						"conditions": {
+							"type": "object",
 							"properties": {
-								"condition1":{
-									
-								}
+								"condition1": {}
 							}
 						}
 					}
@@ -132,25 +127,32 @@
 			"required": [
 				"trigger"
 			],
-			"type":"object"
+			"type": "object"
 		},
-		"range":{
+		"range": {
 			"oneOf": [
-				{"type":"number"},
-				{"type":"object",
+				{
+					"type": "number"
+				},
+				{
+					"type": "object",
 					"properties": {
-						"min":{"type":"number"},
-						"max":{"type":"number"}
+						"min": {
+							"type": "number"
+						},
+						"max": {
+							"type": "number"
+						}
 					}
 				}
 			]
 		},
-		"distance":{
-			"type":"object",
+		"distance": {
+			"type": "object",
 			"anyOf": [
 				{
 					"properties": {
-						"absolute":{
+						"absolute": {
 							"$ref": "#/definitions/range"
 						}
 					}
@@ -170,7 +172,7 @@
 				},
 				{
 					"properties": {
-						"horizontal":{
+						"horizontal": {
 							"$ref": "#/definitions/range"
 						}
 					}
@@ -178,32 +180,30 @@
 			],
 			"additionalProperties": false
 		},
-		"entity":{
+		"entity": {
 			"properties": {
-				"distance":{
+				"distance": {
 					"$ref": "#/definitions/distance"
 				},
-				"effects":{
-					"$ref": "#/definition/effect"
+				"effects": {
+					"$ref": "#/definitions/effect"
 				},
 				"location": {
 					"$ref": "#/definitions/location"
 				},
-				"nbt":{
+				"nbt": {
 					"$ref": "#/definitions/nbt_string"
 				},
-				"type":{
-					"enum": [
-						"minecraft:cow"
-					]
+				"type": {
+					"$ref": "minecraft_definitions.json#/entity_name"
 				}
 			},
 			"additionalProperties": false
 		},
-		"location":{
-			"type":"object",
+		"location": {
+			"type": "object",
 			"properties": {
-				"biome":{
+				"biome": {
 					"enum": [
 						"beaches",
 						"birch_forest",
@@ -269,17 +269,26 @@
 						"void"
 					]
 				},
-				"dimension":{
+				"dimension": {
 					"enum": [
-						"overworld", "the_end", "the_nether"
+						"overworld",
+						"the_end",
+						"the_nether"
 					]
 				},
-				"structure":{
+				"structure": {
 					"enum": [
-						"EndCity", "Fortress", "Mansion", "Mineshaft", "Monument", "Stronghold", "Temple", "Village"
+						"EndCity",
+						"Fortress",
+						"Mansion",
+						"Mineshaft",
+						"Monument",
+						"Stronghold",
+						"Temple",
+						"Village"
 					]
 				},
-				"position":{
+				"position": {
 					"properties": {
 						"x": {
 							"$ref": "#/definitions/range"
@@ -292,11 +301,11 @@
 						}
 					},
 					"additionalProperties": false
-				}	
+				}
 			},
 			"additionalProperties": false
 		},
-		"effect":{
+		"effect": {
 			"additionalProperties": {
 				"type": "object",
 				"properties": {
@@ -320,14 +329,16 @@
 							}
 						]
 					},
-					"visible":{"type":"boolean"}
+					"visible": {
+						"type": "boolean"
+					}
 				},
 				"additionalProperties": false
 			}
 		},
-		"item":{
+		"item": {
 			"properties": {
-				"item":{
+				"item": {
 					"$ref": "minecraft_definitions.json#/item_name"
 				},
 				"data": {
@@ -335,21 +346,21 @@
 					"minimum": 0,
 					"maximum": 15
 				},
-				"durability":{
+				"durability": {
 					"$ref": "#/definitions/range"
 				},
-				"count":{
+				"count": {
 					"$ref": "#/definitions/range"
 				},
-				"potion":{
-					"type":"string"
+				"potion": {
+					"type": "string"
 				},
-				"enchantments":{
+				"enchantments": {
 					"properties": {
-						"enchantment":{
-							"type":"string"
+						"enchantment": {
+							"type": "string"
 						},
-						"levels":{
+						"levels": {
 							"$ref": "#/definitions/range"
 						}
 					},
@@ -361,14 +372,83 @@
 			},
 			"additionalProperties": false
 		},
-		"nbt_string":{
-			"type":"string",
+		"nbt_string": {
+			"type": "string",
 			"title": "NBT string",
 			"description": "A string of nbt, which is escaped using the json format (a \\ in front of each \\ or \")"
 		},
-		"block":{
+		"block": {
 			"properties": {
-				
+				"block": {
+					"$ref": "minecraft_definitions.json#/block_name"
+				},
+				"state": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"damage": {
+			"type": "object",
+			"properties": {
+				"dealt": {
+					"$ref": "#/definitions/range"
+				},
+				"taken": {
+					"$ref": "#/definitions/range"
+				},
+				"blocked": {
+					"type": "boolean"
+				},
+				"source_entity": {
+					"$ref": "#/definitions/entity"
+				}
+			},
+			"additionalProperties": false
+		},
+		"damage_flags": {
+			"type": "object",
+			"properties": {
+				"bypasses_armor": {
+					"type": "boolean"
+				},
+				"bypasses_invulnerability": {
+					"type": "boolean"
+				},
+				"bypasses_magic": {
+					"type": "boolean"
+				},
+				"is_explosion": {
+					"type": "boolean"
+				},
+				"is_fire": {
+					"type": "boolean"
+				},
+				"is_magic": {
+					"type": "boolean"
+				},
+				"is_projectile": {
+					"type": "boolean"
+				},
+				"source_entity": {
+					"$ref": "#/definitions/entity"
+				},
+				"direct_entity": {
+					"$ref": "#/definitions/entity"
+				}
+			},
+			"additionalProperties": false
+		},
+		"death": {
+			"properties": {
+				"entity": {
+					"$ref": "#/definitions/entity"
+				},
+				"killing_blow": {
+					"$ref": "#/definitions/damage_flags"
+				}
 			}
 		}
 	}
