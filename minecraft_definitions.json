@@ -941,5 +941,8 @@
             "minecraft:zombie_pigman",
             "minecraft:zombie_villager"
         ]
+    },
+    "potion_name": {
+        "type": "string"
     }
 }
