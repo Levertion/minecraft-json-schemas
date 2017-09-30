@@ -96,13 +96,21 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								""
+								"bred_animals"
 							]
 						},
 						"conditions": {
 							"type": "object",
 							"properties": {
-								"condition1": {}
+								"parent": {
+									"$ref": "#/definitions/entity"
+								},
+								"partner": {
+									"$ref": "#/definitions/entity"
+								},
+								"child": {
+									"$ref": "#/definitions/entity"
+								}
 							}
 						}
 					}
@@ -112,13 +120,404 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
-								""
+								"brewed_potion"
 							]
 						},
 						"conditions": {
 							"type": "object",
 							"properties": {
-								"condition1": {}
+								"potion": {
+									"$ref": "minecraft_definitions.json#/definitions/potion_name"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"changed_dimension"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"to": {
+									"$ref": "#/definitions/dimension"
+								},
+								"from": {
+									"$ref": "#/definitions/dimension"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"construct_beacon"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"level": {
+									"$ref": "#/definitions/range"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"consume_item",
+								"used_totem"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"item": {
+									"$ref": "#/definitions/item"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"cured_zombie_villager"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"zombie": {
+									"$ref": "#/definitions/entity"
+								},
+								"villager": {
+									"$ref": "#/definitions/entity"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"effects_changed"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"effects": {
+									"$ref": "#/definitions/effect"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"enchanted_item"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"item": {
+									"$ref": "#/definitions/item"
+								},
+								"levels": {
+									"$ref": "#/definitions/range"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"trigger"
+							]
+						},
+						"conditions": {
+							"$ref": "#/definitions/block"
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"entity_hurt_player"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"damage": {
+									"$ref": "#/definitions/damage"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"entity_killed_player",
+								"player_killed_entity"
+							]
+						},
+						"conditions": {
+							"$ref": "#/definitions/death"
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"impossible",
+								"tick"
+							]
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"inventory_changed"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"slots": {
+									"properties": {
+										"occupied": {
+											"$ref": "#/definitions/range"
+										},
+										"full": {
+											"$ref": "#/definitions/range"
+										},
+										"empty": {
+											"$ref": "#/definitions/range"
+										}
+									},
+									"additionalProperties": false
+								},
+								"items": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/item"
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"item_durability_changed"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"item": {
+									"$ref": "#/definitions/item"
+								},
+								"durability": {
+									"$ref": "#/definitions/range"
+								},
+								"delta": {
+									"$ref": "#/definitions/range"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"levitation"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"duration": {
+									"$ref": "#/definitions/range"
+								},
+								"distance": {
+									"$ref": "#/definitions/distance"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"location",
+								"slept_in_bed"
+							]
+						},
+						"conditions": {
+							"$ref": "#/definitions/location"
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"nether_travel"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"entered": {
+									"$ref": "#/definitions/location"
+								},
+								"exited": {
+									"$ref": "#/definitions/location"
+								},
+								"distance": {
+									"$ref": "#/definitions/distance"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"placed_block"
+							]
+						},
+						"conditions": {
+							"$ref": "#/definitions/block",
+							"properties": {
+								"item": {
+									"$ref": "#/definitions/item"
+								},
+								"location": {
+									"$ref": "#/definitions/location"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"recipe_unlocked"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"recipe": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"summoned_entity",
+								"tame_animal"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"entity": {
+									"$ref": "#/definitions/entity"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"used_ender_eye"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"first": {
+									"$ref": "#/definitions/range"
+								}
+							}
+						}
+					}
+				},
+				{
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
+								"villager_trade"
+							]
+						},
+						"conditions": {
+							"type": "object",
+							"properties": {
+								"villager": {
+									"$ref": "#/definitions/entity"
+								},
+								"item": {
+									"$ref": "#/definitions/item"
+								}
 							}
 						}
 					}
@@ -270,11 +669,7 @@
 					]
 				},
 				"dimension": {
-					"enum": [
-						"overworld",
-						"the_end",
-						"the_nether"
-					]
+					"$ref": "#/definitions/dimension"
 				},
 				"structure": {
 					"enum": [
@@ -353,7 +748,7 @@
 					"$ref": "#/definitions/range"
 				},
 				"potion": {
-					"type": "string"
+					"$ref": "minecraft_definitions.json#/definitions/potion_name"
 				},
 				"enchantments": {
 					"properties": {
@@ -450,6 +845,13 @@
 					"$ref": "#/definitions/damage_flags"
 				}
 			}
+		},
+		"dimension": {
+			"enum": [
+				"overworld",
+				"the_end",
+				"the_nether"
+			]
 		}
 	}
 }
