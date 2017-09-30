@@ -127,7 +127,7 @@
 							"type": "object",
 							"properties": {
 								"potion": {
-									"$ref": "minecraft_definitions.json#/definitions/potion_name"
+									"$ref": "minecraft_definitions.json#/potion_name"
 								}
 							}
 						}
