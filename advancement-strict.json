@@ -166,7 +166,7 @@
 							"type": "object",
 							"properties": {
 								"level": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								}
 							}
 						}
@@ -245,7 +245,7 @@
 									"$ref": "#/definitions/item"
 								},
 								"levels": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								}
 							}
 						}
@@ -321,13 +321,13 @@
 								"slots": {
 									"properties": {
 										"occupied": {
-											"$ref": "#/definitions/range"
+											"$ref": "shared/minecraft_definitions.json#range"
 										},
 										"full": {
-											"$ref": "#/definitions/range"
+											"$ref": "shared/minecraft_definitions.json#range"
 										},
 										"empty": {
-											"$ref": "#/definitions/range"
+											"$ref": "shared/minecraft_definitions.json#range"
 										}
 									},
 									"additionalProperties": false
@@ -357,10 +357,10 @@
 									"$ref": "#/definitions/item"
 								},
 								"durability": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								},
 								"delta": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								}
 							}
 						}
@@ -378,7 +378,7 @@
 							"type": "object",
 							"properties": {
 								"duration": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								},
 								"distance": {
 									"$ref": "#/definitions/distance"
@@ -495,7 +495,7 @@
 							"type": "object",
 							"properties": {
 								"first": {
-									"$ref": "#/definitions/range"
+									"$ref": "shared/minecraft_definitions.json#range"
 								}
 							}
 						}
@@ -528,51 +528,33 @@
 			],
 			"type": "object"
 		},
-		"range": {
-			"oneOf": [
-				{
-					"type": "number"
-				},
-				{
-					"type": "object",
-					"properties": {
-						"min": {
-							"type": "number"
-						},
-						"max": {
-							"type": "number"
-						}
-					}
-				}
-			]
-		},
 		"distance": {
 			"type": "object",
 			"anyOf": [
 				{
 					"properties": {
 						"absolute": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						}
 					}
 				},
 				{
 					"properties": {
 						"x": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						},
 						"y": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						},
 						"z": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						}
 					}
 				},
 				{
 					"properties": {
 						"horizontal": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						}
 					}
 				}
@@ -686,13 +668,13 @@
 				"position": {
 					"properties": {
 						"x": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						},
 						"y": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						},
 						"z": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						}
 					},
 					"additionalProperties": false
@@ -710,7 +692,7 @@
 								"type": "integer"
 							},
 							{
-								"$ref": "#/definitions/range"
+								"$ref": "shared/minecraft_definitions.json#range"
 							}
 						]
 					},
@@ -720,7 +702,7 @@
 								"type": "integer"
 							},
 							{
-								"$ref": "#/definitions/range"
+								"$ref": "shared/minecraft_definitions.json#range"
 							}
 						]
 					},
@@ -742,10 +724,10 @@
 					"maximum": 15
 				},
 				"durability": {
-					"$ref": "#/definitions/range"
+					"$ref": "shared/minecraft_definitions.json#range"
 				},
 				"count": {
-					"$ref": "#/definitions/range"
+					"$ref": "shared/minecraft_definitions.json#range"
 				},
 				"potion": {
 					"$ref": "shared/minecraft_definitions.json#/potion_name"
@@ -756,7 +738,7 @@
 							"type": "string"
 						},
 						"levels": {
-							"$ref": "#/definitions/range"
+							"$ref": "shared/minecraft_definitions.json#range"
 						}
 					},
 					"additionalProperties": false
@@ -789,10 +771,10 @@
 			"type": "object",
 			"properties": {
 				"dealt": {
-					"$ref": "#/definitions/range"
+					"$ref": "shared/minecraft_definitions.json#range"
 				},
 				"taken": {
-					"$ref": "#/definitions/range"
+					"$ref": "shared/minecraft_definitions.json#range"
 				},
 				"blocked": {
 					"type": "boolean"

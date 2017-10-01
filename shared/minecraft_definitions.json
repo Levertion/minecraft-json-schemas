@@ -984,5 +984,23 @@
             "minecraft:long_strength",
             "minecraft:long_weakness"
         ]
+    },
+    "range": {
+        "oneOf": [
+            {
+                "type": "number"
+            },
+            {
+                "type": "object",
+                "properties": {
+                    "min": {
+                        "type": "number"
+                    },
+                    "max": {
+                        "type": "number"
+                    }
+                }
+            }
+        ]
     }
 }
