@@ -7,14 +7,15 @@ Json schema information can be found at [json-schema.org](http://json-schema.org
 At the moment, the following files are supported:  
 
 1. `advancements`
+2. `pack.mcmeta`
+3. `.mcmeta` animation files
 
 ### Future plans
 
 The following files should be supported in the future
 
-1. `pack.mcmeta`
-2. `recipe files`
-3. `loot table files` 
+1. `recipe files`
+2. `loot table files` 
 
 The following additions are planned
 
