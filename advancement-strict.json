@@ -9,7 +9,7 @@
 				"icon": {
 					"properties": {
 						"item": {
-							"$ref": "minecraft_definitions.json#/item_name"
+							"$ref": "shared/minecraft_definitions.json#/item_name"
 						},
 						"data": {
 							"type": "integer",
@@ -18,10 +18,10 @@
 					}
 				},
 				"title": {
-					"$ref": "minecraft_definitions.json#/json_component"
+					"$ref": "shared/minecraft_definitions.json#/json_component"
 				},
 				"description": {
-					"$ref": "minecraft_definitions.json#/json_component"
+					"$ref": "shared/minecraft_definitions.json#/json_component"
 				},
 				"frame": {
 					"type": "string",
@@ -127,7 +127,7 @@
 							"type": "object",
 							"properties": {
 								"potion": {
-									"$ref": "minecraft_definitions.json#/potion_name"
+									"$ref": "shared/minecraft_definitions.json#/potion_name"
 								}
 							}
 						}
@@ -594,7 +594,7 @@
 					"$ref": "#/definitions/nbt_string"
 				},
 				"type": {
-					"$ref": "minecraft_definitions.json#/entity_name"
+					"$ref": "shared/minecraft_definitions.json#/entity_name"
 				}
 			},
 			"additionalProperties": false
@@ -734,7 +734,7 @@
 		"item": {
 			"properties": {
 				"item": {
-					"$ref": "minecraft_definitions.json#/item_name"
+					"$ref": "shared/minecraft_definitions.json#/item_name"
 				},
 				"data": {
 					"type": "number",
@@ -748,7 +748,7 @@
 					"$ref": "#/definitions/range"
 				},
 				"potion": {
-					"$ref": "minecraft_definitions.json#/potion_name"
+					"$ref": "shared/minecraft_definitions.json#/potion_name"
 				},
 				"enchantments": {
 					"properties": {
@@ -775,7 +775,7 @@
 		"block": {
 			"properties": {
 				"block": {
-					"$ref": "minecraft_definitions.json#/block_name"
+					"$ref": "shared/minecraft_definitions.json#/block_name"
 				},
 				"state": {
 					"type": "object",
