@@ -735,7 +735,7 @@
 				"enchantments": {
 					"properties": {
 						"enchantment": {
-							"$ref": "shared/minecraft_definitions.json#enchantment_name"
+							"$ref": "shared/minecraft_definitions.json#/enchantment_name"
 						},
 						"levels": {
 							"$ref": "shared/minecraft_definitions.json#/range"
