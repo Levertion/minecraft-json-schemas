@@ -46,7 +46,7 @@
 			}
 		},
 		"parent": {
-			"type": "string"
+			"$ref": "shared/minecraft_definitions.json#/namespaced_location"
 		},
 		"criteria": {
 			"type": "object",
@@ -70,20 +70,20 @@
 				"recipes": {
 					"type": "array",
 					"items": {
-						"type": "string"
+						"$ref": "shared/minecraft_definitions.json#/namespaced_location"
 					}
 				},
 				"loot": {
 					"type": "array",
 					"items": {
-						"type": "string"
+						"$ref": "shared/minecraft_definitions.json#/namespaced_location"
 					}
 				},
 				"experience": {
 					"type": "integer"
 				},
 				"function": {
-					"type": "string"
+					"$ref": "shared/minecraft_definitions.json#/namespaced_location"
 				}
 			}
 		}

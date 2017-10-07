@@ -1003,6 +1003,9 @@
             }
         ]
     },
+    "namespaced_location": {
+        "pattern": "(?:.+:).+"
+    },
     "enchantment_name": {
         "enum": [
             "minecraft:aqua_affinity",
