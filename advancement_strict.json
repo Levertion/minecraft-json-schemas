@@ -31,7 +31,7 @@
 						"goal"
 					]
 				},
-				"backgound": {
+				"background": {
 					"type": "string"
 				},
 				"show_toast": {
@@ -42,7 +42,8 @@
 				},
 				"hidden": {
 					"type": "boolean"
-				}
+				},
+				"additionalProperties": false
 			}
 		},
 		"parent": {
@@ -50,10 +51,10 @@
 		},
 		"criteria": {
 			"type": "object",
-			"items": {
+			"additionalProperties": {
 				"$ref": "#/definitions/advancement_criterion"
 			},
-			"minItems": 1
+			"minProperties": 1
 		},
 		"requirements": {
 			"type": "array",
@@ -825,7 +826,8 @@
 				},
 				"killing_blow": {
 					"$ref": "#/definitions/damage_flags"
-				}
+				},
+				"additionalProperties": false
 			}
 		},
 		"dimension": {
