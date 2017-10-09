@@ -991,6 +991,7 @@
                 "type": "number"
             },
             {
+                "additionalProperties": false,
                 "type": "object",
                 "properties": {
                     "min": {
@@ -1037,7 +1038,7 @@
             "minecraft:sweeping",
             "minecraft:thorns",
             "minecraft:unbreaking",
-            "minecraft:vanishing_curse",
+            "minecraft:vanishing_curse"
         ]
     }
 }
