@@ -1,186 +1,196 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/minecraft_definitions.json",
-    "json_component": {
+    "text_component": {
         "anyOf": [
             {
-                "type": "object",
-                "oneOf": [
-                    {
-                        "properties": {
-                            "text": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "text"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "translate": {
-                                "type": "string"
-                            },
-                            "with": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/json_component"
-                                }
-                            }
-                        },
-                        "required": [
-                            "translate"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "score": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "objective": {
-                                        "type": "string"
-                                    },
-                                    "value": {
-                                        "type": [
-                                            "number",
-                                            "string",
-                                            "boolean"
-                                        ]
-                                    }
-                                }
-                            }
-                        },
-                        "required": [
-                            "score"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "selector": {
-                                "type": "string",
-                                "pattern": "^@[parse]"
-                            }
-                        },
-                        "required": [
-                            "selector"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "keybind": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "keybind"
-                        ]
-                    }
-                ],
+                "type": "string"
+            },
+            {
+                "$ref": "#/text_object"
+            },
+            {
+                "type": "array",
+                "items": {
+                    "$ref": "#/text_component"
+                }
+            }
+        ]
+    },
+    "text_object": {
+        "type": "object",
+        "additionalProperties": false,
+        "oneOf": [
+            {
                 "properties": {
-                    "extra": {
-                        "type": "array",
-                        "$ref": "#/json_component"
-                    },
-                    "color": {
-                        "enum": [
-                            "black",
-                            "dark_blue",
-                            "dark_green",
-                            "dark_aqua",
-                            "dark_red",
-                            "dark_purple",
-                            "gold",
-                            "gray",
-                            "dark_gray",
-                            "blue",
-                            "green",
-                            "aqua",
-                            "red",
-                            "light_purple",
-                            "yellow",
-                            "white",
-                            "reset"
-                        ]
-                    },
-                    "bold": {
-                        "type": "boolean"
-                    },
-                    "italic": {
-                        "type": "boolean"
-                    },
-                    "underlined": {
-                        "type": "boolean"
-                    },
-                    "strikethrough": {
-                        "type": "boolean"
-                    },
-                    "obfuscated": {
-                        "type": "boolean"
-                    },
-                    "insertion": {
+                    "text": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text"
+                ]
+            },
+            {
+                "properties": {
+                    "translate": {
                         "type": "string"
                     },
-                    "clickEvent": {
+                    "with": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/text_component"
+                        }
+                    }
+                },
+                "required": [
+                    "translate"
+                ]
+            },
+            {
+                "properties": {
+                    "score": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "objective": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": [
+                                    "number",
+                                    "string",
+                                    "boolean"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "score"
+                ]
+            },
+            {
+                "properties": {
+                    "selector": {
+                        "type": "string",
+                        "pattern": "^@[parse]"
+                    }
+                },
+                "required": [
+                    "selector"
+                ]
+            },
+            {
+                "properties": {
+                    "keybind": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "keybind"
+                ]
+            }
+        ],
+        "properties": {
+            "extra": {
+                "type": "array",
+                "$ref": "#/json_component"
+            },
+            "color": {
+                "enum": [
+                    "black",
+                    "dark_blue",
+                    "dark_green",
+                    "dark_aqua",
+                    "dark_red",
+                    "dark_purple",
+                    "gold",
+                    "gray",
+                    "dark_gray",
+                    "blue",
+                    "green",
+                    "aqua",
+                    "red",
+                    "light_purple",
+                    "yellow",
+                    "white",
+                    "reset"
+                ]
+            },
+            "bold": {
+                "type": "boolean"
+            },
+            "italic": {
+                "type": "boolean"
+            },
+            "underlined": {
+                "type": "boolean"
+            },
+            "strikethrough": {
+                "type": "boolean"
+            },
+            "obfuscated": {
+                "type": "boolean"
+            },
+            "insertion": {
+                "type": "string"
+            },
+            "clickEvent": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "enum": [
+                            "open_url",
+                            "run_command",
+                            "change_page",
+                            "suggest_command"
+                        ]
+                    }
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "hoverEvent": {
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "action": {
+                                "type": "string",
+                                "enum": [
+                                    "show_text"
+                                ]
+                            },
+                            "value": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/json_component"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
                         "type": "object",
                         "properties": {
                             "action": {
                                 "enum": [
-                                    "open_url",
-                                    "run_command",
-                                    "change_page",
-                                    "suggest_command"
+                                    "show_item",
+                                    "show_entity"
                                 ]
-                            }
-                        },
-                        "value": {
-                            "type": "string"
-                        }
-                    },
-                    "hoverEvent": {
-                        "anyOf": [
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "action": {
-                                        "type": "string",
-                                        "enum": [
-                                            "show_text"
-                                        ]
-                                    },
-                                    "value": {
-                                        "anyOf": [
-                                            {
-                                                "$ref": "#/json_component"
-                                            }
-                                        ]
-                                    }
-                                }
                             },
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "action": {
-                                        "enum": [
-                                            "show_item",
-                                            "show_entity"
-                                        ]
-                                    },
-                                    "value": {
-                                        "type": "string"
-                                    }
-                                }
+                            "value": {
+                                "type": "string"
                             }
-                        ]
+                        }
                     }
-                }
-            },
-            {
-                "type": "string"
+                ]
             }
-        ]
+        }
     },
     "item_name": {
         "enum": [
