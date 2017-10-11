@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
  - Incorrect references to json_component in shared definition
+ - Fix only allowing functions and conditions with a `minecraft:` namespace in loot tables, as even the vanilla loot tables don't use it
 
 ## v0.1.0 - 2017-10-10
 - Initial release
