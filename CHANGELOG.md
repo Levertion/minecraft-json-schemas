@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
+
+## v0.1.1 - 2017-10-11
+ - Bugfix update 
 ### Fixed
  - Incorrect references to json_component in shared definition
- - Fix only allowing functions and conditions with a `minecraft:` namespace in loot tables, as even the vanilla loot tables don't use it
- - (Needs testing) Fix property not defined error
+ - Only allows functions and conditions with a `minecraft:` namespace in loot tables, as even the vanilla loot tables don't use it
+ - Property not defined error
 
 ## v0.1.0 - 2017-10-10
 - Initial release
