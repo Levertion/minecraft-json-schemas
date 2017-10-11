@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## v0.1.1 - 2017-10-11
+## [v0.1.1] - 2017-10-11
  - Bugfix update 
 ### Fixed
  - Incorrect references to json_component in shared definition
@@ -22,4 +22,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - `sounds.json` support
  - other `.mcmeta` file support
 
- [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.0...HEAD
+ [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.1...HEAD
+ [v0.1.1]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.0...v0.1.1
