@@ -34,6 +34,8 @@
                         "title": "The entries",
                         "description": "For each roll, one of these entries is chosen to be given, with a chance based on the 'weight'",
                         "items": {
+                            "type": "object",
+                            "additionalProperties": false,
                             "oneOf": [
                                 {
                                     "properties": {
