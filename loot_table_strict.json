@@ -1,5 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/loot_table_strict.json",
     "type": "object",
     "title": "Root tag",
     "description": "This only has one property, being \"pools\", which is an array of pools",
@@ -33,7 +34,6 @@
                         "title": "The entries",
                         "description": "For each roll, one of these entries is chosen to be given, with a chance based on the 'weight'",
                         "items": {
-                            "additionalProperties": false,
                             "oneOf": [
                                 {
                                     "properties": {
@@ -115,7 +115,6 @@
             "title": "Conditions",
             "description": "The conditions that must pass for this pool/entry to be used",
             "items": {
-                "additionalProperties": false,
                 "oneOf": [
                     {
                         "properties": {
