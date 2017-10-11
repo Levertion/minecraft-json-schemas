@@ -599,7 +599,6 @@
 							"additionalProperties": false,
 							"title": "Required conditions",
 							"description": "The placed block",
-							"$ref": "#/definitions/block",
 							"properties": {
 								"item": {
 									"$ref": "#/definitions/item",
