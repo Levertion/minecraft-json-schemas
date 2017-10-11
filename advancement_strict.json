@@ -953,7 +953,8 @@
 					"description": "If the item is a potion, check its type"
 				},
 				"enchantments": {
-					"item": {
+					"items": {
+						"type": "array",
 						"title": "The enchantments of the item",
 						"properties": {
 							"enchantment": {
@@ -965,8 +966,7 @@
 								"title": "The level of the advancements"
 							}
 						}
-					},
-					"additionalProperties": false
+					}
 				},
 				"nbt": {
 					"$ref": "#/definitions/nbt_string"
