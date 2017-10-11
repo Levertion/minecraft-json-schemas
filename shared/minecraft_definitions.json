@@ -112,7 +112,7 @@
         "properties": {
             "extra": {
                 "type": "array",
-                "$ref": "#/json_component",
+                "$ref": "#/text_component",
                 "title": "Additional items to add",
                 "description": "These items inherit from the base component in styling, such as text colour and italics"
             },
@@ -202,7 +202,7 @@
                             "value": {
                                 "anyOf": [
                                     {
-                                        "$ref": "#/json_component"
+                                        "$ref": "#/text_component"
                                     }
                                 ]
                             }
