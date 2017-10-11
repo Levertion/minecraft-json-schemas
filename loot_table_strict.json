@@ -56,6 +56,16 @@
                                             "items": {
                                                 "$ref": "#/definitions/function"
                                             }
+                                        },
+                                        "quality": {
+                                            "type": "number",
+                                            "title": "Weight based on luck",
+                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
+                                        },
+                                        "weight": {
+                                            "type": "number",
+                                            "title": "Chance of this entry being used",
+                                            "description": "The chance of this entry being used"
                                         }
                                     }
                                 },
@@ -72,6 +82,16 @@
                                             "$ref": "shared/minecraft_definitions.json#/namespaced_location",
                                             "title": "Loot table",
                                             "description": "The loot table to be given"
+                                        },
+                                        "quality": {
+                                            "type": "number",
+                                            "title": "Weight based on luck",
+                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
+                                        },
+                                        "weight": {
+                                            "type": "number",
+                                            "title": "Chance of this entry being used",
+                                            "description": "The chance of this entry being used"
                                         }
                                     }
                                 },
@@ -83,25 +103,23 @@
                                             ],
                                             "title": "Empty",
                                             "description": "An empty pool. No items will be granted"
+                                        },
+                                        "quality": {
+                                            "type": "number",
+                                            "title": "Weight based on luck",
+                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
+                                        },
+                                        "weight": {
+                                            "type": "number",
+                                            "title": "Chance of this entry being used",
+                                            "description": "The chance of this entry being used"
                                         }
                                     }
                                 }
                             ],
                             "required": [
                                 "type"
-                            ],
-                            "properties": {
-                                "quality": {
-                                    "type": "number",
-                                    "title": "Weight based on luck",
-                                    "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
-                                },
-                                "weight": {
-                                    "type": "number",
-                                    "title": "Chance of this entry being used",
-                                    "description": "The chance of this entry being used"
-                                }
-                            }
+                            ]
                         }
                     }
                 },
