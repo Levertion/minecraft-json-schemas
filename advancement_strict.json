@@ -914,6 +914,9 @@
 		"effect": {
 			"type": "object",
 			"title": "The effects applied. Each key is the effect name",
+			"propertyNames": {
+				"$ref": "shared/minecraft_definitions.json#/effect_name"
+			},
 			"additionalProperties": {
 				"type": "object",
 				"properties": {

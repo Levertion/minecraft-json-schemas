@@ -1083,5 +1083,36 @@
             "minecraft:unbreaking",
             "minecraft:vanishing_curse"
         ]
+    },
+    "effect_name": {
+        "enum": [
+            "minecraft:absorption",
+            "minecraft:blindness",
+            "minecraft:fire_resistance",
+            "minecraft:glowing",
+            "minecraft:haste",
+            "minecraft:health_boost",
+            "minecraft:hunger",
+            "minecraft:instant_damage",
+            "minecraft:instant_health",
+            "minecraft:invisibility",
+            "minecraft:jump_boost",
+            "minecraft:levitation",
+            "minecraft:luck",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:night_vision",
+            "minecraft:poison",
+            "minecraft:regeneration",
+            "minecraft:resistance",
+            "minecraft:saturation",
+            "minecraft:slowness",
+            "minecraft:speed",
+            "minecraft:strength",
+            "minecraft:unluck",
+            "minecraft:water_breathing",
+            "minecraft:weakness",
+            "minecraft:wither"
+        ]
     }
 }
