@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+ - Namespace recognition not working properly
+
 ## [v0.1.2] - 2017-10-15
  - Important Bugfix update
 ### Fixed

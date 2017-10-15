@@ -1048,7 +1048,7 @@
         ]
     },
     "namespaced_location": {
-        "pattern": "(?:.+:).+"
+        "pattern": "(\\w+:)?[^:\\W]+"
     },
     "enchantment_name": {
         "enum": [
