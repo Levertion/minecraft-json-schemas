@@ -21,7 +21,6 @@
     },
     "text_object": {
         "type": "object",
-        "additionalProperties": false,
         "oneOf": [
             {
                 "properties": {

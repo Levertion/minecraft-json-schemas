@@ -37,6 +37,7 @@
                             "type": "object",
                             "oneOf": [
                                 {
+                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -69,6 +70,7 @@
                                     }
                                 },
                                 {
+                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -95,6 +97,7 @@
                                     }
                                 },
                                 {
+                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -136,6 +139,7 @@
             "items": {
                 "oneOf": [
                     {
+                        "additionalProperties": false,
                         "properties": {
                             "condition": {
                                 "enum": [
@@ -155,13 +159,19 @@
                                     "on_fire": {
                                         "type": "boolean",
                                         "title": "Burning?",
-                                        "description": "Is the entity on fire"
+                                        "description": "Is the entity on fire. Mutually exclusive with minecraft:on_fire"
+                                    },
+                                    "minecraft:on_fire": {
+                                        "type": "boolean",
+                                        "title": "Burning?",
+                                        "description": "Is the entity on fire. Mutually exclusive with on_fire"
                                     }
                                 }
                             }
                         }
                     },
                     {
+                        "additionalProperties": false,
                         "properties": {
                             "condition": {
                                 "enum": [
@@ -183,6 +193,7 @@
                         }
                     },
                     {
+                        "additionalProperties": false,
                         "properties": {
                             "condition": {
                                 "enum": [
@@ -202,6 +213,7 @@
                         }
                     },
                     {
+                        "additionalProperties": false,
                         "properties": {
                             "condition": {
                                 "type": "string",
@@ -226,6 +238,7 @@
                         }
                     },
                     {
+                        "additionalProperties": false,
                         "properties": {
                             "condition": {
                                 "enum": [
@@ -264,6 +277,7 @@
             ],
             "oneOf": [
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -280,6 +294,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -296,6 +311,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -312,6 +328,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -329,6 +346,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -423,6 +441,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -443,6 +462,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -466,6 +486,7 @@
                     ]
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [
@@ -487,6 +508,7 @@
                     }
                 },
                 {
+                    "additionalProperties": false,
                     "properties": {
                         "function": {
                             "enum": [

@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
+### Fixed
+ - Property not allowed error
+    - Due to `"additionalProperties":false` being outside `oneOf`s rather than inside
+    - Property tree is not automatically collapsing
+    - Had to remove `"additionalProperties":false` for text components, as it is not possible to block additional properties for text components without moving all parts which can apply to all component types 
+
 
 ## [v0.1.1] - 2017-10-11
  - Bugfix update 

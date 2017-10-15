@@ -131,9 +131,13 @@
 	},
 	"definitions": {
 		"advancement_criterion": {
-			"additionalProperties": false,
+			"required": [
+				"trigger"
+			],
+			"type": "object",
 			"oneOf": [
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -167,6 +171,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -191,6 +196,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -219,6 +225,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -243,6 +250,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -269,6 +277,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -297,6 +306,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -321,6 +331,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -349,6 +360,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -367,6 +379,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -391,6 +404,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -410,6 +424,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -423,6 +438,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -469,6 +485,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -504,6 +521,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -533,6 +551,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -551,6 +570,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -585,6 +605,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -615,6 +636,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -640,6 +662,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -665,6 +688,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -690,6 +714,7 @@
 					}
 				},
 				{
+					"additionalProperties": false,
 					"properties": {
 						"trigger": {
 							"type": "string",
@@ -717,11 +742,7 @@
 						}
 					}
 				}
-			],
-			"required": [
-				"trigger"
-			],
-			"type": "object"
+			]
 		},
 		"distance": {
 			"type": "object",
