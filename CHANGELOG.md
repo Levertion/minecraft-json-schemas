@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+ - Force all places that a `minecraft:` namespace can be used to be used
 ### Fixed
  - Namespace recognition not working properly
 

@@ -143,8 +143,7 @@
                         "properties": {
                             "condition": {
                                 "enum": [
-                                    "minecraft:entity_properties",
-                                    "entity_properties"
+                                    "minecraft:entity_properties"
                                 ],
                                 "title": "Test entity properties",
                                 "descriptions": "Test whether an entity describes in 'entity' has the properties described in 'properties'"
@@ -175,8 +174,7 @@
                         "properties": {
                             "condition": {
                                 "enum": [
-                                    "minecraft:entity_scores",
-                                    "entity_scores"
+                                    "minecraft:entity_scores"
                                 ]
                             },
                             "entity": {
@@ -197,8 +195,7 @@
                         "properties": {
                             "condition": {
                                 "enum": [
-                                    "minecraft:random_chance",
-                                    "random_chance"
+                                    "minecraft:random_chance"
                                 ],
                                 "title": "Random Chance",
                                 "description": "A random chance (ignoring looting) that the condition will pass"
@@ -218,7 +215,7 @@
                             "condition": {
                                 "type": "string",
                                 "enum": [
-                                    "random_chance_with_looting"
+                                    "minecraft:random_chance_with_looting"
                                 ],
                                 "title": "Looting Chance",
                                 "description": "A random chance taking looting into account that the condition will pass"
@@ -242,8 +239,7 @@
                         "properties": {
                             "condition": {
                                 "enum": [
-                                    "minecraft:killed_by_player",
-                                    "killed_by_player"
+                                    "minecraft:killed_by_player"
                                 ],
                                 "description": "This condition will pass only if the mob was killed by a player, unless the 'inverse' condition is set"
                             },
