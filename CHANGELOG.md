@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
+
+## [v0.1.2] - 2017-10-15
+ - Important Bugfix update
 ### Fixed
  - Property not allowed error
     - Due to `"additionalProperties":false` being outside `oneOf`s rather than inside
@@ -28,5 +31,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - `sounds.json` support
  - other `.mcmeta` file support
 
- [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.1...HEAD
+ [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.2...HEAD
+ [v0.1.2]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.1...v0.1.2 
  [v0.1.1]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.0...v0.1.1
