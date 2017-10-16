@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v0.2.0]
+ - Namespace Update
 ### Changed
  - Force all places that a `minecraft:` namespace can be used to be used and add mention in README.md
  - Effects object of advancements now checks if it follows the name of an effect
@@ -37,6 +39,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - `sounds.json` support
  - other `.mcmeta` file support
 
- [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.2...HEAD
+ [Unreleased]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.2.0...HEAD
+ [v0.2.0]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.2...v0.2.0 
  [v0.1.2]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.1...v0.1.2 
  [v0.1.1]: https://github.com/Levertion/minecraft-json-schemas/compare/v0.1.0...v0.1.1
