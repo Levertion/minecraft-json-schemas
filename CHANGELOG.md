@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Changed
- - Force all places that a `minecraft:` namespace can be used to be used
+ - Force all places that a `minecraft:` namespace can be used to be used and add mention in README.md
  - Effects object of advancements now checks if it follows the name of an effect
 ### Fixed
  - Namespace recognition not working properly

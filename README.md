@@ -4,7 +4,7 @@ Json schema information can be found at [json-schema.org](http://json-schema.org
 
 
 ## Design decisions  
- - The use of the `minecraft:` namespace is mandatory anywhere it can be used
+ - The use of the `minecraft:` namespace is mandatory anywhere it can be used. This does mean that it will not necessarily validate against all vanilla files
 
 ## Current progress  
 At the moment, the following files are supported:  
