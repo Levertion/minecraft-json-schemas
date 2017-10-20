@@ -25,6 +25,7 @@ The following files should be supported in the future
 The following additions are planned
 
 1. ~~Implementations into different uses of schemas - especially VSCODE, which has built in support~~ - Already implemented into VSCODE
+2. An update/tidy up using more suitable schema object parts
 
 ## License  
 These schemas are licensed under the UnLicense, and may be used freely without giving credit in your projects or for personal use

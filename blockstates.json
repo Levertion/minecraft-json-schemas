@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/blockstates.json",
+    "type": "object",
+    "title": "Blockstates file",
+    "additionalProperties": false,
+    "properties": {
+        "variants": {
+            "type": "object",
+            "additionalProperties": {
+                "additionalProperties": false,
+                "type": "object"
+            }
+        }
+    }
+}
