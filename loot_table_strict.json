@@ -37,7 +37,6 @@
                             "type": "object",
                             "oneOf": [
                                 {
-                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -56,21 +55,10 @@
                                             "items": {
                                                 "$ref": "#/definitions/function"
                                             }
-                                        },
-                                        "quality": {
-                                            "type": "number",
-                                            "title": "Weight based on luck",
-                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
-                                        },
-                                        "weight": {
-                                            "type": "number",
-                                            "title": "Chance of this entry being used",
-                                            "description": "The chance of this entry being used"
                                         }
                                     }
                                 },
                                 {
-                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -83,21 +71,15 @@
                                             "$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
                                             "title": "Loot table",
                                             "description": "The loot table to be given"
-                                        },
-                                        "quality": {
-                                            "type": "number",
-                                            "title": "Weight based on luck",
-                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
-                                        },
-                                        "weight": {
-                                            "type": "number",
-                                            "title": "Chance of this entry being used",
-                                            "description": "The chance of this entry being used"
+                                        }
+                                    },
+                                    "not": {
+                                        "properties": {
+                                            "functions": {}
                                         }
                                     }
                                 },
                                 {
-                                    "additionalProperties": false,
                                     "properties": {
                                         "type": {
                                             "enum": [
@@ -105,23 +87,35 @@
                                             ],
                                             "title": "Empty",
                                             "description": "An empty pool. No items will be granted"
-                                        },
-                                        "quality": {
-                                            "type": "number",
-                                            "title": "Weight based on luck",
-                                            "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
-                                        },
-                                        "weight": {
-                                            "type": "number",
-                                            "title": "Chance of this entry being used",
-                                            "description": "The chance of this entry being used"
+                                        }
+                                    },
+                                    "not": {
+                                        "properties": {
+                                            "functions": {},
+                                            "name": {}
                                         }
                                     }
                                 }
                             ],
                             "required": [
                                 "type"
-                            ]
+                            ],
+                            "properties": {
+                                "quality": {
+                                    "type": "number",
+                                    "title": "Weight based on luck",
+                                    "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
+                                },
+                                "weight": {
+                                    "type": "number",
+                                    "title": "Chance of this entry being used",
+                                    "description": "The chance of this entry being used"
+                                },
+                                "type": {},
+                                "name": {},
+                                "functions": {}
+                            },
+                            "additionalProperties": false
                         }
                     }
                 },
