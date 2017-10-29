@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - Advancement criteria default to have a default of `""` 
 ### Fixed
  - Missing `player_hurt_entity` advancement criteria
+ - Text object not showing an error when there are undefined properties
 
 ## [v0.2.0] - 2017-10-16
  - Namespace Update

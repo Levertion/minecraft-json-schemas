@@ -32,13 +32,22 @@
                     },
                     "required": [
                         "text"
-                    ]
+                    ],
+                    "not": {
+                        "properties": {
+                            "translate": {},
+                            "with": {},
+                            "score": {},
+                            "selector": {},
+                            "keybind": {}
+                        }
+                    }
                 },
                 {
                     "properties": {
                         "translate": {
                             "type": "string",
-                        "title": "The translation string to translate"
+                            "title": "The translation string to translate"
                         },
                         "with": {
                             "type": "array",
@@ -51,7 +60,15 @@
                     },
                     "required": [
                         "translate"
-                    ]
+                    ],
+                    "not": {
+                        "properties": {
+                            "text": {},
+                            "score": {},
+                            "selector": {},
+                            "keybind": {}
+                        }
+                    }
                 },
                 {
                     "properties": {
@@ -82,7 +99,16 @@
                     },
                     "required": [
                         "score"
-                    ]
+                    ],
+                    "not": {
+                        "properties": {
+                            "text": {},
+                            "translate": {},
+                            "with": {},
+                            "selector": {},
+                            "keybind": {}
+                        }
+                    }
                 },
                 {
                     "properties": {
@@ -95,7 +121,16 @@
                     },
                     "required": [
                         "selector"
-                    ]
+                    ],
+                    "not": {
+                        "properties": {
+                            "text": {},
+                            "translate": {},
+                            "with": {},
+                            "score": {},
+                            "keybind": {}
+                        }
+                    }
                 },
                 {
                     "properties": {
@@ -106,10 +141,26 @@
                     },
                     "required": [
                         "keybind"
-                    ]
+                    ],
+                    "not": {
+                        "properties": {
+                            "text": {},
+                            "translate": {},
+                            "with": {},
+                            "score": {},
+                            "selector": {}
+                        }
+                    }
                 }
             ],
+            "additionalProperties": false,
             "properties": {
+                "text": {},
+                "translate": {},
+                "with": {},
+                "score": {},
+                "selector": {},
+                "keybind": {},
                 "extra": {
                     "type": "array",
                     "$ref": "#/definitions/text_component",
