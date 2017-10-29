@@ -5,8 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
-## Changed
- - Moved all shared definitions inside a `"definitions"` key to validate against the schema schema (http://json-schema.org/schema)
+### Added
+ - Blockstate definitions
  - Refactored Loot table `"entries"` so that quality and weight are not repeatedly defined
 
 ## [v0.2.0] - 2017-10-16

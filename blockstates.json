@@ -3,14 +3,145 @@
     "id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/blockstates.json",
     "type": "object",
     "title": "Blockstates file",
-    "additionalProperties": false,
-    "properties": {
-        "variants": {
+    "oneOf": [
+        {
+            "additionalProperties": false,
+            "properties": {
+                "variants": {
+                    "title": "Variants for each blockstate",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/model_application"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "additionalProperties": false,
+            "title": "Model combination",
+            "properties": {
+                "multipart": {
+                    "type": "array",
+                    "title": "Multipart array",
+                    "description": "An array of objects which describe when a model will be shown",
+                    "items": {
+                        "properties": {
+                            "apply": {
+                                "$ref": "#/definitions/model_application"
+                            },
+                            "when": {
+                                "type": "object",
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/case"
+                                    },
+                                    {
+                                        "properties": {
+                                            "OR": {
+                                                "title": "An OR of cases to check",
+                                                "description": "If any of these subcases are true, then the model as in \"apply\" is applied",
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/definitions/case"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "case": {
+            "title": "Multipart case",
+            "description": "A blockstate to check if the block has. Each key is a blockstate, each value is a string value of that state, which can be a | (pipe) seperated list to allow multiple equivalent values",
             "type": "object",
             "additionalProperties": {
-                "additionalProperties": false,
-                "type": "object"
+                "type": "string"
             }
+        },
+        "model_descriptor": {
+            "additionalProperties": false,
+            "title": "A model descriptor",
+            "description": "Describes a single model",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "type": "string",
+                    "title": "Model to use",
+                    "description": "Path to the model starting in the `assets/minecraft/models/block` folder in the resource pack, without the .json extension"
+                },
+                "y": {
+                    "type": "number",
+                    "multipleOf": 90,
+                    "maximum": 270,
+                    "minimum": 0,
+                    "title": "y rotation",
+                    "description": "The rotation of the model in the block in the y-axis, from the centre of the block"
+                },
+                "x": {
+                    "type": "number",
+                    "multipleOf": 90,
+                    "maximum": 270,
+                    "minimum": 0,
+                    "title": "x rotation",
+                    "description": "The rotation of the model in the block in the x-axis, from the centre of the block"
+                },
+                "uvlock": {
+                    "type": "boolean",
+                    "title": "Texture rotation lock",
+                    "description": "More indepth description needed. If you can contribute please open an issue at https://github.com/levertion/minecraft-json-schemas/issues"
+                },
+                "weight": {}
+            }
+        },
+        "model_application": {
+            "description": "Each sub-object is a key, which is an exact description of the blockstate, and its value: a model descriptor",
+            "oneOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/model_descriptor"
+                            },
+                            {
+                                "not": {
+                                    "properties": {
+                                        "weight": {}
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/model_descriptor"
+                            },
+                            {
+                                "properties": {
+                                    "weight": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "title": "Chance descriptor",
+                                        "description": "The chance for each item is weight/(total weight)"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "title": "Model Parts Array"
+                }
+            ]
         }
     }
 }
