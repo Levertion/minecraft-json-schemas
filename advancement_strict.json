@@ -409,6 +409,34 @@
 						"trigger": {
 							"type": "string",
 							"enum": [
+								"minecraft:player_hurt_entity"
+							],
+							"title": "The player hurt an entity",
+							"description": "This criteria will be checked whenever an entity hurt the player"
+						},
+						"conditions": {
+							"additionalProperties": false,
+							"title": "Required conditions",
+							"description": "All of these conditions must pass for the criteria to be activated",
+							"type": "object",
+							"properties": {
+								"damage": {
+									"$ref": "#/definitions/damage",
+									"title": "The damage taken"
+								},
+								"entity": {
+									"$ref": "#/definitions/entity"
+								}
+							}
+						}
+					}
+				},
+				{
+					"additionalProperties": false,
+					"properties": {
+						"trigger": {
+							"type": "string",
+							"enum": [
 								"minecraft:entity_killed_player",
 								"minecraft:player_killed_entity"
 							],

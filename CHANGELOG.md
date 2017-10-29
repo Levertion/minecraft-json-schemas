@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
  - Blockstate definitions
  - Refactored Loot table `"entries"` so that quality and weight are not repeatedly defined
+### Fixed
+ - Missing `player_hurt_entity` advancement criteria
 
 ## [v0.2.0] - 2017-10-16
  - Namespace Update
