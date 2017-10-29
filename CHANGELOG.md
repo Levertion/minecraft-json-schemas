@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
  - Blockstate definitions
+### Changed
+ - Moved all shared definitions inside a `"definitions"` key to validate against the schema schema (http://json-schema.org/schema#)
  - Refactored Loot table `"entries"` so that quality and weight are not repeatedly defined
+ - Description of `"parent"`, `"requirements"`
 ### Fixed
  - Missing `player_hurt_entity` advancement criteria
 

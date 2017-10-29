@@ -69,7 +69,7 @@
 		},
 		"parent": {
 			"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
-			"title": "Parent advancement (if not specified, will create a new page)"
+			"title": "Parent advancement (if not specified and \"display\" is, it will create a new page)"
 		},
 		"criteria": {
 			"type": "object",
@@ -82,8 +82,8 @@
 			"minProperties": 1
 		},
 		"requirements": {
-			"title": "Requirements AND of ORs",
-			"description": "This is a list of lists to specify required advancements. 'Each new list is a new AND operation, while each comma-separated string within the list is an OR operation' - Skylinerw",
+			"title": "Requirements - AND of ORs",
+			"description": "This is a list of lists to specify required advancements - For one sub-list to complete, one of the criteria within it must be completed (OR operation). For the full outer list to complete (and the advancement be granted) all sub-lists must be completed (AND operation)",
 			"type": "array",
 			"items": {
 				"type": "array",
@@ -96,12 +96,12 @@
 			"type": "object",
 			"additionalProperties": false,
 			"title": "Rewards object",
-			"description": "The rewards to give when the advancement is obtained",
+			"description": "The rewards to give when the advancement is granted",
 			"properties": {
 				"recipes": {
 					"type": "array",
 					"title": "Recipes",
-					"description": "A list of recipes to give to the player. Uses the same name format as the /recipe command",
+					"description": "A list of recipes to give to the player. Uses the same name locator as the `/recipe` command",
 					"items": {
 						"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
 						"title": "A single recipe"
