@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  - Moved all shared definitions inside a `"definitions"` key to validate against the schema schema (http://json-schema.org/schema#)
  - Refactored Loot table `"entries"` so that quality and weight are not repeatedly defined
  - Description of `"parent"`, `"requirements"`
+ - Advancement criteria default to have a default of `""` 
 ### Fixed
  - Missing `player_hurt_entity` advancement criteria
 

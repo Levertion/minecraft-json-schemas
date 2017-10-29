@@ -131,6 +131,11 @@
 	},
 	"definitions": {
 		"advancement_criterion": {
+			"properties": {
+				"trigger": {
+					"default": ""
+				}
+			},
 			"required": [
 				"trigger"
 			],
