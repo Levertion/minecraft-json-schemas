@@ -10,10 +10,10 @@
             "additionalProperties": false,
             "properties": {
                 "pack_format": {
-                    "default": 3,
+                    "default": 4,
                     "type": "integer",
                     "title": "Resource pack version",
-                    "description": "This will be 1 for pre-1.9 versions, 2 for 1.9-1.10 and 3 in 1.11 and 1.12"
+                    "description": "This will be 1 for pre-1.9 versions, 2 for 1.9-1.10, 3 for 1.11-1.12 and 4 for 1.13"
                 },
                 "description": {
                     "type": "string",
