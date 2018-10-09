@@ -4,6 +4,7 @@
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/pack.mcmeta.json",
     "title": "Resource pack information",
     "description": "Information about a resource pack for Minecraft",
+    "additionalProperties": false,
     "properties": {
         "pack": {
             "type": "object",
