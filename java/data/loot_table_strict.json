@@ -72,11 +72,6 @@
                                             "title": "Loot table",
                                             "description": "The loot table to be given"
                                         }
-                                    },
-                                    "not": {
-                                        "properties": {
-                                            "functions": {}
-                                        }
                                     }
                                 },
                                 {
@@ -87,12 +82,6 @@
                                             ],
                                             "title": "Empty",
                                             "description": "An empty pool. No items will be granted"
-                                        }
-                                    },
-                                    "not": {
-                                        "properties": {
-                                            "functions": {},
-                                            "name": {}
                                         }
                                     }
                                 }
