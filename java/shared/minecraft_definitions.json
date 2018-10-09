@@ -34,13 +34,13 @@
                         "text"
                     ],
                     "not": {
-                        "properties": {
-                            "translate": {},
-                            "with": {},
-                            "score": {},
-                            "selector": {},
-                            "keybind": {}
-                        }
+                        "required": [
+                            "translate",
+                            "with",
+                            "score",
+                            "selector",
+                            "keybind"
+                        ]
                     }
                 },
                 {
