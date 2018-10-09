@@ -115,7 +115,7 @@
                         "selector": {
                             "type": "string",
                             "pattern": "^@[parse]",
-                            "title": "Am entity to mention",
+                            "title": "An entity to mention",
                             "description": "If there are multiple, they will be comma seperated until the last value with an 'and'"
                         }
                     },
