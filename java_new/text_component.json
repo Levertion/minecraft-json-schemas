@@ -1,0 +1,294 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "default": "",
+  "$ref": "#/definitions/text_component",
+  "definitions": {
+    "text_component": {
+      "examples": ["Some string", ["Some", ["string"]]],
+      "default": {
+        "text": ""
+      },
+      "title": "Text component",
+      "if": {
+        "type": "string"
+      },
+      "then": {
+        "title": "An undecorated text component",
+        "description": "Equivalent to {\"text\":\"<value>\"}"
+      },
+      "else": {
+        "if": {
+          "type": "array"
+        },
+        "then": {
+          "items": {
+            "$ref": "#/definitions/text_component"
+          },
+          "title": "A concatenated list of values",
+          "description": "Equivalent to the first item, extended by {\"extra\":[...otherItems]}",
+          "minItems": 1
+        },
+        "else": {
+          "$ref": "#/definitions/text_object"
+        }
+      }
+    },
+    "text_object": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "translate": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": {
+          "text": { "type": "string" }
+        }
+      },
+      "then": {
+        "not": {}
+      },
+      "else": true,
+      "$comment": {
+        "oneOf": [
+          {
+            "properties": {
+              "text": {
+                "type": "string",
+                "title": "The direct text to apply"
+              }
+            },
+            "required": ["text"],
+            "not": {
+              "properties": {
+                "translate": {},
+                "with": {},
+                "score": {},
+                "selector": {},
+                "keybind": {}
+              }
+            }
+          },
+          {
+            "properties": {
+              "translate": {
+                "type": "string",
+                "title": "The translation string to translate"
+              },
+              "with": {
+                "type": "array",
+                "title": "Replacements",
+                "description": "Extra items to apply in place of %s and %{x}$s in the translation string. These items inherit from the base component in styling, such as text colour and italics",
+                "items": {
+                  "$ref": "#/definitions/text_component"
+                }
+              }
+            },
+            "required": ["translate"],
+            "not": {
+              "properties": {
+                "text": {},
+                "score": {},
+                "selector": {},
+                "keybind": {}
+              }
+            }
+          },
+          {
+            "properties": {
+              "score": {
+                "title": "A score to display",
+                "additionalProperties": false,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Entity selector whose score to show"
+                  },
+                  "objective": {
+                    "type": "string",
+                    "title": "Objective to show score from"
+                  },
+                  "value": {
+                    "type": ["number", "string", "boolean"],
+                    "title": "A default when score not found",
+                    "description": "Will be converted to a string if needed"
+                  }
+                }
+              }
+            },
+            "required": ["score"],
+            "not": {
+              "properties": {
+                "text": {},
+                "translate": {},
+                "with": {},
+                "selector": {},
+                "keybind": {}
+              }
+            }
+          },
+          {
+            "properties": {
+              "selector": {
+                "type": "string",
+                "pattern": "^@[parse]",
+                "title": "Am entity to mention",
+                "description": "If there are multiple, they will be comma seperated until the last value with an 'and'"
+              }
+            },
+            "required": ["selector"],
+            "not": {
+              "properties": {
+                "text": {},
+                "translate": {},
+                "with": {},
+                "score": {},
+                "keybind": {}
+              }
+            }
+          },
+          {
+            "properties": {
+              "keybind": {
+                "type": "string",
+                "title": "The name of the keybind to show"
+              }
+            },
+            "required": ["keybind"],
+            "not": {
+              "properties": {
+                "text": {},
+                "translate": {},
+                "with": {},
+                "score": {},
+                "selector": {}
+              }
+            }
+          }
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {},
+          "translate": {},
+          "with": {},
+          "score": {},
+          "selector": {},
+          "keybind": {},
+          "extra": {
+            "type": "array",
+            "$ref": "#/definitions/text_component",
+            "title": "Additional items to add",
+            "description": "These items inherit from the base component in styling, such as text colour and italics"
+          },
+          "color": {
+            "title": "The colour of the text",
+            "enum": [
+              "black",
+              "dark_blue",
+              "dark_green",
+              "dark_aqua",
+              "dark_red",
+              "dark_purple",
+              "gold",
+              "gray",
+              "dark_gray",
+              "blue",
+              "green",
+              "aqua",
+              "red",
+              "light_purple",
+              "yellow",
+              "white",
+              "reset"
+            ]
+          },
+          "bold": {
+            "title": "Whether to have the text bold",
+            "type": "boolean"
+          },
+          "italic": {
+            "title": "Whether to have the text in italics",
+            "type": "boolean"
+          },
+          "underlined": {
+            "title": "Whether to have the text underlined",
+            "type": "boolean"
+          },
+          "strikethrough": {
+            "title": "Whether to have the text strikethroughed",
+            "type": "boolean"
+          },
+          "obfuscated": {
+            "title": "Whether to have the text obfuscated",
+            "description": "This makes the text cycle through characters with the same width",
+            "type": "boolean"
+          },
+          "insertion": {
+            "title": "Insertion text",
+            "description": "When the player SHIFT-clicks on a section of text, what to add to their chat window",
+            "type": "string"
+          },
+          "clickEvent": {
+            "type": "object",
+            "title": "Action on click",
+            "description": "Action to perform when this text is left clicked on",
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "open_url",
+                  "run_command",
+                  "change_page",
+                  "suggest_command"
+                ],
+                "title": "What to do",
+                "description": "open_url opens the web address in value, run_command runs the command in value (use /trigger), change_page changes the book page, and suggest_command replaces the player's chat window"
+              }
+            },
+            "value": {
+              "type": "string",
+              "title": "Value to run action with"
+            }
+          },
+          "hoverEvent": {
+            "additionalProperties": false,
+            "description": "What to show upon a hover",
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": ["show_text"]
+                  },
+                  "value": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/text_component"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "enum": ["show_item", "show_entity"]
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

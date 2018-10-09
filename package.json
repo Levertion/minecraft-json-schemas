@@ -1,0 +1,24 @@
+{
+  "name": "minecraft-json-schemas",
+  "version": "0.4.0",
+  "description": "Json schemas for Minecraft json files",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levertion/minecraft-json-schemas.git"
+  },
+  "scripts": {
+    "lint": "prettier --list-different **/*.{json,md}"
+  },
+  "author": "Levertion",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/levertion/minecraft-json-schemas/issues"
+  },
+  "homepage": "https://github.com/levertion/minecraft-json-schemas#readme",
+  "devDependencies": {
+    "prettier": "^1.14.2"
+  },
+  "prettier": {
+    "proseWrap": "always"
+  }
+}

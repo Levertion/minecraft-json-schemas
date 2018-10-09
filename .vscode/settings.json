@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/playground/text_component/*.json"],
+      "url": "/java_new/text_component.json"
+    }
+  ]
+}

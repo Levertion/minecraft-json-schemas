@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/animation.mcmeta.json",
+  "properties": {
+    "animation": {
+      "properties": {
+        "interpolate": {
+          "default": false,
+          "type": "boolean",
+          "title": "Smooth transitions",
+          "description": "Should Minecraft create extra frames between missing frames"
+        },
+        "frametime": {
+          "type": "integer",
+          "title": "Default gap between frames",
+          "description": "The number of game ticks between each frame"
+        },
+        "frames": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "title": "Frame object",
+                "description": "Contains more advanced information about the frame",
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "title": "Frame index",
+                    "description": "This describes which frame (from the image) will be shown at this time. The top frame has an index of 0"
+                  },
+                  "time": {
+                    "type": "integer",
+                    "title": "Time shown for",
+                    "description": "This is how long the frame is shown for (in gameticks). The overrides animation.frametime"
+                  }
+                }
+              },
+              {
+                "type": "integer",
+                "title": "Frame index",
+                "description": "This describes which frame (from the image) will be shown at this time. The top frame has an index of 0"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
