@@ -62,12 +62,12 @@
                         "translate"
                     ],
                     "not": {
-                        "properties": {
-                            "text": {},
-                            "score": {},
-                            "selector": {},
-                            "keybind": {}
-                        }
+                        "required": [
+                            "text",
+                            "score",
+                            "selector",
+                            "keybind"
+                        ]
                     }
                 },
                 {
@@ -101,13 +101,13 @@
                         "score"
                     ],
                     "not": {
-                        "properties": {
-                            "text": {},
-                            "translate": {},
-                            "with": {},
-                            "selector": {},
-                            "keybind": {}
-                        }
+                        "required": [
+                            "text",
+                            "translate",
+                            "with",
+                            "selector",
+                            "keybind"
+                        ]
                     }
                 },
                 {
@@ -123,13 +123,13 @@
                         "selector"
                     ],
                     "not": {
-                        "properties": {
-                            "text": {},
-                            "translate": {},
-                            "with": {},
-                            "score": {},
-                            "keybind": {}
-                        }
+                        "required": [
+                            "text",
+                            "translate",
+                            "with",
+                            "score",
+                            "keybind"
+                        ]
                     }
                 },
                 {
@@ -143,13 +143,13 @@
                         "keybind"
                     ],
                     "not": {
-                        "properties": {
-                            "text": {},
-                            "translate": {},
-                            "with": {},
-                            "score": {},
-                            "selector": {}
-                        }
+                        "required": [
+                            "text",
+                            "translate",
+                            "with",
+                            "score",
+                            "selector"
+                        ]
                     }
                 }
             ],
