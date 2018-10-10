@@ -5,8 +5,9 @@ Json schemas for Minecraft files. Information about json schemas can be found at
 
 ## Design decisions
 
-- The use of the `minecraft:` namespace is mandatory anywhere it can be used.
-  This does mean that it will not necessarily validate against all vanilla files
+-   The use of the `minecraft:` namespace is mandatory anywhere it can be used.
+    This does mean that it will not necessarily validate against all vanilla
+    files
 
 ## Current progress
 
@@ -19,6 +20,7 @@ At the moment, the following files are supported:
 5. `sounds.json`
 
 ### Future plans
+
 The following files should be supported in the future
 
 1. `model files`

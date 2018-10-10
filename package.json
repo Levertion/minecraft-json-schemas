@@ -1,28 +1,29 @@
 {
-  "name": "minecraft-json-schemas",
-  "version": "0.3.0",
-  "description": "Json schemas for Minecraft files",
-  "main": "index.js",
-  "dependencies": {
-    "prettier": "^1.14.2"
-  },
-  "scripts": {
-    "prettier": "prettier **/*.{md,json} *.{md,json}"
-  },
-  "prettier": {
-    "proseWrap": "always"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/levertion/minecraft-json-schemas.git"
-  },
-  "keywords": [
-    "minecraft"
-  ],
-  "author": "Levertion",
-  "license": "CC-BY-4.0",
-  "bugs": {
-    "url": "https://github.com/levertion/minecraft-json-schemas/issues"
-  },
-  "homepage": "https://github.com/Levertion/minecraft-json-schemas#readme"
+    "name": "minecraft-json-schemas",
+    "version": "0.3.0",
+    "description": "Json schemas for Minecraft files",
+    "main": "index.js",
+    "dependencies": {
+        "prettier": "^1.14.2"
+    },
+    "scripts": {
+        "prettier": "prettier **/*.{md,json} *.{md,json}"
+    },
+    "prettier": {
+        "proseWrap": "always",
+        "tabWidth": 4
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/levertion/minecraft-json-schemas.git"
+    },
+    "keywords": [
+        "minecraft"
+    ],
+    "author": "Levertion",
+    "license": "CC-BY-4.0",
+    "bugs": {
+        "url": "https://github.com/levertion/minecraft-json-schemas/issues"
+    },
+    "homepage": "https://github.com/Levertion/minecraft-json-schemas#readme"
 }
