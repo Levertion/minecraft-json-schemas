@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/block_tags_strict.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "values": {
+      "type": "array",
+      "title": "Values of this block tag",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "$ref": "../shared/block_name.json",
+            "title": "Block name"
+          },
+          {
+            "type": "string",
+            "pattern": "^#(\\w+:)?[^:\\W]+$",
+            "title": "Block tag"
+          }
+        ]
+      }
+    }
+  }
+}

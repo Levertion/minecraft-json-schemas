@@ -33,6 +33,22 @@
       "url": "/java/data/recipe_strict.json"
     },
     {
+      "fileMatch": ["/playground/tags/functions/*.json"],
+      "url": "/java/data/function_tags_strict.json"
+    },
+    {
+      "fileMatch": ["/playground/tags/blocks/*.json"],
+      "url": "/java/data/block_tags_strict.json"
+    },
+    {
+      "fileMatch": ["/playground/tags/items/*.json"],
+      "url": "/java/data/item_tags_strict.json"
+    },
+    {
+      "fileMatch": ["/playground/tags/fluids/*.json"],
+      "url": "/java/data/fluid_tags_strict.json"
+    },
+    {
       "fileMatch": ["/playground/pack-mcmeta/*.mcmeta"],
       "url": "/java/data/pack.mcmeta.json"
     }

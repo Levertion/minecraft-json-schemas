@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/item_tags_strict.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "values": {
+      "type": "array",
+      "title": "Values of this item tag",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "$ref": "../shared/item_name.json",
+            "title": "Item name"
+          },
+          {
+            "type": "string",
+            "pattern": "^#(\\w+:)?[^:\\W]+$",
+            "title": "Item tag"
+          }
+        ]
+      }
+    }
+  }
+}
