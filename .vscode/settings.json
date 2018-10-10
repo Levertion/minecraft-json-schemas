@@ -29,8 +29,8 @@
             "url": "/java/data/loot_table_strict.json"
         },
         {
-            "fileMatch": ["/playground/pack-mcmeta/*.mcmeta"],
-            "url": "/java/data/pack.mcmeta.json"
+            "fileMatch": ["/playground/resource-pack-mcmeta/*.mcmeta"],
+            "url": "/java/assets/pack.mcmeta.json"
         }
     ],
     "files.associations": {

@@ -3,50 +3,39 @@
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/pack.mcmeta.json",
     "title": "Resource pack information",
-    "description": "Information about a resource pack for Minecraft",
+    "description": "Information about a resource pack",
     "additionalProperties": false,
+    "defaultSnippets": [
+        {
+            "label": "Default (data) pack.mcmeta",
+            "body": {
+                "pack": {
+                    "description": "${1:${TM_DIRECTORY/(?:.*[\\\\/])?([^\\\\/]*)/$1/}}: $2",
+                    "pack_format": 1
+                }
+            }
+        }
+    ],
     "properties": {
         "pack": {
             "type": "object",
             "additionalProperties": false,
+            "description": "Information about the datapack",
             "properties": {
                 "pack_format": {
-                    "default": 4,
+                    "default": 1,
                     "type": "integer",
-                    "title": "Resource pack version",
-                    "description": "This will be 1 for pre-1.9 versions, 2 for 1.9-1.10, 3 for 1.11-1.12 and 4 for 1.13"
+                    "title": "Datapack version",
+                    "description": "This is 1 for 1.13"
                 },
                 "description": {
                     "type": "string",
                     "title": "Pack description",
                     "description": "The description for this pack. Any text which doesn't fit on two lines will be removed"
                 }
-            }
-        },
-        "language": {
-            "type": "object",
-            "title": "Custom languages",
-            "description": "Each sub-object is the internal code for the language, which the pack's lang folder has a language file with the name <code>.lang",
-            "additionalProperties": {
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "Language name",
-                        "description": "The displayed name of the custom language, e.g. English"
-                    },
-                    "region": {
-                        "type": "string",
-                        "title": "Language Region",
-                        "description": "The place where this version of the language is spoken (area or country). E.g. United Kingdom"
-                    },
-                    "bidirectional": {
-                        "type": "boolean",
-                        "default": false,
-                        "title": "RTL support?",
-                        "description": "When true, the language reads right to left"
-                    }
-                }
-            }
+            },
+            "required": ["pack_format", "description"]
         }
-    }
+    },
+    "required": ["pack"]
 }
