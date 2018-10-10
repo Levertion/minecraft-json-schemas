@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/sounds.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/sounds.json",
     "type": "object",
     "title": "Sound file root",
     "description": "The root of the sounds file. Each property of this file is the name of the sound event",
