@@ -1,39 +1,39 @@
 {
-  "json.schemas": [
-    {
-      "fileMatch": ["/playground/text_component/*.json"],
-      "url": "/java/shared/text_component.json"
-    },
-    {
-      "fileMatch": ["/playground/animation/*.mcmeta"],
-      "url": "/java/assets/animation.mcmeta.json"
-    },
-    {
-      "fileMatch": ["/playground/blockstates/*.json"],
-      "url": "/java/assets/blockstates.json"
-    },
-    {
-      "fileMatch": ["/playground/model/*.json"],
-      "url": "/java/assets/model.json"
-    },
-    {
-      "fileMatch": ["/playground/sounds/*.json"],
-      "url": "/java/assets/sounds.json"
-    },
-    {
-      "fileMatch": ["/playground/advancements/*.json"],
-      "url": "/java/data/advancement_strict.json"
-    },
-    {
-      "fileMatch": ["/playground/loot_tables/*.json"],
-      "url": "/java/data/loot_table_strict.json"
-    },
-    {
-      "fileMatch": ["/playground/pack-mcmeta/*.mcmeta"],
-      "url": "/java/data/pack.mcmeta.json"
+    "json.schemas": [
+        {
+            "fileMatch": ["/playground/text_component/*.json"],
+            "url": "/java/shared/text_component.json"
+        },
+        {
+            "fileMatch": ["/playground/animation/*.mcmeta"],
+            "url": "/java/assets/animation.mcmeta.json"
+        },
+        {
+            "fileMatch": ["/playground/blockstates/*.json"],
+            "url": "/java/assets/blockstates.json"
+        },
+        {
+            "fileMatch": ["/playground/model/*.json"],
+            "url": "/java/assets/model.json"
+        },
+        {
+            "fileMatch": ["/playground/sounds/*.json"],
+            "url": "/java/assets/sounds.json"
+        },
+        {
+            "fileMatch": ["/playground/advancements/*.json"],
+            "url": "/java/data/advancement_strict.json"
+        },
+        {
+            "fileMatch": ["/playground/loot_tables/*.json"],
+            "url": "/java/data/loot_table_strict.json"
+        },
+        {
+            "fileMatch": ["/playground/pack-mcmeta/*.mcmeta"],
+            "url": "/java/data/pack.mcmeta.json"
+        }
+    ],
+    "files.associations": {
+        "*.mcmeta": "json"
     }
-  ],
-  "files.associations": {
-    "*.mcmeta": "json"
-  }
 }

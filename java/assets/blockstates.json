@@ -112,9 +112,7 @@
                             },
                             {
                                 "not": {
-                                    "required": [
-                                      "weight"
-                                    ]
+                                    "required": ["weight"]
                                 }
                             }
                         ]

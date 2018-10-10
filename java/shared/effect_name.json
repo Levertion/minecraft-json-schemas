@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-  	"$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/effect_name.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/effect_name.json",
     "type": "string",
     "enum": [
         "minecraft:absorption",

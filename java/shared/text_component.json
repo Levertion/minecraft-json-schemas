@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-  	"$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/text_component.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/text_component.json",
     "$ref": "#/definitions/text_component",
     "definitions": {
         "text_component": {
@@ -31,9 +31,7 @@
                             "title": "The direct text to apply"
                         }
                     },
-                    "required": [
-                        "text"
-                    ],
+                    "required": ["text"],
                     "not": {
                         "required": [
                             "translate",
@@ -59,16 +57,9 @@
                             }
                         }
                     },
-                    "required": [
-                        "translate"
-                    ],
+                    "required": ["translate"],
                     "not": {
-                        "required": [
-                            "text",
-                            "score",
-                            "selector",
-                            "keybind"
-                        ]
+                        "required": ["text", "score", "selector", "keybind"]
                     }
                 },
                 {
@@ -87,20 +78,14 @@
                                     "title": "Objective to show score from"
                                 },
                                 "value": {
-                                    "type": [
-                                        "number",
-                                        "string",
-                                        "boolean"
-                                    ],
+                                    "type": ["number", "string", "boolean"],
                                     "title": "A default when score not found",
                                     "description": "Will be converted to a string if needed"
                                 }
                             }
                         }
                     },
-                    "required": [
-                        "score"
-                    ],
+                    "required": ["score"],
                     "not": {
                         "required": [
                             "text",
@@ -120,9 +105,7 @@
                             "description": "If there are multiple, they will be comma seperated until the last value with an 'and'"
                         }
                     },
-                    "required": [
-                        "selector"
-                    ],
+                    "required": ["selector"],
                     "not": {
                         "required": [
                             "text",
@@ -140,9 +123,7 @@
                             "title": "The name of the keybind to show"
                         }
                     },
-                    "required": [
-                        "keybind"
-                    ],
+                    "required": ["keybind"],
                     "not": {
                         "required": [
                             "text",
@@ -247,9 +228,7 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "enum": [
-                                        "show_text"
-                                    ]
+                                    "enum": ["show_text"]
                                 },
                                 "value": {
                                     "anyOf": [
@@ -264,10 +243,7 @@
                             "type": "object",
                             "properties": {
                                 "action": {
-                                    "enum": [
-                                        "show_item",
-                                        "show_entity"
-                                    ]
+                                    "enum": ["show_item", "show_entity"]
                                 },
                                 "value": {
                                     "type": "string"

@@ -7,9 +7,7 @@
     "additionalProperties": {
         "additionalProperties": false,
         "title": "A single sound event",
-        "required": [
-            "sounds"
-        ],
+        "required": ["sounds"],
         "properties": {
             "replace": {
                 "type": "boolean",
@@ -65,10 +63,7 @@
                                     "description": "Whether this sound should be streamed from its file. If true, the sound will be streamed. This lowers RAM usage but can be slower to play. Recommended for sounds longer than a few seconds"
                                 },
                                 "type": {
-                                    "enum": [
-                                        "sound",
-                                        "event"
-                                    ],
+                                    "enum": ["sound", "event"],
                                     "description": "If it is event, allows referencing of another sound event"
                                 }
                             }
