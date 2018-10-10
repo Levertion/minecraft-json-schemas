@@ -1,0 +1,11 @@
+{
+    "type": "smelting",
+    "ingredient": {
+        "item": "minecraft:acacia_sapling"
+    },
+    "experience": 0,
+    "result": {
+        "item": "minecraft:acacia_fence",
+        "count": 1
+    }
+}
