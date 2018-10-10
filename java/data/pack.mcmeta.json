@@ -1,7 +1,7 @@
 {
     "type": "object",
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/pack.mcmeta.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/pack.mcmeta.json",
     "title": "Resource pack information",
     "description": "Information about a resource pack for Minecraft",
     "additionalProperties": false,

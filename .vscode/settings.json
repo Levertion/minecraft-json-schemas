@@ -2,7 +2,7 @@
   "json.schemas": [
     {
       "fileMatch": ["/playground/text_component/*.json"],
-      "url": "/java/other/text_component.json"
+      "url": "/java/shared/text_component.json"
     },
     {
       "fileMatch": ["/playground/animation/*.mcmeta"],

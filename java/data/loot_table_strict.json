@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/loot_table_strict.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table_strict.json",
     "type": "object",
     "title": "Root tag",
     "description": "This only has one property, being \"pools\", which is an array of pools",
@@ -20,12 +20,12 @@
                         "description": "The conditions which must pass in order for this pool to be used"
                     },
                     "rolls": {
-                        "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                        "$ref": "../shared/range.json",
                         "title": "Rolls",
                         "description": "The number of rolls in this pool. If it is a range, a random number is chosen"
                     },
                     "bonus_rolls": {
-                        "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                        "$ref": "../shared/range.json",
                         "title": "Bonus rolls",
                         "description": "The additional rolls given for each point of luck"
                     },
@@ -46,7 +46,7 @@
                                             "description": "This entry will give an item (if the conditions pass). The item type is defined in \"name\""
                                         },
                                         "name": {
-                                            "$ref": "../shared/minecraft_definitions.json#/definitions/item_name",
+                                            "$ref": "../shared/item_name.json",
                                             "title": "Item",
                                             "description": "The item to give"
                                         },
@@ -68,7 +68,7 @@
                                             "description": "This entry will give the result of another loot table specified in 'name'. These cannot be self referencing in any way, if they are self referencing, they don't run"
                                         },
                                         "name": {
-                                            "$ref": "../shared/minecraft_definitions.json#/definitions/namespaced_location",
+                                            "$ref": "../shared/namespaced_location.json",
                                             "title": "Loot table",
                                             "description": "The loot table to be given"
                                         }
@@ -168,7 +168,7 @@
                                 "title": "Scores to check",
                                 "description": "The name of each sub-object is the score to check, it is either a number or a range",
                                 "additionalProperties": {
-                                    "$ref": "../shared/minecraft_definitions.json#/definitions/range"
+                                    "$ref": "../shared/range.json"
                                 }
                             }
                         }
@@ -267,7 +267,7 @@
                             "description": "Set the 'count' of the items. Can be either an integer or a range. If it is a range it is set randomly within that range"
                         },
                         "count": {
-                            "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                            "$ref": "../shared/range.json",
                             "description": "The exact value or a range to choose a random value from to set the count to"
                         }
                     }
@@ -284,7 +284,7 @@
                             "description": "Sets the 'Damage' nbt tag to either the specified number or a random number within a given range"
                         },
                         "data": {
-                            "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                            "$ref": "../shared/range.json",
                             "description": "The exact value or a range to choose a random value from to set the 'Damage' tag to"
                         }
                     }
@@ -301,7 +301,7 @@
                             "description": "Sets the percentage of the maximum durability"
                         },
                         "damage": {
-                            "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                            "$ref": "../shared/range.json",
                             "description": "The data value or a random value in a range to set the 'durability' to. 0.35 means 35% durability left"
                         }
                     }
@@ -367,7 +367,7 @@
                                         "type": "string"
                                     },
                                     "amount": {
-                                        "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                                        "$ref": "../shared/range.json",
                                         "title": "Modification amount",
                                         "description": "The amount to change the attribute by. This can either be a single number or a range, with a `min` and `max` key"
                                     },
@@ -433,7 +433,7 @@
                         "enchantments": {
                             "type": "array",
                             "items": {
-                                "$ref": "../shared/minecraft_definitions.json#/definitions/enchantment_name"
+                                "$ref": "../shared/enchantment_name.json"
                             },
                             "title": "Enchantments",
                             "description": "The enchantments to choose from to apply to the item"
@@ -452,7 +452,7 @@
                             "description": "Enchants the item randomly as if it were enchanted. The levels key is a range object (either an integer or an object). If \"treasure\" is true, then the enchantment may use treasure enchantments (mending or frost-walker)"
                         },
                         "levels": {
-                            "$ref": "../shared/minecraft_definitions.json#/definitions/range"
+                            "$ref": "../shared/range.json"
                         },
                         "treasure": {
                             "type": "boolean",
@@ -476,7 +476,7 @@
                             "description": "How many extra items to add for each level of the looting enchantment applied. For example, a count of 10 with a looting level of 5 would give an extra 50 items"
                         },
                         "count": {
-                            "$ref": "../shared/minecraft_definitions.json#/definitions/range",
+                            "$ref": "../shared/range.json",
                             "description": "The exact value or a range to choose a random value from to add to the count for each level of looting"
                         },
                         "limit": {
