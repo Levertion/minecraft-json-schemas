@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/fluid_tags_strict.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "values": {
+      "type": "array",
+      "title": "Values of this fluid tag",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "$ref": "../shared/fluid_name.json",
+            "title": "Fluid name"
+          },
+          {
+            "type": "string",
+            "pattern": "^#(\\w+:)?[^:\\W]+$",
+            "title": "Fluid tag"
+          }
+        ]
+      }
+    }
+  }
+}

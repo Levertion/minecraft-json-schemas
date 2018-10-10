@@ -1,0 +1,141 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/recipe_strict.json",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "result"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "crafting_shaped",
+          "crafting_shapeless",
+          "smelting"
+        ],
+        "default": "crafting_shaped",
+        "title": "Crafting layout"
+      },
+      "group": {
+        "type": "string",
+        "title": "Recipe group"
+      },
+      "pattern": {
+        "type": "array",
+        "title": "The pattern",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3
+        }
+      },
+      "ingredients": {
+        "type": "array",
+        "$ref": "#/definitions/input_item_list",
+        "title": "ingredients list"
+      },
+      "ingredient": {
+        "type": "object",
+        "$ref": "#/definitions/input_item",
+        "title": "Single ingredient"
+      },
+      "key": {
+        "type": "object",
+        "additionalProperties": false,
+        "title": "Key list",
+        "patternProperties": {
+          "^.$": {
+            "type": "object",
+            "$ref": "#/definitions/input_item"
+          }
+        }
+      },
+      "experience": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "title": "Experience given"
+      },
+      "cookingtime": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 200,
+        "title": "Time to cook"
+      },
+      "result": {
+        "title": "Result of the recipe",
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["item"],
+            "title": "Result item object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "$ref": "../shared/item_name.json"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 1
+              }
+            }
+          },
+          {
+            "type": "string",
+            "$ref": "../shared/item_name.json"
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "input_item" : {
+        "oneOf": [
+          {
+            "properties": {
+              "item": {
+                "type": "string",
+                "$ref": "../shared/item_name.json",
+                "title": "Item name"
+              }
+            },
+            "required": ["item"]
+          },
+          {
+            "properties": {
+              "tag": {
+                "type": "string",
+                "$ref": "../shared/namespaced_location.json",
+                "title": "Item tag"
+              }
+            },
+            "required": ["tag"]
+          }
+        ]
+      },
+      "input_item_list": {
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/definitions/input_item"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "$ref": "#/definitions/input_item"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+}

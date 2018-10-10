@@ -1,0 +1,18 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "DDD",
+        "s2s",
+        "qdf"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:black_wool"
+        }
+    },
+    "experience": 0,
+    "result": {
+        "item": "minecraft:acacia_fence",
+        "count": 1
+    }
+}
