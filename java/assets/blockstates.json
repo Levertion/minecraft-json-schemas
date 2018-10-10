@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/blockstates.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/blockstates.json",
     "type": "object",
     "title": "Blockstates file",
     "oneOf": [
@@ -112,9 +112,9 @@
                             },
                             {
                                 "not": {
-                                    "properties": {
-                                        "weight": {}
-                                    }
+                                    "required": [
+                                      "weight"
+                                    ]
                                 }
                             }
                         ]

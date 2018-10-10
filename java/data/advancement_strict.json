@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/advancement_strict.json",
+	"$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/data/advancement_strict.json",
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
@@ -14,7 +14,7 @@
 					"additionalProperties": false,
 					"properties": {
 						"item": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/item_name",
+							"$ref": "../shared/item_name.json",
 							"title": "Item name",
 							"description": "The name of the item to use as the icon."
 						},
@@ -27,12 +27,12 @@
 					}
 				},
 				"title": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/text_component",
+					"$ref": "../shared/text_component.json",
 					"title": "Advancement title",
 					"description": "This is the title which will show when the advancement is hovered over. If it is the root advancement, this is also the title of the page. This is also shown in the toast upon getting the advancement"
 				},
 				"description": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/text_component",
+					"$ref": "../shared/text_component.json",
 					"title": "Advancement description",
 					"description": "Must be specified. The description of the advancement. Will be only seen when the advancement icon is hovered over in the advancements menu."
 				},
@@ -47,7 +47,7 @@
 					]
 				},
 				"background": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
+					"$ref": "../shared/namespaced_location.json",
 					"title": "Page background texture (Root advancement only [No parent])"
 				},
 				"show_toast": {
@@ -68,7 +68,7 @@
 			}
 		},
 		"parent": {
-			"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
+			"$ref": "../shared/namespaced_location.json",
 			"title": "Parent advancement (if not specified and \"display\" is, it will create a new page)"
 		},
 		"criteria": {
@@ -103,7 +103,7 @@
 					"title": "Recipes",
 					"description": "A list of recipes to give to the player. Uses the same name locator as the `/recipe` command",
 					"items": {
-						"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location",
+						"$ref": "../shared/namespaced_location.json",
 						"title": "A single recipe"
 					}
 				},
@@ -113,7 +113,7 @@
 					"description": "A list of loot tables to give to the player. Uses the path to the loot table (with the first folder within the loot_tables folder being the namespace)",
 					"items": {
 						"title": "A single loot table",
-						"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location"
+						"$ref": "../shared/namespaced_location.json"
 					}
 				},
 				"experience": {
@@ -124,7 +124,7 @@
 				"function": {
 					"title": "A function to run as the player",
 					"description": "A single function to run as the player. Uses the path to the function (with the first folder within thefunction folder being the namespace)",
-					"$ref": "shared/minecraft_definitions.json#/definitions/namespaced_location"
+					"$ref": "../shared/namespaced_location.json"
 				}
 			}
 		}
@@ -193,7 +193,7 @@
 							"type": "object",
 							"properties": {
 								"potion": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/potion_name",
+									"$ref": "../shared/potion_name.json",
 									"title": "The potion brewed"
 								}
 							}
@@ -247,7 +247,7 @@
 							"description": "All of these conditions must pass for the criteria to be activated",
 							"properties": {
 								"level": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "The beacon level"
 								}
 							}
@@ -357,7 +357,7 @@
 									"title": "The item enchanted"
 								},
 								"levels": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "The number of levels used"
 								}
 							}
@@ -491,17 +491,17 @@
 									"additionalProperties": false,
 									"properties": {
 										"occupied": {
-											"$ref": "shared/minecraft_definitions.json#/definitions/range",
+											"$ref": "../shared/range.json",
 											"title": "Occupied amount",
 											"description": "How many of the slots in the player's inventory have an item in them"
 										},
 										"full": {
-											"$ref": "shared/minecraft_definitions.json#/definitions/range",
+											"$ref": "../shared/range.json",
 											"title": "Full slots",
 											"description": "How many of the slots in the player's inventory have an item with the maximum amount of the item in them in them"
 										},
 										"empty": {
-											"$ref": "shared/minecraft_definitions.json#/definitions/range",
+											"$ref": "../shared/range.json",
 											"title": "Empty slots",
 											"description": "The number of the slots in the player's inventory have no item in them"
 										}
@@ -540,12 +540,12 @@
 									"description": "The item whose durability changed"
 								},
 								"durability": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "Absolute durability",
 									"description": "The absolute durability of the item after the change"
 								},
 								"delta": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "Change in durability",
 									"description": "The amount that the durability changed by"
 								}
@@ -570,7 +570,7 @@
 							"type": "object",
 							"properties": {
 								"duration": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "Time applied",
 									"description": "The amount of time (in ticks) that the player must have been levitating"
 								},
@@ -738,7 +738,7 @@
 							"type": "object",
 							"properties": {
 								"distance": {
-									"$ref": "shared/minecraft_definitions.json#/definitions/range",
+									"$ref": "../shared/range.json",
 									"title": "Distance from player to stronghold",
 									"description": "The number of blocks in the XZ plane between the player and the stronghold - See pythagoras"
 								}
@@ -783,27 +783,27 @@
 				{
 					"properties": {
 						"absolute": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						}
 					}
 				},
 				{
 					"properties": {
 						"x": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						},
 						"y": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						},
 						"z": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						}
 					}
 				},
 				{
 					"properties": {
 						"horizontal": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						}
 					}
 				}
@@ -832,7 +832,7 @@
 					"title": "The nbt of the entity"
 				},
 				"type": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/entity_name",
+					"$ref": "../shared/entity_name.json",
 					"title": "The type of the entity"
 				}
 			},
@@ -844,70 +844,7 @@
 			"properties": {
 				"biome": {
 					"title": "The biome the location is in",
-					"enum": [
-						"minecraft:beaches",
-						"minecraft:birch_forest",
-						"minecraft:birch_forest_hills",
-						"minecraft:cold_beach",
-						"minecraft:deep_ocean",
-						"minecraft:desert",
-						"minecraft:desert_hills",
-						"minecraft:extreme_hills",
-						"minecraft:extreme_hills_with_trees",
-						"minecraft:forest",
-						"minecraft:forest_hills",
-						"minecraft:frozen_ocean",
-						"minecraft:frozen_river",
-						"minecraft:hell",
-						"minecraft:ice_flats",
-						"minecraft:ice_mountains",
-						"minecraft:jungle",
-						"minecraft:jungle_edge",
-						"minecraft:jungle_hills",
-						"minecraft:mesa",
-						"minecraft:mesa_clear_rock",
-						"minecraft:mesa_rock",
-						"minecraft:mushroom_island",
-						"minecraft:mushroom_island_shore",
-						"minecraft:mutated_birch_forest",
-						"minecraft:mutated_birch_forest_hills",
-						"minecraft:mutated_desert",
-						"minecraft:mutated_extreme_hills",
-						"minecraft:mutated_extreme_hills_with_trees",
-						"minecraft:mutated_forest",
-						"minecraft:mutated_ice_flats",
-						"minecraft:mutated_jungle",
-						"minecraft:mutated_jungle_edge",
-						"minecraft:mutated_mesa",
-						"minecraft:mutated_mesa_clear_rock",
-						"minecraft:mutated_mesa_rock",
-						"minecraft:mutated_plains",
-						"minecraft:mutated_redwood_taiga",
-						"minecraft:mutated_redwood_taiga_hills",
-						"minecraft:mutated_roofed_forest",
-						"minecraft:mutated_savanna",
-						"minecraft:mutated_savanna_rock",
-						"minecraft:mutated_swampland",
-						"minecraft:mutated_taiga",
-						"minecraft:mutated_taiga_cold",
-						"minecraft:ocean",
-						"minecraft:plains",
-						"minecraft:redwood_taiga",
-						"minecraft:redwood_taiga_hills",
-						"minecraft:river",
-						"minecraft:roofed_forest",
-						"minecraft:savanna",
-						"minecraft:savanna_rock",
-						"minecraft:sky",
-						"minecraft:smaller_extreme_hills",
-						"minecraft:stone_beach",
-						"minecraft:swampland",
-						"minecraft:taiga",
-						"minecraft:taiga_cold",
-						"minecraft:taiga_cold_hills",
-						"minecraft:taiga_hills",
-						"minecraft:void"
-					]
+					"$ref": "../shared/biome_name.json"
 				},
 				"dimension": {
 					"$ref": "#/definitions/dimension",
@@ -916,13 +853,19 @@
 				"structure": {
 					"title": "The structure the location is in",
 					"enum": [
+						"Buried_Treasure",
+						"Desert_Pyramid",
 						"EndCity",
 						"Fortress",
+						"Igloo",
+						"Jungle_Pyramid",
 						"Mansion",
 						"Mineshaft",
 						"Monument",
+						"Ocean_Ruin",
+						"Shipwreck",
 						"Stronghold",
-						"Temple",
+						"Swamp_Hut",
 						"Village"
 					]
 				},
@@ -932,13 +875,13 @@
 					"additionalProperties": false,
 					"properties": {
 						"x": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						},
 						"y": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						},
 						"z": {
-							"$ref": "shared/minecraft_definitions.json#/definitions/range"
+							"$ref": "../shared/range.json"
 						}
 					}
 				}
@@ -948,7 +891,7 @@
 			"type": "object",
 			"title": "The effects applied. Each key is the effect name",
 			"propertyNames": {
-				"$ref": "shared/minecraft_definitions.json#/definitions/effect_name"
+				"$ref": "../shared/effect_name.json"
 			},
 			"additionalProperties": {
 				"type": "object",
@@ -960,7 +903,7 @@
 								"type": "integer"
 							},
 							{
-								"$ref": "shared/minecraft_definitions.json#/definitions/range"
+								"$ref": "../shared/range.json"
 							}
 						]
 					},
@@ -971,7 +914,7 @@
 								"type": "integer"
 							},
 							{
-								"$ref": "shared/minecraft_definitions.json#/definitions/range"
+								"$ref": "../shared/range.json"
 							}
 						]
 					},
@@ -986,7 +929,7 @@
 		"item": {
 			"properties": {
 				"item": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/item_name",
+					"$ref": "../shared/item_name.json",
 					"title": "The item ID"
 				},
 				"data": {
@@ -996,15 +939,15 @@
 					"title": "The item metadata"
 				},
 				"durability": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/range",
+					"$ref": "../shared/range.json",
 					"title": "The remaining durability"
 				},
 				"count": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/range",
+					"$ref": "../shared/range.json",
 					"title": "The number of items in the stack"
 				},
 				"potion": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/potion_name",
+					"$ref": "../shared/potion_name.json",
 					"title": "Potion type",
 					"description": "If the item is a potion, check its type"
 				},
@@ -1015,11 +958,11 @@
 						"additionalProperties": false,
 						"properties": {
 							"enchantment": {
-								"$ref": "shared/minecraft_definitions.json#/definitions/enchantment_name",
+								"$ref": "../shared/enchantment_name.json",
 								"title": "The enchantment name"
 							},
 							"levels": {
-								"$ref": "shared/minecraft_definitions.json#/definitions/range",
+								"$ref": "../shared/range.json",
 								"title": "The level of the advancements"
 							}
 						}
@@ -1039,7 +982,7 @@
 		"block": {
 			"properties": {
 				"block": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/block_name",
+					"$ref": "../shared/block_name.json",
 					"title": "The block name"
 				},
 				"state": {
@@ -1055,12 +998,12 @@
 			"type": "object",
 			"properties": {
 				"dealt": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/range",
+					"$ref": "../shared/range.json",
 					"title": "How much damage was dealt",
 					"description": "This is calculated before damage reduction (such due to armour)"
 				},
 				"taken": {
-					"$ref": "shared/minecraft_definitions.json#/definitions/range",
+					"$ref": "../shared/range.json",
 					"title": "How much damage was taken",
 					"description": "This is calculated after damage reduction (such due to armour)"
 				},

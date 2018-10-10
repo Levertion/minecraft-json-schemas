@@ -1,0 +1,6 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/model.json",
+    "type": "object",
+    "properties": {}
+}

@@ -1,0 +1,13 @@
+{
+    "pack": {
+        "pack_format": 4,
+        "description": "Test description"
+    },
+    "language": {
+        "boo": {
+            "name": "BOOOO",
+            "region": "Lol",
+            "bidirectional": false
+        }
+    }
+}
