@@ -7,12 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## [v0.4.0] - UNRELEASED
+## [v0.4.0] - 2018-10-11
 
 -   1.13 update
 -   License change - the schemas are now distributed under the CC-BY-4.0 license
     (rather than the unlicense)
--   Special thanks to [Misode](TODO) for their hard work creating this update in
+-   Special thanks to [Misode](https://twitter.com/misoloo) for their hard work
+    creating this update in
     [#3](https://github.com/Levertion/minecraft-json-schemas/pull/3)
 
 ## Added
