@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/pack.mcmeta_either.json",
+    "title": "An unknown pack.mcmeta",
+    "description": "This is either for a resource pack or a data pack",
+    "oneOf": [
+        {
+            "$ref": "./data/pack.mcmeta.json#"
+        },
+        {
+            "$ref": "./assets/pack.mcmeta.json#"
+        }
+    ]
+}
