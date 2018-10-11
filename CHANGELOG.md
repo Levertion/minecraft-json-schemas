@@ -7,6 +7,40 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
+## [v0.4.0] - UNRELEASED
+
+-   1.13 update
+-   License change - the schemas are now distributed under the CC-BY-4.0 license
+    (rather than the unlicense)
+-   Special thanks to [Misode](TODO) for their hard work creating this update in
+    [#3](https://github.com/Levertion/minecraft-json-schemas/pull/3)
+
+## Added
+
+-   Support for 1.13(.1):
+
+    -   Data pack `pack.mcmeta`
+    -   Updated IDs
+
+-   Limited support for vscode snippets. This is only used in the `pack.mcmeta`
+    schema currently.
+-   `package.json` so the schemas can be installed using npm package
+-   A playground to the repository
+
+### Changed
+
+-   Changed all paths:
+    -   all schemas are in the `java` folder for java edition
+    -   schemas are split into `assets` and `data` folders for resource and data
+        packs respectively
+    -   `shared/minecraft_definitions` has been split into multiple files
+
+### Fixed
+
+-   Erroneous failures due to misuse of schema `not` key with `properties`.
+-   [#2](https://github.com/Levertion/minecraft-json-schemas/issues/2) - support
+    "empty" loot table type
+
 ## [v0.3.0] - 2017-10-29
 
 -   Maintenance Update

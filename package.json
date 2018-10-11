@@ -1,6 +1,6 @@
 {
     "name": "minecraft-json-schemas",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "Json schemas for Minecraft files",
     "main": "index.js",
     "dependencies": {
