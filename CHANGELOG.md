@@ -24,8 +24,8 @@ and this project adheres to
 
 -   Limited support for vscode snippets. This is only used in the `pack.mcmeta`
     schema currently.
--   `package.json` so the schemas can be installed using npm package
--   A playground to the repository
+-   `package.json` so the schemas can be installed using `npm`
+-   A playground in the repository itself for faster testing
 
 ### Changed
 
