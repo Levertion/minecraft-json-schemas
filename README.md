@@ -13,10 +13,10 @@ Json schemas for Minecraft files. Information about json schemas can be found at
 
 At the moment, the following schemas are provided in the `java` folder:
 
-1. advancements
-2. `pack.mcmeta`, both data and resource packs
+1. Advancements
+2. `pack.mcmeta` for both data and resource packs
 3. `*.mcmeta` animation files
-4. loot tables
+4. Loot tables
 5. `sounds.json`
 
 ### Future plans
