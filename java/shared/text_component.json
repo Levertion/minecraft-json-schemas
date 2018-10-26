@@ -7,7 +7,8 @@
             "anyOf": [
                 {
                     "type": "string",
-                    "title": "Equivalent to {\"text\":\"Value\"}"
+                    "title": "Plain text shorthand",
+                    "description": "Equivalent to {\"text\":\"<value>\"}"
                 },
                 {
                     "$ref": "#/definitions/text_object"
@@ -17,7 +18,8 @@
                     "items": {
                         "$ref": "#/definitions/text_component"
                     },
-                    "title": "Equivalent to firstItem, with \"extra\":[nextItems]"
+                    "title": "Text component array",
+                    "description": "Equivalent to firstItem, with \"extra\":[...<nextItems>]"
                 }
             ]
         },
@@ -28,18 +30,13 @@
                     "properties": {
                         "text": {
                             "type": "string",
-                            "title": "The direct text to apply"
+                            "title": "The direct text to use"
                         }
                     },
                     "required": ["text"],
                     "not": {
-                        "required": [
-                            "translate",
-                            "with",
-                            "score",
-                            "selector",
-                            "keybind"
-                        ]
+                        "required": ["with", "interpret"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
                     }
                 },
                 {
@@ -57,10 +54,11 @@
                             }
                         }
                     },
-                    "required": ["translate"],
                     "not": {
-                        "required": ["text", "score", "selector", "keybind"]
-                    }
+                        "required": ["interpret"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
+                    },
+                    "required": ["translate"]
                 },
                 {
                     "properties": {
@@ -85,16 +83,11 @@
                             }
                         }
                     },
-                    "required": ["score"],
                     "not": {
-                        "required": [
-                            "text",
-                            "translate",
-                            "with",
-                            "selector",
-                            "keybind"
-                        ]
-                    }
+                        "required": ["with", "interpret"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
+                    },
+                    "required": ["score"]
                 },
                 {
                     "properties": {
@@ -105,16 +98,11 @@
                             "description": "If there are multiple, they will be comma seperated until the last value with an 'and'"
                         }
                     },
-                    "required": ["selector"],
                     "not": {
-                        "required": [
-                            "text",
-                            "translate",
-                            "with",
-                            "score",
-                            "keybind"
-                        ]
-                    }
+                        "required": ["with", "interpret"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
+                    },
+                    "required": ["selector"]
                 },
                 {
                     "properties": {
@@ -123,16 +111,57 @@
                             "title": "The name of the keybind to show"
                         }
                     },
-                    "required": ["keybind"],
                     "not": {
-                        "required": [
-                            "text",
-                            "translate",
-                            "with",
-                            "score",
-                            "selector"
-                        ]
-                    }
+                        "required": ["with", "interpret"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
+                    },
+                    "required": ["keybind"]
+                },
+                {
+                    "properties": {
+                        "nbt": {
+                            "type": "string",
+                            "title": "An NBT path",
+                            "description": "Displays the nbt at this path of the selected entity/block or `[]` if unavailable "
+                        },
+                        "interpet": {
+                            "type": "boolean",
+                            "title": "Interpret NBT as chat component"
+                        }
+                    },
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "selector": {
+                                    "type": "string",
+                                    "pattern": "^@[parse]",
+                                    "title": "The entity to select"
+                                }
+                            },
+                            "required": ["selector"]
+                        },
+                        {
+                            "properties": {
+                                "block": {
+                                    "type": "object",
+                                    "title": "The coordinates of the block to ask about",
+                                    "properties": {
+                                        "x": { "type": "number" },
+                                        "y": { "type": "number" },
+                                        "z": { "type": "number" }
+                                    },
+                                    "required": ["x", "y", "z"],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "required": ["block"]
+                        }
+                    ],
+                    "not": {
+                        "required": ["with"],
+                        "$comment": "All other cases are automatically handled by the oneOf"
+                    },
+                    "required": ["nbt"]
                 }
             ],
             "additionalProperties": false,
@@ -143,6 +172,9 @@
                 "score": {},
                 "selector": {},
                 "keybind": {},
+                "nbt": {},
+                "block": {},
+                "interpret": {},
                 "extra": {
                     "type": "array",
                     "$ref": "#/definitions/text_component",
@@ -210,13 +242,14 @@
                                 "change_page",
                                 "suggest_command"
                             ],
-                            "title": "What to do",
-                            "description": "open_url opens the web address in value, run_command runs the command in value (use /trigger), change_page changes the book page, and suggest_command replaces the player's chat window"
+                            "title": "Action to perform",
+                            "description": "'open_url' opens the web address in '\"value\"', 'run_command' runs the command (use /trigger), change_page changes the book page, and suggest_command replaces the player's chat box with the value"
+                        },
+                        "value": {
+                            "type": "string",
+                            "title": "Value to run action with",
+                            "description": "See the properties of action"
                         }
-                    },
-                    "value": {
-                        "type": "string",
-                        "title": "Value to run action with"
                     }
                 },
                 "hoverEvent": {
@@ -231,11 +264,7 @@
                                     "enum": ["show_text"]
                                 },
                                 "value": {
-                                    "anyOf": [
-                                        {
-                                            "$ref": "#/definitions/text_component"
-                                        }
-                                    ]
+                                    "$ref": "#/definitions/text_component"
                                 }
                             }
                         },
