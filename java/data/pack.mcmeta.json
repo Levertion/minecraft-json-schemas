@@ -2,8 +2,8 @@
     "type": "object",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/pack.mcmeta.json",
-    "title": "Resource pack information",
-    "description": "Information about a resource pack",
+    "title": "Data pack information",
+    "description": "Information about a data pack",
     "additionalProperties": false,
     "defaultSnippets": [
         {
@@ -11,7 +11,7 @@
             "body": {
                 "pack": {
                     "description": "${1:${TM_DIRECTORY/(?:.*[\\\\/])?([^\\\\/]*)/$1/}}: $2",
-                    "pack_format": 1
+                    "pack_format": 2
                 }
             }
         }
@@ -26,7 +26,7 @@
                     "default": 1,
                     "type": "integer",
                     "title": "Datapack version",
-                    "description": "This is 1 for 1.13"
+                    "description": "This is 1 for 1.13 and 2 for 1.14 (Unchecked)"
                 },
                 "description": {
                     "type": "string",
