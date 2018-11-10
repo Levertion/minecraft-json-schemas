@@ -87,5 +87,10 @@
         "minecraft:zombie_horse",
         "minecraft:zombie_pigman",
         "minecraft:zombie_villager"
-    ]
+    ],
+    "definitions": {
+        "with_tag": {
+            "oneOf": [{ "$ref": "#" }, { "type": "string", "pattern": "^#" }]
+        }
+    }
 }

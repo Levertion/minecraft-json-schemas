@@ -1,0 +1,11 @@
+{
+    "pools": [
+        {
+            "rolls": {
+                "type": "minecraft:binomial",
+                "min": 1,
+                "max": 1
+            }
+        }
+    ]
+}

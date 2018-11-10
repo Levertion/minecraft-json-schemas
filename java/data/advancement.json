@@ -151,16 +151,16 @@
                             "description": "All of these conditions must pass for the criteria to be activated",
                             "properties": {
                                 "parent": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against either of the parents",
                                     "description": "Using both parent and partner is only useful when using horses/donkeys"
                                 },
                                 "partner": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against either of the parents"
                                 },
                                 "child": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against the child entity"
                                 }
                             }
@@ -206,11 +206,11 @@
                             "description": "All of these conditions must pass for the criteria to be activated",
                             "properties": {
                                 "to": {
-                                    "$ref": "#/definitions/dimension",
+                                    "$ref": "../shared/predicate.json#/definitions/dimension",
                                     "title": "Entered dimension"
                                 },
                                 "from": {
-                                    "$ref": "#/definitions/dimension",
+                                    "$ref": "../shared/predicate.json#/definitions/dimension",
                                     "title": "Exited dimension"
                                 }
                             }
@@ -259,7 +259,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "Item",
                                     "description": "This will be checked against the item used up"
                                 }
@@ -283,11 +283,11 @@
                             "type": "object",
                             "properties": {
                                 "zombie": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Information about the zombie villager"
                                 },
                                 "villager": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Information about villager cured into"
                                 }
                             }
@@ -310,7 +310,7 @@
                             "type": "object",
                             "properties": {
                                 "effects": {
-                                    "$ref": "#/definitions/effect",
+                                    "$ref": "../shared/predicate.json#/definitions/effect",
                                     "title": "The potion effects of the player"
                                 }
                             }
@@ -333,7 +333,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item enchanted"
                                 },
                                 "levels": {
@@ -357,7 +357,7 @@
                             "additionalProperties": false,
                             "title": "The block to check",
                             "description": "The block which was entered to check the trigger",
-                            "$ref": "#/definitions/block"
+                            "$ref": "../shared/predicate.json#/definitions/block"
                         }
                     }
                 },
@@ -377,7 +377,7 @@
                             "type": "object",
                             "properties": {
                                 "damage": {
-                                    "$ref": "#/definitions/damage",
+                                    "$ref": "../shared/predicate.json#/definitions/damage",
                                     "title": "The damage taken"
                                 }
                             }
@@ -400,11 +400,11 @@
                             "type": "object",
                             "properties": {
                                 "damage": {
-                                    "$ref": "#/definitions/damage",
+                                    "$ref": "../shared/predicate.json#/definitions/damage",
                                     "title": "The damage taken"
                                 },
                                 "entity": {
-                                    "$ref": "#/definitions/entity"
+                                    "$ref": "../shared/predicate.json#/definitions/entity"
                                 }
                             }
                         }
@@ -426,7 +426,7 @@
                             "additionalProperties": false,
                             "title": "The death object",
                             "description": "The conditions object is a direct reference to a death object",
-                            "$ref": "#/definitions/death"
+                            "$ref": "../shared/predicate.json#/definitions/death"
                         }
                     }
                 },
@@ -479,7 +479,7 @@
                                 "items": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/item"
+                                        "$ref": "../shared/predicate.json#/definitions/item"
                                     }
                                 }
                             }
@@ -502,7 +502,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item",
                                     "description": "The item whose durability changed"
                                 },
@@ -540,7 +540,7 @@
                                     "description": "The amount of time (in ticks) that the player must have been levitating"
                                 },
                                 "distance": {
-                                    "$ref": "#/definitions/distance",
+                                    "$ref": "../shared/predicate.json#/definitions/distance",
                                     "title": "Distance travelled",
                                     "description": "How far the player must have travelled whilst under the effect of the levitation"
                                 }
@@ -563,7 +563,7 @@
                             "additionalProperties": false,
                             "title": "Location of the player",
                             "description": "The location of the player at the time of checking (for \"slept_in_bed\" this is just after they went to sleep)",
-                            "$ref": "#/definitions/location"
+                            "$ref": "../shared/predicate.json#/definitions/location"
                         }
                     }
                 },
@@ -582,17 +582,17 @@
                             "type": "object",
                             "properties": {
                                 "entered": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Entering the nether",
                                     "description": "Where the player entered the nether (into the overworld)"
                                 },
                                 "exited": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Exit portal location",
                                     "description": "Where the player left the nether (into the overworld)"
                                 },
                                 "distance": {
-                                    "$ref": "#/definitions/distance",
+                                    "$ref": "../shared/predicate.json#/definitions/distance",
                                     "title": "Distance travelled through the nether",
                                     "description": "The distance between the entry nether portal and the exit nether portal (in the overworld)"
                                 }
@@ -610,18 +610,18 @@
                             "description": "This criteria will be checked whenever the player places a block"
                         },
                         "conditions": {
-                            "$ref": "#/definitions/block",
+                            "$ref": "../shared/predicate.json#/definitions/block",
                             "additionalProperties": false,
                             "title": "Required conditions",
                             "description": "The placed block",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "Item placed",
                                     "description": "The item placed to create the block"
                                 },
                                 "location": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Location of block",
                                     "description": "The location at which the block is placed"
                                 }
@@ -672,7 +672,7 @@
                             "type": "object",
                             "properties": {
                                 "entity": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "The entity summmoned"
                                 }
                             }
@@ -719,11 +719,11 @@
                             "type": "object",
                             "properties": {
                                 "villager": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "The villager traded with"
                                 },
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item which was purchased"
                                 }
                             }
@@ -731,297 +731,6 @@
                     }
                 }
             ]
-        },
-        "distance": {
-            "type": "object",
-            "anyOf": [
-                {
-                    "properties": {
-                        "absolute": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "x": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "y": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "z": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "horizontal": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                }
-            ],
-            "additionalProperties": false
-        },
-        "entity": {
-            "properties": {
-                "distance": {
-                    "$ref": "#/definitions/distance",
-                    "title": "The distance",
-                    "description": "The distance between the entity and another location. Location compared to depends on the trigger"
-                },
-                "effects": {
-                    "$ref": "#/definitions/effect",
-                    "title": "Effects on entity",
-                    "description": "The effects on the entity"
-                },
-                "location": {
-                    "$ref": "#/definitions/location",
-                    "title": "Location",
-                    "description": "Information about the location of the entity"
-                },
-                "nbt": {
-                    "$ref": "#/definitions/nbt_string",
-                    "title": "The nbt of the entity"
-                },
-                "type": {
-                    "$ref": "../shared/entity_name.json",
-                    "title": "The type of the entity"
-                }
-            },
-            "additionalProperties": false
-        },
-        "location": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "biome": {
-                    "title": "The biome the location is in",
-                    "$ref": "../shared/biome_name.json"
-                },
-                "dimension": {
-                    "$ref": "#/definitions/dimension",
-                    "title": "The dimension the location is in"
-                },
-                "structure": {
-                    "title": "The structure the location is in",
-                    "enum": [
-                        "Buried_Treasure",
-                        "Desert_Pyramid",
-                        "EndCity",
-                        "Fortress",
-                        "Igloo",
-                        "Jungle_Pyramid",
-                        "Mansion",
-                        "Mineshaft",
-                        "Monument",
-                        "Ocean_Ruin",
-                        "Shipwreck",
-                        "Stronghold",
-                        "Swamp_Hut",
-                        "Village"
-                    ]
-                },
-                "position": {
-                    "title": "The numerical coordinates of the location",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "x": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "y": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "z": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                }
-            }
-        },
-        "effect": {
-            "type": "object",
-            "title": "The effects applied. Each key is the effect name",
-            "propertyNames": {
-                "$ref": "../shared/effect_name.json"
-            },
-            "additionalProperties": {
-                "type": "object",
-                "properties": {
-                    "amplifier": {
-                        "title": "The level of the effect",
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "$ref": "../shared/range.json"
-                            }
-                        ]
-                    },
-                    "duration": {
-                        "title": "The remaining time of the effect (in ticks)",
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "$ref": "../shared/range.json"
-                            }
-                        ]
-                    },
-                    "visible": {
-                        "type": "boolean",
-                        "title": "Whether the effect is visible"
-                    }
-                },
-                "additionalProperties": false
-            }
-        },
-        "item": {
-            "properties": {
-                "item": {
-                    "$ref": "../shared/item_name.json",
-                    "title": "The item ID"
-                },
-                "data": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 15,
-                    "title": "The item metadata"
-                },
-                "durability": {
-                    "$ref": "../shared/range.json",
-                    "title": "The remaining durability"
-                },
-                "count": {
-                    "$ref": "../shared/range.json",
-                    "title": "The number of items in the stack"
-                },
-                "potion": {
-                    "$ref": "../shared/potion_name.json",
-                    "title": "Potion type",
-                    "description": "If the item is a potion, check its type"
-                },
-                "enchantments": {
-                    "items": {
-                        "type": "array",
-                        "title": "The enchantments of the item",
-                        "additionalProperties": false,
-                        "properties": {
-                            "enchantment": {
-                                "$ref": "../shared/enchantment_name.json",
-                                "title": "The enchantment name"
-                            },
-                            "levels": {
-                                "$ref": "../shared/range.json",
-                                "title": "The level of the advancements"
-                            }
-                        }
-                    }
-                },
-                "nbt": {
-                    "$ref": "#/definitions/nbt_string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "nbt_string": {
-            "type": "string",
-            "title": "NBT string",
-            "description": "A string of nbt, which is escaped using the json format (a \\ in front of each \\ or \")"
-        },
-        "block": {
-            "properties": {
-                "block": {
-                    "$ref": "../shared/block_name.json",
-                    "title": "The block name"
-                },
-                "state": {
-                    "type": "object",
-                    "title": "The string values of the block states",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "damage": {
-            "type": "object",
-            "properties": {
-                "dealt": {
-                    "$ref": "../shared/range.json",
-                    "title": "How much damage was dealt",
-                    "description": "This is calculated before damage reduction (such due to armour)"
-                },
-                "taken": {
-                    "$ref": "../shared/range.json",
-                    "title": "How much damage was taken",
-                    "description": "This is calculated after damage reduction (such due to armour)"
-                },
-                "blocked": {
-                    "type": "boolean",
-                    "title": "Shield used",
-                    "description": "Whether the damage was blocked"
-                },
-                "source_entity": {
-                    "$ref": "#/definitions/entity",
-                    "title": "Entity which did the hitting"
-                }
-            },
-            "additionalProperties": false
-        },
-        "damage_flags": {
-            "type": "object",
-            "properties": {
-                "bypasses_armor": {
-                    "type": "boolean"
-                },
-                "bypasses_invulnerability": {
-                    "type": "boolean"
-                },
-                "bypasses_magic": {
-                    "type": "boolean"
-                },
-                "is_explosion": {
-                    "type": "boolean"
-                },
-                "is_fire": {
-                    "type": "boolean"
-                },
-                "is_magic": {
-                    "type": "boolean"
-                },
-                "is_projectile": {
-                    "type": "boolean"
-                },
-                "source_entity": {
-                    "$ref": "#/definitions/entity"
-                },
-                "direct_entity": {
-                    "$ref": "#/definitions/entity"
-                }
-            },
-            "additionalProperties": false
-        },
-        "death": {
-            "properties": {
-                "entity": {
-                    "$ref": "#/definitions/entity",
-                    "title": "The entity which died"
-                },
-                "killing_blow": {
-                    "$ref": "#/definitions/damage_flags",
-                    "title": "Information about the killing blow"
-                },
-                "additionalProperties": false
-            }
-        },
-        "dimension": {
-            "enum": ["overworld", "the_end", "the_nether"]
         }
     }
 }

@@ -2,102 +2,73 @@
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table_strict.json",
     "type": "object",
-    "title": "Root tag",
-    "description": "This only has one property, being \"pools\", which is an array of pools",
+    "title": "Loot table root",
+    "defaultSnippets": [
+        {
+            "label": "Empty loot table",
+            "body": {
+                "pools": "^[$1]"
+            }
+        }
+    ],
     "additionalProperties": false,
     "properties": {
-        "additionalProperties": false,
+        "type": {
+            "enum": [
+                "minecraft:empty",
+                "minecraft:chest",
+                "minecraft:fishing",
+                "minecraft:entity",
+                "minecraft:advancement_reward",
+                "minecraft:block"
+            ],
+            "title": "Validates function uses",
+            "description": "Used to validate function use. If a function cannot be used for the type, an error is given",
+            "$comment": "Currently unused, but could potentially be used in the future"
+        },
+        "functions": {
+            "type": "array",
+            "title": "Table functions",
+            "description": "The functions applied to this table. These are applied to every item given",
+            "items": {
+                "$ref": "#/definitions/function"
+            }
+        },
         "pools": {
             "type": "array",
             "title": "Loot pools",
-            "description": "All the available loot pools",
             "items": {
                 "additionalProperties": false,
+                "type": "object",
                 "properties": {
                     "conditions": {
                         "$ref": "#/definitions/conditions",
                         "title": "Pool conditions",
                         "description": "The conditions which must pass in order for this pool to be used"
                     },
+                    "functions": {
+                        "type": "array",
+                        "title": "Pool functions",
+                        "description": "The functions applied to this pool. These are applied to every item",
+                        "items": {
+                            "$ref": "#/definitions/function"
+                        }
+                    },
                     "rolls": {
-                        "$ref": "../shared/range.json",
-                        "title": "Rolls",
-                        "description": "The number of rolls in this pool. If it is a range, a random number is chosen"
+                        "$ref": "#/definitions/random_range",
+                        "title": "Number of rolls",
+                        "description": "Each roll selects one entry from 'entries', chosen randomly based on its weight"
                     },
                     "bonus_rolls": {
-                        "$ref": "../shared/range.json",
+                        "$ref": "#/definitions/random_range",
                         "title": "Bonus rolls",
-                        "description": "The additional rolls given for each point of luck"
+                        "description": "The additional 'rolls' given for each point of luck"
                     },
                     "entries": {
                         "type": "array",
                         "title": "The entries",
                         "description": "For each roll, one of these entries is chosen to be given, with a chance based on the 'weight'",
-                        "items": {
-                            "type": "object",
-                            "oneOf": [
-                                {
-                                    "properties": {
-                                        "type": {
-                                            "enum": ["item"],
-                                            "title": "Item",
-                                            "description": "This entry will give an item (if the conditions pass). The item type is defined in \"name\""
-                                        },
-                                        "name": {
-                                            "$ref": "../shared/item_name.json",
-                                            "title": "Item",
-                                            "description": "The item to give"
-                                        },
-                                        "functions": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/function"
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    "properties": {
-                                        "type": {
-                                            "enum": ["loot_table"],
-                                            "title": "Loot table",
-                                            "description": "This entry will give the result of another loot table specified in 'name'. These cannot be self referencing in any way, if they are self referencing, they don't run"
-                                        },
-                                        "name": {
-                                            "$ref": "../shared/namespaced_location.json",
-                                            "title": "Loot table",
-                                            "description": "The loot table to be given"
-                                        }
-                                    }
-                                },
-                                {
-                                    "properties": {
-                                        "type": {
-                                            "enum": ["empty"],
-                                            "title": "Empty",
-                                            "description": "An empty pool. No items will be granted"
-                                        }
-                                    }
-                                }
-                            ],
-                            "required": ["type"],
-                            "properties": {
-                                "quality": {
-                                    "type": "number",
-                                    "title": "Weight based on luck",
-                                    "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
-                                },
-                                "weight": {
-                                    "type": "number",
-                                    "title": "Chance of this entry being used",
-                                    "description": "The chance of this entry being used"
-                                },
-                                "type": {},
-                                "name": {},
-                                "functions": {}
-                            },
-                            "additionalProperties": false
-                        }
+                        "items": {}
                     }
                 },
                 "required": ["entries"]
@@ -105,124 +76,327 @@
         }
     },
     "definitions": {
-        "conditions": {
-            "type": "array",
-            "title": "Conditions",
-            "description": "The conditions that must pass for this pool/entry to be used",
-            "items": {
-                "oneOf": [
-                    {
-                        "additionalProperties": false,
-                        "properties": {
-                            "condition": {
-                                "enum": ["minecraft:entity_properties"],
-                                "title": "Test entity properties",
-                                "descriptions": "Test whether an entity describes in 'entity' has the properties described in 'properties'"
-                            },
-                            "entity": {
-                                "$ref": "#/definitions/entity"
-                            },
-                            "properties": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "on_fire": {
-                                        "type": "boolean",
-                                        "title": "Burning?",
-                                        "description": "Is the entity on fire. Mutually exclusive with minecraft:on_fire"
-                                    },
-                                    "minecraft:on_fire": {
-                                        "type": "boolean",
-                                        "title": "Burning?",
-                                        "description": "Is the entity on fire. Mutually exclusive with on_fire"
-                                    }
-                                }
+        "condition": {
+            "type": "object",
+            "required": ["condition"],
+            "oneOf": [
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:entity_properties"],
+                            "title": "Test entity properties",
+                            "descriptions": "Test whether the entity specified in 'entity' matches the 'predicate'"
+                        },
+                        "entity": {
+                            "$ref": "#/definitions/entity"
+                        },
+                        "predicate": {
+                            "$ref": "../shared/predicate.json#/definitions/entity"
+                        }
+                    },
+                    "required": ["entity", "predicate"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:entity_scores"]
+                        },
+                        "entity": {
+                            "$ref": "#/definitions/entity"
+                        },
+                        "scores": {
+                            "type": "object",
+                            "title": "Scores to check",
+                            "description": "The name of each sub-object is the score to check, it is either a number or a range",
+                            "additionalProperties": {
+                                "$ref": "../shared/range.json"
                             }
                         }
                     },
-                    {
-                        "additionalProperties": false,
-                        "properties": {
-                            "condition": {
-                                "enum": ["minecraft:entity_scores"]
-                            },
-                            "entity": {
-                                "$ref": "#/definitions/entity"
-                            },
-                            "scores": {
-                                "type": "object",
-                                "title": "Scores to check",
-                                "description": "The name of each sub-object is the score to check, it is either a number or a range",
-                                "additionalProperties": {
-                                    "$ref": "../shared/range.json"
-                                }
-                            }
+                    "required": ["entity", "scores"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:random_chance"],
+                            "title": "Random Chance",
+                            "description": "A random chance (ignoring looting) that the condition will pass"
+                        },
+                        "chance": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1,
+                            "title": "Chance",
+                            "description": "The chance that the condition will pass. i.e 0.3 means 30% chance."
                         }
                     },
-                    {
-                        "additionalProperties": false,
-                        "properties": {
-                            "condition": {
-                                "enum": ["minecraft:random_chance"],
-                                "title": "Random Chance",
-                                "description": "A random chance (ignoring looting) that the condition will pass"
-                            },
-                            "chance": {
-                                "type": "number",
-                                "minimum": 0,
-                                "maximum": 1,
-                                "title": "Chance",
-                                "description": "The chance that the condition will pass. i.e 0.3 means 30% chance."
-                            }
+                    "required": ["condition", "chance"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:random_chance_with_looting"],
+                            "title": "Looting Chance",
+                            "description": "A random chance taking looting into account that the condition will pass"
+                        },
+                        "chance": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1,
+                            "title": "Base chance",
+                            "description": "The base chance that the condition will pass without any looting. i.e 0.3 means 30% chance."
+                        },
+                        "looting_multiplier": {
+                            "type": "number",
+                            "title": "Looting multiplier",
+                            "description": "The extra chance each level of looting adds to success"
                         }
                     },
-                    {
-                        "additionalProperties": false,
-                        "properties": {
-                            "condition": {
-                                "type": "string",
-                                "enum": [
-                                    "minecraft:random_chance_with_looting"
-                                ],
-                                "title": "Looting Chance",
-                                "description": "A random chance taking looting into account that the condition will pass"
-                            },
-                            "chance": {
-                                "type": "number",
-                                "minimum": 0,
-                                "maximum": 1,
-                                "title": "Base chance",
-                                "description": "The base chance that the condition will pass without any looting. i.e 0.3 means 30% chance."
-                            },
-                            "looting_multiplier": {
-                                "type": "number",
-                                "title": "Looting multiplier",
-                                "description": "The extra chance each level of looting adds to success"
-                            }
-                        }
-                    },
-                    {
-                        "additionalProperties": false,
-                        "properties": {
-                            "condition": {
-                                "enum": ["minecraft:killed_by_player"],
-                                "description": "This condition will pass only if the mob was killed by a player, unless the 'inverse' condition is set"
-                            },
-                            "inverse": {
-                                "type": "boolean",
-                                "title": "Inverse",
-                                "description": "If true, the condition will only pass if the entity is not killed by a player"
-                            }
+                    "required": ["condition", "chance", "lotting_multiplier"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:killed_by_player"],
+                            "description": "This condition will pass only if the mob was killed by a player, unless the 'inverse' condition is set"
+                        },
+                        "inverse": {
+                            "type": "boolean",
+                            "title": "Inverse",
+                            "description": "If true, the condition will only pass if the entity is not killed by a player"
                         }
                     }
-                ],
-                "required": ["condition"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:alternative"],
+                            "title": "Concurrent conditions",
+                            "descriptions": "If any of the conditions in 'terms' is true, the entire condition is true"
+                        },
+                        "terms": {
+                            "$ref": "#/definitions/conditions/items"
+                        }
+                    },
+                    "required": ["terms"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:block_state_property"],
+                            "title": "Block state properties",
+                            "descriptions": "Checks the block states and type of the block being broken"
+                        },
+                        "block": {
+                            "$ref": "../shared/block_name.json#"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "title": "A map of property to values",
+                            "additionalProperties": { "type": "string" }
+                        }
+                    },
+                    "required": ["block"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:damage_source_properties"],
+                            "title": "Damage source properties",
+                            "descriptions": "Tests information about the damage source"
+                        },
+                        "predicate": {
+                            "$ref": "../shared/predicate.json#/definitions/damage",
+                            "title": "The damage to be tested against"
+                        }
+                    },
+                    "required": ["predicate"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:entity_present"],
+                            "title": "Test if entity exists",
+                            "description": "Returns true if kind described in 'entity' is set"
+                        },
+                        "entity": {
+                            "$ref": "#/definitions/entity",
+                            "title": "The kind of entity"
+                        }
+                    },
+                    "required": ["entity"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:inverted"],
+                            "title": "Conditions inverse",
+                            "descriptions": "Returns true if the condition in 'term' failed"
+                        },
+                        "term": { "$ref": "#/definitions/condition" }
+                    },
+                    "required": ["term"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:location_check"],
+                            "title": "Check location",
+                            "descriptions": "Checks the location predicate described in 'predicate'"
+                        },
+                        "predicate": {
+                            "$ref": "../shared/predicate.json#/definitions/location"
+                        }
+                    },
+                    "required": ["predicate"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:match_tool"],
+                            "title": "Check tool",
+                            "descriptions": "Available for block breaking and fishing"
+                        },
+                        "predicate": {
+                            "$ref": "../shared/predicate.json#/definitions/item"
+                        }
+                    },
+                    "required": ["predicate"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:survives_explosion"],
+                            "title": "Explosion survival",
+                            "descriptions": "Returns true with 1/<explosion radius> chance if the cause of dropping was an explosion, or true otherwise"
+                        }
+                    }
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:table_bonus"],
+                            "title": "Bonus for enchantment levels",
+                            "descriptions": "Passes with a certain probability when the tool has a given enchantment\n Used for fortune enchantments"
+                        },
+                        "enchantment": {
+                            "$ref": "../shared/enchantment_name.json#"
+                        },
+                        "chances": {
+                            "type": "array",
+                            "items": { "type": "number" },
+                            "title": "Level probabilities",
+                            "description": "List of probabilities for enchantment level (first index is chance for no enchantment)"
+                        }
+                    },
+                    "required": ["enchantment", "chances"]
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "condition": {
+                            "enum": ["minecraft:weather_check"],
+                            "title": "Check the weather"
+                        },
+                        "raining": {
+                            "type": "boolean"
+                        },
+                        "thundering": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            ]
+        },
+        "conditions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/condition"
             }
         },
         "entity": {
             "title": "Entity to test",
-            "description": "'this' for the entity which died to make the loot table, 'killer' for the entity which killed the entity, and 'killer_player' for the player who killed the entity (if it exists)",
-            "enum": ["this", "killer", "killer_player"]
+            "description": "'this' for the entity which died to make the loot table, 'killer' for the entity which killed the entity, and 'killer_player' for the player who killed the entity (if it exists), 'direct_killer' for the direct entity which killed the entity (e.g. a shot arrow)",
+            "enum": ["this", "killer", "killer_player", "direct_killer"]
+        },
+        "entry": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "enum": ["item"],
+                            "title": "Item",
+                            "description": "This entry will give an item (if the conditions pass). The item type is defined in \"name\""
+                        },
+                        "name": {
+                            "$ref": "../shared/item_name.json",
+                            "title": "Item",
+                            "description": "The item to give"
+                        },
+                        "functions": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/function"
+                            }
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": {
+                            "enum": ["loot_table"],
+                            "title": "Loot table",
+                            "description": "This entry will give the result of another loot table specified in 'name'. These cannot be self referencing in any way, if they are self referencing, they don't run"
+                        },
+                        "name": {
+                            "$ref": "../shared/namespaced_location.json",
+                            "title": "Loot table",
+                            "description": "The loot table to be given"
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": {
+                            "enum": ["empty"],
+                            "title": "Empty",
+                            "description": "An empty pool. No items will be granted"
+                        }
+                    }
+                }
+            ],
+            "required": ["type"],
+            "properties": {
+                "quality": {
+                    "type": "number",
+                    "title": "Weight based on luck",
+                    "description": "Change the weight based on the players' luck attribute. This is calculated by weight + (quality * luck)"
+                },
+                "weight": {
+                    "type": "number",
+                    "title": "Chance of this entry being used",
+                    "description": "The chance of this entry being used"
+                },
+                "type": {},
+                "name": {},
+                "functions": {}
+            },
+            "additionalProperties": false
         },
         "function": {
             "title": "Function",
@@ -458,6 +632,53 @@
                             "description": "If possible, smelt the item. If it can't be smelted, nothing happens."
                         }
                     }
+                }
+            ]
+        },
+        "random_range": {
+            "defaultSnippets": [
+                { "label": "Exact value", "body": "^${1:1}" },
+                {
+                    "label": "Random Choice between 'min' and 'max'",
+                    "body": {
+                        "type": "${1|minecraft:uniform,minecraft:binomial|}",
+                        "min": "^${2:0}",
+                        "max": "^${3:2}"
+                    }
+                }
+            ],
+            "oneOf": [
+                { "type": "integer", "title": "Exactly this many" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": ["minecraft:constant"]
+                        },
+                        "value": {
+                            "type": "integer",
+                            "title": "Exactly this many"
+                        }
+                    },
+                    "required": ["value"]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": ["minecraft:uniform", "minecraft:binomial"],
+                            "description": "The random number generator to use"
+                        },
+                        "min": {
+                            "title": "Minimum random number (inclusive)",
+                            "type": "integer"
+                        },
+                        "max": {
+                            "title": "Maximum random number (inclusive)",
+                            "type": "integer"
+                        }
+                    },
+                    "required": ["type", "min", "max"]
                 }
             ]
         }
