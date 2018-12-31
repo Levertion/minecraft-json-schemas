@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table_strict.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table.json",
     "type": "object",
     "title": "Root tag",
     "additionalProperties": false,
@@ -309,7 +309,7 @@
                             "description": "Joins conditions from parameter terms with 'or' ('disjunction')"
                         },
                         "terms": {
-                            "$ref": "#/definitions/contitions",
+                            "$ref": "#/definitions/conditions",
                             "title": "Terms"
                         }
                     }
@@ -324,7 +324,7 @@
                             "description": "Inverts condition from parameter term"
                         },
                         "term": {
-                            "$ref": "#/definitions/contition",
+                            "$ref": "#/definitions/condition",
                             "title": "Term"
                         }
                     }
@@ -784,7 +784,7 @@
                             "description": "Apply one of predefined bonus formulas"
                         },
                         "enchantment": {
-                            "$ref": "#/definitions/enchantment_name",
+                            "$ref": "../shared/enchantment_name.json",
                             "description": "ID for enchantment level used for calculation"
                         },
                         "formula": {
@@ -896,15 +896,13 @@
                                 "set_contents"
                             ],
                             "title": "Set contents",
-                            "description": "Populate BlockEntityTag.Items (works for shulker boxes, chests, etc.) with items from entries",
-                            "properties": {
-                                "entries": {
-                                    "type": "array",
-                                    "description": "list of entries (same as in pool)",
-                                    "items": {
-                                        "$ref": "#/definitions/entry"
-                                    }
-                                }
+                            "description": "Populate BlockEntityTag.Items (works for shulker boxes, chests, etc.) with items from entries"
+                        },
+                        "entries": {
+                            "type": "array",
+                            "description": "list of entries (same as in pool)",
+                            "items": {
+                                "$ref": "#/definitions/entry"
                             }
                         }
                     }
@@ -1111,18 +1109,32 @@
             }
         },
         "random": {
-            "$ref": "../shared/range.json",
-            "properties": {
-                "type": {
-                    "enum": [
-                        "minecraft:constant",
-                        "minecraft:uniform",
-                        "minecraft:binomial"
-                    ],
-                    "title": "Type",
-                    "description": "Specify random number generator. If omitted, defaults to uniform"
+            "oneOf": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "min": {
+                            "type": "number"
+                        },
+                        "max": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "enum": [
+                                "minecraft:constant",
+                                "minecraft:uniform",
+                                "minecraft:binomial"
+                            ],
+                            "title": "Type",
+                            "description": "Specify random number generator. If omitted, defaults to uniform"
+                        }
+                    }
                 }
-            }
+            ]
         }
     }
 }

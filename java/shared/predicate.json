@@ -103,7 +103,7 @@
                     "$ref": "../shared/biome_name.json"
                 },
                 "dimension": {
-                    "$ref": "#/definitions/dimension",
+                    "$ref": "./dimension_name.json",
                     "title": "The dimension the location is in"
                 },
                 "feature": {
@@ -209,7 +209,7 @@
                 },
                 "enchantments": {
                     "items": {
-                        "type": "array",
+                        "type": "object",
                         "title": "The enchantments of the item",
                         "additionalProperties": false,
                         "properties": {
@@ -320,13 +320,6 @@
                 },
                 "additionalProperties": false
             }
-        },
-        "dimension": {
-            "enum": [
-                "minecraft:overworld",
-                "minecraft:the_end",
-                "minecraft:the_nether"
-            ]
         }
     }
 }

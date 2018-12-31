@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/data/advancement_strict.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/data/advancement.json",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -218,11 +218,11 @@
                             "description": "All of these conditions must pass for the criteria to be activated",
                             "properties": {
                                 "to": {
-                                    "$ref": "../shared/predicate.json#/definitions/dimension",
+                                    "$ref": "../shared/dimension_name.json",
                                     "title": "Entered dimension"
                                 },
                                 "from": {
-                                    "$ref": "../shared/predicate.json#/definitions/dimension",
+                                    "$ref": "../shared/dimension_name.json",
                                     "title": "Exited dimension"
                                 }
                             }
