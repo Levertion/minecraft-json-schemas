@@ -629,7 +629,7 @@
                             "description": "This entry will give the result of another loot table specified in 'name'. These cannot be self referencing in any way, if they are self referencing, they don't run"
                         },
                         "name": {
-                            "$ref": "../shared/namespaced_location.json",
+                            "$ref": "../shared/resource_location.json",
                             "title": "Loot table",
                             "description": "The loot table to be given"
                         }
@@ -731,7 +731,7 @@
                             "description": "Adds contents of item tag"
                         },
                         "name": {
-                            "$ref": "../shared/namespaced_location.json",
+                            "$ref": "../shared/resource_location.json",
                             "title": "Item tag",
                             "description": "ID of the item tag"
                         },

@@ -47,7 +47,7 @@
                     ]
                 },
                 "background": {
-                    "$ref": "../shared/namespaced_location.json",
+                    "$ref": "../shared/resource_location.json",
                     "title": "Page background texture (Root advancement only [No parent])"
                 },
                 "show_toast": {
@@ -68,7 +68,7 @@
             }
         },
         "parent": {
-            "$ref": "../shared/namespaced_location.json",
+            "$ref": "../shared/resource_location.json",
             "title": "Parent advancement (if not specified and \"display\" is, it will create a new page)"
         },
         "criteria": {
@@ -103,7 +103,7 @@
                     "title": "Recipes",
                     "description": "A list of recipes to give to the player. Uses the same name locator as the `/recipe` command",
                     "items": {
-                        "$ref": "../shared/namespaced_location.json",
+                        "$ref": "../shared/resource_location.json",
                         "title": "A single recipe"
                     }
                 },
@@ -113,7 +113,7 @@
                     "description": "A list of loot tables to give to the player. Uses the path to the loot table (with the first folder within the loot_tables folder being the namespace)",
                     "items": {
                         "title": "A single loot table",
-                        "$ref": "../shared/namespaced_location.json"
+                        "$ref": "../shared/resource_location.json"
                     }
                 },
                 "experience": {
@@ -124,7 +124,7 @@
                 "function": {
                     "title": "A function to run as the player",
                     "description": "A single function to run as the player. Uses the path to the function (with the first folder within thefunction folder being the namespace)",
-                    "$ref": "../shared/namespaced_location.json"
+                    "$ref": "../shared/resource_location.json"
                 }
             }
         }
