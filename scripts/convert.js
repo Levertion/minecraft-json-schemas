@@ -11,21 +11,20 @@ const fs = require('fs')
 const registriesJson = JSON.parse(fs.readFileSync('./registries.json', { encoding: 'utf8' }))
 
 function convert(keyName, fileName) {
-    const arr = []
-    let ans = `{
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/${fileName}.json",
-    "type": "string",
-    "enum": [
-`
-    for (const id in registriesJson[keyName].entries) {
-        arr.push(`        "${id}",`)
+    const ans = {
+        $schema: 'http://json-schema.org/draft-07/schema',
+        $id: 'https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/${fileName}.json',
+        type: 'string',
+        enum: []
     }
-    ans += arr.join('\n').slice(0, -1)
-    ans += `
-    ]
-}`
-    fs.writeFileSync(`../java/shared/${fileName}.json`, ans)
+
+    for (const id in registriesJson[keyName].entries) {
+        ans.enum.push(id)
+    }
+
+    ans.enum.sort()
+    
+    fs.writeFileSync(`../java/shared/${fileName}.json`, JSON.stringify(ans, undefined, 4))
 }
 
 convert('minecraft:sound_event', 'sound_event')

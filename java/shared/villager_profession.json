@@ -1,9 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/villager_profession.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/${fileName}.json",
     "type": "string",
     "enum": [
-        "minecraft:none",
         "minecraft:armorer",
         "minecraft:butcher",
         "minecraft:cartographer",
@@ -15,6 +14,7 @@
         "minecraft:librarian",
         "minecraft:mason",
         "minecraft:nitwit",
+        "minecraft:none",
         "minecraft:shepherd",
         "minecraft:toolsmith",
         "minecraft:weaponsmith"
