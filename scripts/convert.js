@@ -13,7 +13,7 @@ const registriesJson = JSON.parse(fs.readFileSync('./registries.json', { encodin
 function convert(keyName, fileName) {
     const ans = {
         $schema: 'http://json-schema.org/draft-07/schema',
-        $id: 'https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/${fileName}.json',
+        $id: `https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/${fileName}.json`,
         type: 'string',
         enum: []
     }
