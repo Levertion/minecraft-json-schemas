@@ -8,27 +8,27 @@
                 {
                     "properties": {
                         "absolute": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         }
                     }
                 },
                 {
                     "properties": {
                         "x": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         },
                         "y": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         },
                         "z": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         }
                     }
                 },
                 {
                     "properties": {
                         "horizontal": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         }
                     }
                 }
@@ -57,7 +57,7 @@
                     "title": "The nbt of the entity"
                 },
                 "type": {
-                    "$ref": "../shared/entity_name.json",
+                    "$ref": "./entity_name.json",
                     "title": "The type of the entity"
                 },
                 "flags": {
@@ -100,7 +100,7 @@
             "properties": {
                 "biome": {
                     "title": "The biome the location is in",
-                    "$ref": "../shared/biome_name.json"
+                    "$ref": "./biome_name.json"
                 },
                 "dimension": {
                     "$ref": "./dimension_name.json",
@@ -131,13 +131,13 @@
                     "additionalProperties": false,
                     "properties": {
                         "x": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         },
                         "y": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         },
                         "z": {
-                            "$ref": "../shared/range.json"
+                            "$ref": "./range.json"
                         }
                     }
                 }
@@ -147,7 +147,7 @@
             "type": "object",
             "title": "The effects applied. Each key is the effect name",
             "propertyNames": {
-                "$ref": "../shared/effect_name.json"
+                "$ref": "./effect_name.json"
             },
             "additionalProperties": {
                 "type": "object",
@@ -159,7 +159,7 @@
                                 "type": "integer"
                             },
                             {
-                                "$ref": "../shared/range.json"
+                                "$ref": "./range.json"
                             }
                         ]
                     },
@@ -170,7 +170,7 @@
                                 "type": "integer"
                             },
                             {
-                                "$ref": "../shared/range.json"
+                                "$ref": "./range.json"
                             }
                         ]
                     },
@@ -185,7 +185,7 @@
         "item": {
             "properties": {
                 "item": {
-                    "$ref": "../shared/item_name.json",
+                    "$ref": "./item_name.json",
                     "title": "The item ID"
                 },
                 "data": {
@@ -195,15 +195,15 @@
                     "title": "The item metadata"
                 },
                 "durability": {
-                    "$ref": "../shared/range.json",
+                    "$ref": "./range.json",
                     "title": "The remaining durability"
                 },
                 "count": {
-                    "$ref": "../shared/range.json",
+                    "$ref": "./range.json",
                     "title": "The number of items in the stack"
                 },
                 "potion": {
-                    "$ref": "../shared/potion_name.json",
+                    "$ref": "./potion_name.json",
                     "title": "Potion type",
                     "description": "If the item is a potion, check its type"
                 },
@@ -214,11 +214,11 @@
                         "additionalProperties": false,
                         "properties": {
                             "enchantment": {
-                                "$ref": "../shared/enchantment_name.json",
+                                "$ref": "./enchantment_name.json",
                                 "title": "The enchantment name"
                             },
                             "levels": {
-                                "$ref": "../shared/range.json",
+                                "$ref": "./range.json",
                                 "title": "The level of the advancements"
                             }
                         }
@@ -238,7 +238,7 @@
         "block": {
             "properties": {
                 "block": {
-                    "$ref": "../shared/block_name.json",
+                    "$ref": "./block_name.json",
                     "title": "The block name"
                 },
                 "state": {
@@ -254,12 +254,12 @@
             "type": "object",
             "properties": {
                 "dealt": {
-                    "$ref": "../shared/range.json",
+                    "$ref": "./range.json",
                     "title": "How much damage was dealt",
                     "description": "This is calculated before damage reduction (such due to armour)"
                 },
                 "taken": {
-                    "$ref": "../shared/range.json",
+                    "$ref": "./range.json",
                     "title": "How much damage was taken",
                     "description": "This is calculated after damage reduction (such due to armour)"
                 },

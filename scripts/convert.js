@@ -23,7 +23,7 @@ function convert(keyName, fileName) {
     }
 
     ans.enum.sort()
-    
+
     fs.writeFileSync(`../java/shared/${fileName}.json`, JSON.stringify(ans, undefined, 4))
 }
 
