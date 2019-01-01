@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/villager_profession.json",
+    "type": "string",
+    "enum": [
+        "minecraft:armorer",
+        "minecraft:butcher",
+        "minecraft:cartographer",
+        "minecraft:cleric",
+        "minecraft:farmer",
+        "minecraft:fisherman",
+        "minecraft:fletcher",
+        "minecraft:leatherworker",
+        "minecraft:librarian",
+        "minecraft:mason",
+        "minecraft:nitwit",
+        "minecraft:none",
+        "minecraft:shepherd",
+        "minecraft:toolsmith",
+        "minecraft:weaponsmith"
+    ]
+}

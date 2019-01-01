@@ -1,0 +1,325 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/predicate.json",
+    "definitions": {
+        "distance": {
+            "type": "object",
+            "anyOf": [
+                {
+                    "properties": {
+                        "absolute": {
+                            "$ref": "./range.json"
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "x": {
+                            "$ref": "./range.json"
+                        },
+                        "y": {
+                            "$ref": "./range.json"
+                        },
+                        "z": {
+                            "$ref": "./range.json"
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "horizontal": {
+                            "$ref": "./range.json"
+                        }
+                    }
+                }
+            ],
+            "additionalProperties": false
+        },
+        "entity": {
+            "properties": {
+                "distance": {
+                    "$ref": "#/definitions/distance",
+                    "title": "The distance",
+                    "description": "The distance between the entity and another location. Location compared to depends on the trigger"
+                },
+                "effects": {
+                    "$ref": "#/definitions/effect",
+                    "title": "Effects on entity",
+                    "description": "The effects on the entity"
+                },
+                "location": {
+                    "$ref": "#/definitions/location",
+                    "title": "Location",
+                    "description": "Information about the location of the entity"
+                },
+                "nbt": {
+                    "$ref": "#/definitions/nbt_string",
+                    "title": "The nbt of the entity"
+                },
+                "type": {
+                    "$ref": "./entity_name.json",
+                    "title": "The type of the entity"
+                },
+                "flags": {
+                    "type": "object",
+                    "title": "The flags of the entity",
+                    "properties": {
+                        "is_on_fire": {
+                            "type": "boolean",
+                            "title": "Is on fire",
+                            "description": "True if the entity is on fire"
+                        },
+                        "is_sneaking": {
+                            "type": "boolean",
+                            "title": "Is sneaking",
+                            "description": "True if the entity is sneaking"
+                        },
+                        "is_sprinting": {
+                            "type": "boolean",
+                            "title": "Is sprinting",
+                            "description": "True if the entity is sprinting"
+                        },
+                        "is_swimming": {
+                            "type": "boolean",
+                            "title": "Is swimming",
+                            "description": "True if the entity is swimming"
+                        },
+                        "is_baby": {
+                            "type": "boolean",
+                            "title": "Is baby",
+                            "description": "True if the entity is baby"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "biome": {
+                    "title": "The biome the location is in",
+                    "$ref": "./biome_name.json"
+                },
+                "dimension": {
+                    "$ref": "./dimension_name.json",
+                    "title": "The dimension the location is in"
+                },
+                "feature": {
+                    "title": "The structure the location is in",
+                    "enum": [
+                        "Buried_Treasure",
+                        "Desert_Pyramid",
+                        "EndCity",
+                        "Fortress",
+                        "Igloo",
+                        "Jungle_Pyramid",
+                        "Mansion",
+                        "Mineshaft",
+                        "Monument",
+                        "Ocean_Ruin",
+                        "Shipwreck",
+                        "Stronghold",
+                        "Swamp_Hut",
+                        "Village"
+                    ]
+                },
+                "position": {
+                    "title": "The numerical coordinates of the location",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "x": {
+                            "$ref": "./range.json"
+                        },
+                        "y": {
+                            "$ref": "./range.json"
+                        },
+                        "z": {
+                            "$ref": "./range.json"
+                        }
+                    }
+                }
+            }
+        },
+        "effect": {
+            "type": "object",
+            "title": "The effects applied. Each key is the effect name",
+            "propertyNames": {
+                "$ref": "./effect_name.json"
+            },
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "amplifier": {
+                        "title": "The level of the effect",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "$ref": "./range.json"
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "title": "The remaining time of the effect (in ticks)",
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "$ref": "./range.json"
+                            }
+                        ]
+                    },
+                    "visible": {
+                        "type": "boolean",
+                        "title": "Whether the effect is visible"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "item": {
+            "properties": {
+                "item": {
+                    "$ref": "./item_name.json",
+                    "title": "The item ID"
+                },
+                "data": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 15,
+                    "title": "The item metadata"
+                },
+                "durability": {
+                    "$ref": "./range.json",
+                    "title": "The remaining durability"
+                },
+                "count": {
+                    "$ref": "./range.json",
+                    "title": "The number of items in the stack"
+                },
+                "potion": {
+                    "$ref": "./potion_name.json",
+                    "title": "Potion type",
+                    "description": "If the item is a potion, check its type"
+                },
+                "enchantments": {
+                    "items": {
+                        "type": "object",
+                        "title": "The enchantments of the item",
+                        "additionalProperties": false,
+                        "properties": {
+                            "enchantment": {
+                                "$ref": "./enchantment_name.json",
+                                "title": "The enchantment name"
+                            },
+                            "levels": {
+                                "$ref": "./range.json",
+                                "title": "The level of the advancements"
+                            }
+                        }
+                    }
+                },
+                "nbt": {
+                    "$ref": "#/definitions/nbt_string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "nbt_string": {
+            "type": "string",
+            "title": "NBT string",
+            "description": "A string of nbt, which is escaped using the json format (a \\ in front of each \\ or \")"
+        },
+        "block": {
+            "properties": {
+                "block": {
+                    "$ref": "./block_name.json",
+                    "title": "The block name"
+                },
+                "state": {
+                    "type": "object",
+                    "title": "The string values of the block states",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "damage": {
+            "type": "object",
+            "properties": {
+                "dealt": {
+                    "$ref": "./range.json",
+                    "title": "How much damage was dealt",
+                    "description": "This is calculated before damage reduction (such due to armour)"
+                },
+                "taken": {
+                    "$ref": "./range.json",
+                    "title": "How much damage was taken",
+                    "description": "This is calculated after damage reduction (such due to armour)"
+                },
+                "blocked": {
+                    "type": "boolean",
+                    "title": "Shield used",
+                    "description": "Whether the damage was blocked"
+                },
+                "source_entity": {
+                    "$ref": "#/definitions/entity",
+                    "title": "Entity which did the hitting"
+                }
+            },
+            "additionalProperties": false
+        },
+        "damage_flags": {
+            "type": "object",
+            "properties": {
+                "bypasses_armor": {
+                    "type": "boolean"
+                },
+                "bypasses_invulnerability": {
+                    "type": "boolean"
+                },
+                "bypasses_magic": {
+                    "type": "boolean"
+                },
+                "is_explosion": {
+                    "type": "boolean"
+                },
+                "is_fire": {
+                    "type": "boolean"
+                },
+                "is_magic": {
+                    "type": "boolean"
+                },
+                "is_projectile": {
+                    "type": "boolean"
+                },
+                "source_entity": {
+                    "$ref": "#/definitions/entity"
+                },
+                "direct_entity": {
+                    "$ref": "#/definitions/entity"
+                }
+            },
+            "additionalProperties": false
+        },
+        "death": {
+            "properties": {
+                "entity": {
+                    "$ref": "#/definitions/entity",
+                    "title": "The entity which died"
+                },
+                "killing_blow": {
+                    "$ref": "#/definitions/damage_flags",
+                    "title": "Information about the killing blow"
+                },
+                "additionalProperties": false
+            }
+        }
+    }
+}

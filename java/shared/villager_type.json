@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/villager_type.json",
+    "type": "string",
+    "enum": [
+        "minecraft:desert",
+        "minecraft:jungle",
+        "minecraft:plains",
+        "minecraft:savanna",
+        "minecraft:snow",
+        "minecraft:swamp",
+        "minecraft:taiga"
+    ]
+}

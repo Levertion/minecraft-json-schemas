@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/data/advancement_strict.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/data/advancement.json",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -40,10 +40,14 @@
                     "type": "string",
                     "title": "Advancement frame",
                     "description": "The frame of the advancement. Task is the default frame, goal represents an objective, challenge represents a (difficult) challenge",
-                    "enum": ["challenge", "task", "goal"]
+                    "enum": [
+                        "challenge",
+                        "task",
+                        "goal"
+                    ]
                 },
                 "background": {
-                    "$ref": "../shared/namespaced_location.json",
+                    "$ref": "../shared/resource_location.json",
                     "title": "Page background texture (Root advancement only [No parent])"
                 },
                 "show_toast": {
@@ -64,7 +68,7 @@
             }
         },
         "parent": {
-            "$ref": "../shared/namespaced_location.json",
+            "$ref": "../shared/resource_location.json",
             "title": "Parent advancement (if not specified and \"display\" is, it will create a new page)"
         },
         "criteria": {
@@ -99,7 +103,7 @@
                     "title": "Recipes",
                     "description": "A list of recipes to give to the player. Uses the same name locator as the `/recipe` command",
                     "items": {
-                        "$ref": "../shared/namespaced_location.json",
+                        "$ref": "../shared/resource_location.json",
                         "title": "A single recipe"
                     }
                 },
@@ -109,7 +113,7 @@
                     "description": "A list of loot tables to give to the player. Uses the path to the loot table (with the first folder within the loot_tables folder being the namespace)",
                     "items": {
                         "title": "A single loot table",
-                        "$ref": "../shared/namespaced_location.json"
+                        "$ref": "../shared/resource_location.json"
                     }
                 },
                 "experience": {
@@ -120,7 +124,7 @@
                 "function": {
                     "title": "A function to run as the player",
                     "description": "A single function to run as the player. Uses the path to the function (with the first folder within thefunction folder being the namespace)",
-                    "$ref": "../shared/namespaced_location.json"
+                    "$ref": "../shared/resource_location.json"
                 }
             }
         }
@@ -132,7 +136,9 @@
                     "default": ""
                 }
             },
-            "required": ["trigger"],
+            "required": [
+                "trigger"
+            ],
             "type": "object",
             "oneOf": [
                 {
@@ -140,7 +146,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:bred_animals"],
+                            "enum": [
+                                "minecraft:bred_animals"
+                            ],
                             "title": "Breed animals",
                             "description": "This criteria will be checked whenever the player breeds two animals"
                         },
@@ -151,16 +159,16 @@
                             "description": "All of these conditions must pass for the criteria to be activated",
                             "properties": {
                                 "parent": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against either of the parents",
                                     "description": "Using both parent and partner is only useful when using horses/donkeys"
                                 },
                                 "partner": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against either of the parents"
                                 },
                                 "child": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Conditions to test against the child entity"
                                 }
                             }
@@ -172,7 +180,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:brewed_potion"],
+                            "enum": [
+                                "minecraft:brewed_potion"
+                            ],
                             "title": "Brew a potion",
                             "description": "This criteria will be checked whenever the player brews a potion"
                         },
@@ -195,7 +205,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:changed_dimension"],
+                            "enum": [
+                                "minecraft:changed_dimension"
+                            ],
                             "title": "Change dimension",
                             "description": "This criteria will be checked whenever the player changes dimension (such as by going through a portal)"
                         },
@@ -206,11 +218,11 @@
                             "description": "All of these conditions must pass for the criteria to be activated",
                             "properties": {
                                 "to": {
-                                    "$ref": "#/definitions/dimension",
+                                    "$ref": "../shared/dimension_name.json",
                                     "title": "Entered dimension"
                                 },
                                 "from": {
-                                    "$ref": "#/definitions/dimension",
+                                    "$ref": "../shared/dimension_name.json",
                                     "title": "Exited dimension"
                                 }
                             }
@@ -222,7 +234,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:construct_beacon"],
+                            "enum": [
+                                "minecraft:construct_beacon"
+                            ],
                             "title": "Build a beacon",
                             "description": "This criteria will be checked whenever the player is near a beacon when it's level changes"
                         },
@@ -259,7 +273,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "Item",
                                     "description": "This will be checked against the item used up"
                                 }
@@ -272,7 +286,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:cured_zombie_villager"],
+                            "enum": [
+                                "minecraft:cured_zombie_villager"
+                            ],
                             "title": "Cure a zombie villager",
                             "description": "This criteria will be checked whenever the player uses a splash weakness potion and a golden apple to cure a villager"
                         },
@@ -283,11 +299,11 @@
                             "type": "object",
                             "properties": {
                                 "zombie": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Information about the zombie villager"
                                 },
                                 "villager": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "Information about villager cured into"
                                 }
                             }
@@ -299,7 +315,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:effects_changed"],
+                            "enum": [
+                                "minecraft:effects_changed"
+                            ],
                             "title": "Changed effects",
                             "description": "This criteria will be checked whenever the potion effects on the player change"
                         },
@@ -310,7 +328,7 @@
                             "type": "object",
                             "properties": {
                                 "effects": {
-                                    "$ref": "#/definitions/effect",
+                                    "$ref": "../shared/predicate.json#/definitions/effect",
                                     "title": "The potion effects of the player"
                                 }
                             }
@@ -322,7 +340,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:enchanted_item"],
+                            "enum": [
+                                "minecraft:enchanted_item"
+                            ],
                             "title": "Enchanted an item",
                             "description": "This criteria will be checked whenever the player enchanted an item"
                         },
@@ -333,7 +353,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item enchanted"
                                 },
                                 "levels": {
@@ -349,7 +369,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:enter_block"],
+                            "enum": [
+                                "minecraft:enter_block"
+                            ],
                             "title": "Enter a block",
                             "description": "This criteria will be checked whenever the player moves"
                         },
@@ -357,7 +379,7 @@
                             "additionalProperties": false,
                             "title": "The block to check",
                             "description": "The block which was entered to check the trigger",
-                            "$ref": "#/definitions/block"
+                            "$ref": "../shared/predicate.json#/definitions/block"
                         }
                     }
                 },
@@ -366,7 +388,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:entity_hurt_player"],
+                            "enum": [
+                                "minecraft:entity_hurt_player"
+                            ],
                             "title": "Entity hurt the player",
                             "description": "This criteria will be checked whenever the player is hurt by an entity"
                         },
@@ -377,7 +401,7 @@
                             "type": "object",
                             "properties": {
                                 "damage": {
-                                    "$ref": "#/definitions/damage",
+                                    "$ref": "../shared/predicate.json#/definitions/damage",
                                     "title": "The damage taken"
                                 }
                             }
@@ -389,7 +413,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:player_hurt_entity"],
+                            "enum": [
+                                "minecraft:player_hurt_entity"
+                            ],
                             "title": "The player hurt an entity",
                             "description": "This criteria will be checked whenever an entity hurt the player"
                         },
@@ -400,11 +426,11 @@
                             "type": "object",
                             "properties": {
                                 "damage": {
-                                    "$ref": "#/definitions/damage",
+                                    "$ref": "../shared/predicate.json#/definitions/damage",
                                     "title": "The damage taken"
                                 },
                                 "entity": {
-                                    "$ref": "#/definitions/entity"
+                                    "$ref": "../shared/predicate.json#/definitions/entity"
                                 }
                             }
                         }
@@ -426,7 +452,7 @@
                             "additionalProperties": false,
                             "title": "The death object",
                             "description": "The conditions object is a direct reference to a death object",
-                            "$ref": "#/definitions/death"
+                            "$ref": "../shared/predicate.json#/definitions/death"
                         }
                     }
                 },
@@ -435,7 +461,10 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:impossible", "minecraft:tick"],
+                            "enum": [
+                                "minecraft:impossible",
+                                "minecraft:tick"
+                            ],
                             "title": "Conditionless criteria",
                             "description": "The impossible trigger can be only granted with a command, the tick trigger is given once each tick"
                         }
@@ -446,7 +475,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:inventory_changed"],
+                            "enum": [
+                                "minecraft:inventory_changed"
+                            ],
                             "title": "Inventory contents change",
                             "description": "This criteria will be checked whenever the items in the inventory of the player change. This includes moving slots etc."
                         },
@@ -479,7 +510,7 @@
                                 "items": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/item"
+                                        "$ref": "../shared/predicate.json#/definitions/item"
                                     }
                                 }
                             }
@@ -491,7 +522,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:item_durability_changed"],
+                            "enum": [
+                                "minecraft:item_durability_changed"
+                            ],
                             "title": "Changed durability",
                             "description": "This criteria will be checked whenever the durability of an item in the inventory of a player changes"
                         },
@@ -502,7 +535,7 @@
                             "type": "object",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item",
                                     "description": "The item whose durability changed"
                                 },
@@ -525,7 +558,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:levitation"],
+                            "enum": [
+                                "minecraft:levitation"
+                            ],
                             "description": "This criteria will be checked whenever the player is levitating"
                         },
                         "conditions": {
@@ -540,7 +575,7 @@
                                     "description": "The amount of time (in ticks) that the player must have been levitating"
                                 },
                                 "distance": {
-                                    "$ref": "#/definitions/distance",
+                                    "$ref": "../shared/predicate.json#/definitions/distance",
                                     "title": "Distance travelled",
                                     "description": "How far the player must have travelled whilst under the effect of the levitation"
                                 }
@@ -563,7 +598,7 @@
                             "additionalProperties": false,
                             "title": "Location of the player",
                             "description": "The location of the player at the time of checking (for \"slept_in_bed\" this is just after they went to sleep)",
-                            "$ref": "#/definitions/location"
+                            "$ref": "../shared/predicate.json#/definitions/location"
                         }
                     }
                 },
@@ -572,7 +607,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:nether_travel"],
+                            "enum": [
+                                "minecraft:nether_travel"
+                            ],
                             "description": "This criteria will be checked every 20 ticks"
                         },
                         "conditions": {
@@ -582,17 +619,17 @@
                             "type": "object",
                             "properties": {
                                 "entered": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Entering the nether",
                                     "description": "Where the player entered the nether (into the overworld)"
                                 },
                                 "exited": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Exit portal location",
                                     "description": "Where the player left the nether (into the overworld)"
                                 },
                                 "distance": {
-                                    "$ref": "#/definitions/distance",
+                                    "$ref": "../shared/predicate.json#/definitions/distance",
                                     "title": "Distance travelled through the nether",
                                     "description": "The distance between the entry nether portal and the exit nether portal (in the overworld)"
                                 }
@@ -605,23 +642,25 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:placed_block"],
+                            "enum": [
+                                "minecraft:placed_block"
+                            ],
                             "title": "Placing blocks",
                             "description": "This criteria will be checked whenever the player places a block"
                         },
                         "conditions": {
-                            "$ref": "#/definitions/block",
+                            "$ref": "../shared/predicate.json#/definitions/block",
                             "additionalProperties": false,
                             "title": "Required conditions",
                             "description": "The placed block",
                             "properties": {
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "Item placed",
                                     "description": "The item placed to create the block"
                                 },
                                 "location": {
-                                    "$ref": "#/definitions/location",
+                                    "$ref": "../shared/predicate.json#/definitions/location",
                                     "title": "Location of block",
                                     "description": "The location at which the block is placed"
                                 }
@@ -634,7 +673,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:recipe_unlocked"],
+                            "enum": [
+                                "minecraft:recipe_unlocked"
+                            ],
                             "title": "Unlock recipe",
                             "description": "This criteria will be checked whenever the player unlocks a recipe"
                         },
@@ -672,7 +713,7 @@
                             "type": "object",
                             "properties": {
                                 "entity": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "The entity summmoned"
                                 }
                             }
@@ -684,7 +725,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:used_ender_eye"],
+                            "enum": [
+                                "minecraft:used_ender_eye"
+                            ],
                             "title": "Use eye of ender",
                             "description": "This criteria will be checked whenever the player uses an eye of ender"
                         },
@@ -708,7 +751,9 @@
                     "properties": {
                         "trigger": {
                             "type": "string",
-                            "enum": ["minecraft:villager_trade"],
+                            "enum": [
+                                "minecraft:villager_trade"
+                            ],
                             "title": "Trade with a villager",
                             "description": "This criteria will be checked whenever the player trades with a villager"
                         },
@@ -719,11 +764,11 @@
                             "type": "object",
                             "properties": {
                                 "villager": {
-                                    "$ref": "#/definitions/entity",
+                                    "$ref": "../shared/predicate.json#/definitions/entity",
                                     "title": "The villager traded with"
                                 },
                                 "item": {
-                                    "$ref": "#/definitions/item",
+                                    "$ref": "../shared/predicate.json#/definitions/item",
                                     "title": "The item which was purchased"
                                 }
                             }
@@ -731,297 +776,6 @@
                     }
                 }
             ]
-        },
-        "distance": {
-            "type": "object",
-            "anyOf": [
-                {
-                    "properties": {
-                        "absolute": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "x": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "y": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "z": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "horizontal": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                }
-            ],
-            "additionalProperties": false
-        },
-        "entity": {
-            "properties": {
-                "distance": {
-                    "$ref": "#/definitions/distance",
-                    "title": "The distance",
-                    "description": "The distance between the entity and another location. Location compared to depends on the trigger"
-                },
-                "effects": {
-                    "$ref": "#/definitions/effect",
-                    "title": "Effects on entity",
-                    "description": "The effects on the entity"
-                },
-                "location": {
-                    "$ref": "#/definitions/location",
-                    "title": "Location",
-                    "description": "Information about the location of the entity"
-                },
-                "nbt": {
-                    "$ref": "#/definitions/nbt_string",
-                    "title": "The nbt of the entity"
-                },
-                "type": {
-                    "$ref": "../shared/entity_name.json",
-                    "title": "The type of the entity"
-                }
-            },
-            "additionalProperties": false
-        },
-        "location": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "biome": {
-                    "title": "The biome the location is in",
-                    "$ref": "../shared/biome_name.json"
-                },
-                "dimension": {
-                    "$ref": "#/definitions/dimension",
-                    "title": "The dimension the location is in"
-                },
-                "structure": {
-                    "title": "The structure the location is in",
-                    "enum": [
-                        "Buried_Treasure",
-                        "Desert_Pyramid",
-                        "EndCity",
-                        "Fortress",
-                        "Igloo",
-                        "Jungle_Pyramid",
-                        "Mansion",
-                        "Mineshaft",
-                        "Monument",
-                        "Ocean_Ruin",
-                        "Shipwreck",
-                        "Stronghold",
-                        "Swamp_Hut",
-                        "Village"
-                    ]
-                },
-                "position": {
-                    "title": "The numerical coordinates of the location",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "x": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "y": {
-                            "$ref": "../shared/range.json"
-                        },
-                        "z": {
-                            "$ref": "../shared/range.json"
-                        }
-                    }
-                }
-            }
-        },
-        "effect": {
-            "type": "object",
-            "title": "The effects applied. Each key is the effect name",
-            "propertyNames": {
-                "$ref": "../shared/effect_name.json"
-            },
-            "additionalProperties": {
-                "type": "object",
-                "properties": {
-                    "amplifier": {
-                        "title": "The level of the effect",
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "$ref": "../shared/range.json"
-                            }
-                        ]
-                    },
-                    "duration": {
-                        "title": "The remaining time of the effect (in ticks)",
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "$ref": "../shared/range.json"
-                            }
-                        ]
-                    },
-                    "visible": {
-                        "type": "boolean",
-                        "title": "Whether the effect is visible"
-                    }
-                },
-                "additionalProperties": false
-            }
-        },
-        "item": {
-            "properties": {
-                "item": {
-                    "$ref": "../shared/item_name.json",
-                    "title": "The item ID"
-                },
-                "data": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 15,
-                    "title": "The item metadata"
-                },
-                "durability": {
-                    "$ref": "../shared/range.json",
-                    "title": "The remaining durability"
-                },
-                "count": {
-                    "$ref": "../shared/range.json",
-                    "title": "The number of items in the stack"
-                },
-                "potion": {
-                    "$ref": "../shared/potion_name.json",
-                    "title": "Potion type",
-                    "description": "If the item is a potion, check its type"
-                },
-                "enchantments": {
-                    "items": {
-                        "type": "array",
-                        "title": "The enchantments of the item",
-                        "additionalProperties": false,
-                        "properties": {
-                            "enchantment": {
-                                "$ref": "../shared/enchantment_name.json",
-                                "title": "The enchantment name"
-                            },
-                            "levels": {
-                                "$ref": "../shared/range.json",
-                                "title": "The level of the advancements"
-                            }
-                        }
-                    }
-                },
-                "nbt": {
-                    "$ref": "#/definitions/nbt_string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "nbt_string": {
-            "type": "string",
-            "title": "NBT string",
-            "description": "A string of nbt, which is escaped using the json format (a \\ in front of each \\ or \")"
-        },
-        "block": {
-            "properties": {
-                "block": {
-                    "$ref": "../shared/block_name.json",
-                    "title": "The block name"
-                },
-                "state": {
-                    "type": "object",
-                    "title": "The string values of the block states",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "damage": {
-            "type": "object",
-            "properties": {
-                "dealt": {
-                    "$ref": "../shared/range.json",
-                    "title": "How much damage was dealt",
-                    "description": "This is calculated before damage reduction (such due to armour)"
-                },
-                "taken": {
-                    "$ref": "../shared/range.json",
-                    "title": "How much damage was taken",
-                    "description": "This is calculated after damage reduction (such due to armour)"
-                },
-                "blocked": {
-                    "type": "boolean",
-                    "title": "Shield used",
-                    "description": "Whether the damage was blocked"
-                },
-                "source_entity": {
-                    "$ref": "#/definitions/entity",
-                    "title": "Entity which did the hitting"
-                }
-            },
-            "additionalProperties": false
-        },
-        "damage_flags": {
-            "type": "object",
-            "properties": {
-                "bypasses_armor": {
-                    "type": "boolean"
-                },
-                "bypasses_invulnerability": {
-                    "type": "boolean"
-                },
-                "bypasses_magic": {
-                    "type": "boolean"
-                },
-                "is_explosion": {
-                    "type": "boolean"
-                },
-                "is_fire": {
-                    "type": "boolean"
-                },
-                "is_magic": {
-                    "type": "boolean"
-                },
-                "is_projectile": {
-                    "type": "boolean"
-                },
-                "source_entity": {
-                    "$ref": "#/definitions/entity"
-                },
-                "direct_entity": {
-                    "$ref": "#/definitions/entity"
-                }
-            },
-            "additionalProperties": false
-        },
-        "death": {
-            "properties": {
-                "entity": {
-                    "$ref": "#/definitions/entity",
-                    "title": "The entity which died"
-                },
-                "killing_blow": {
-                    "$ref": "#/definitions/damage_flags",
-                    "title": "Information about the killing blow"
-                },
-                "additionalProperties": false
-            }
-        },
-        "dimension": {
-            "enum": ["overworld", "the_end", "the_nether"]
         }
     }
 }

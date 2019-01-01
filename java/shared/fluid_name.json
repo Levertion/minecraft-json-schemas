@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/fluid_name.json",
+    "type": "string",
+    "enum": [
+        "minecraft:empty",
+        "minecraft:flowing_lava",
+        "minecraft:flowing_water",
+        "minecraft:lava",
+        "minecraft:water"
+    ]
+}
