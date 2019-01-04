@@ -2,5 +2,90 @@
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/model.json",
     "type": "object",
-    "properties": {}
+    "additionalProperties": true,
+    "properties": {
+        "parent": {
+            "examples": [
+                "item/stone",
+                "foo:block/bar"
+            ],
+            "title": "Set the parent model for the current model. If 'elements' is defined, it will override the 'elements' which extends from the parent.",
+            "oneOf": [
+                {
+                    "enum": [
+                        "builtin/generated"
+                    ],
+                    "description": "Use texture defined in '#layer0' to create a model"
+                },
+                {
+                    "enum": [
+                        "builtin/entity"
+                    ],
+                    "description": "Load a model from an entity file (only for chests, ender chests, mob heads, shields and banners)"
+                },
+                {
+                    "enum": [
+                        "builtin/compass"
+                    ],
+                    "description": "For the compass"
+                },
+                {
+                    "enum": [
+                        "builtin/clock"
+                    ],
+                    "description": "For the clock"
+                },
+                {
+                    "$ref": "../shared/resource_location.json",
+                    "description": "A specific model location"
+                }
+            ]
+        },
+        "ambientocclusion": {
+            "type": "boolean",
+            "title": "(Block models only) True if you want to use ambient occlusion",
+            "examples": [
+                true,
+                false
+            ]
+        },
+        "textures": {
+            "type": "object",
+            "examples": [
+                {}
+            ],
+            "title": "Define texture variables",
+            "properties": {
+                "particle": {
+                    "$ref": "#/definitions/texture",
+                    "description": "The texture of particles"
+                }
+            },
+            "additionalProperties": {
+                "pattern": "^[a-z_\\-/]+$"
+            }
+        },
+        "display": {}
+    },
+    "definitions": {
+        "texture": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "examples": [
+                        "item/stone"
+                    ],
+                    "$ref": "../shared/resource_location.json",
+                    "title": "A specific texture location"
+                },
+                {
+                    "examples": [
+                        "#layer0"
+                    ],
+                    "pattern": "^#[a-z_\\-/]+$",
+                    "title": "Another texture variable"
+                }
+            ]
+        }
+    }
 }
