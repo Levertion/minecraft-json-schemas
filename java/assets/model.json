@@ -1,15 +1,18 @@
 {
+    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Model",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/model.json",
     "type": "object",
-    "additionalProperties": true,
+    "additionalProperties": false,
     "properties": {
         "parent": {
+            "type": "string",
             "examples": [
-                "item/stone",
+                "item/diamond",
                 "foo:block/bar"
             ],
-            "title": "Set the parent model for the current model. If 'elements' is defined, it will override the 'elements' which extends from the parent.",
+            "title": "Set the parent model for the current model.",
+            "description": "If 'elements' is defined, it will override the 'elements' which extends from the parent.",
             "oneOf": [
                 {
                     "enum": [
@@ -43,17 +46,10 @@
         },
         "ambientocclusion": {
             "type": "boolean",
-            "title": "(Block models only) True if you want to use ambient occlusion",
-            "examples": [
-                true,
-                false
-            ]
+            "title": "(Block models only) True if you want to use ambient occlusion"
         },
         "textures": {
             "type": "object",
-            "examples": [
-                {}
-            ],
             "title": "Define texture variables",
             "properties": {
                 "particle": {
@@ -62,10 +58,253 @@
                 }
             },
             "additionalProperties": {
+                "$ref": "#/definitions/texture",
+                "description": "A custom texture variable"
+            },
+            "propertyNames": {
                 "pattern": "^[a-z_\\-/]+$"
             }
         },
-        "display": {}
+        "display": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "thirdperson_righthand": {
+                    "$ref": "#/definitions/position"
+                },
+                "thirdperson_lefthand": {
+                    "$ref": "#/definitions/position"
+                },
+                "firstperson_righthand": {
+                    "$ref": "#/definitions/position"
+                },
+                "firstperson_lefthand": {
+                    "$ref": "#/definitions/position"
+                },
+                "gui": {
+                    "$ref": "#/definitions/position"
+                },
+                "head": {
+                    "$ref": "#/definitions/position"
+                },
+                "ground": {
+                    "$ref": "#/definitions/position"
+                },
+                "fixed": {
+                    "$ref": "#/definitions/position",
+                    "description": "Refer to item frames"
+                }
+            },
+            "title": "Hold the rotation, translation and scale for the specified situation"
+        },
+        "elements": {
+            "type": "array",
+            "title": "Contains all the elements of the model",
+            "description": "If both 'parent' and 'elements' are set, the 'elements' tag overrides the 'elements' tag from the previous model",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "from": {
+                        "$ref": "#/definitions/vec3",
+                        "title": "Start point of a cube",
+                        "description": "Values must be between -16 and 32"
+                    },
+                    "to": {
+                        "$ref": "#/definitions/vec3",
+                        "title": "Stop point of a cube",
+                        "description": "Values must be between -16 and 32"
+                    },
+                    "rotation": {
+                        "type": "object",
+                        "title": "The rotation of the element",
+                        "additionalProperties": false,
+                        "properties": {
+                            "origin": {
+                                "$ref": "#/definitions/vec3",
+                                "title": "The center of the rotation"
+                            },
+                            "axis": {
+                                "type": "string",
+                                "enum": [
+                                    "x",
+                                    "y",
+                                    "z"
+                                ],
+                                "title": "The direction of rotation"
+                            },
+                            "angle": {
+                                "type": "number",
+                                "enum": [
+                                    -45,
+                                    -22.5,
+                                    0,
+                                    22.5,
+                                    45
+                                ],
+                                "title": "The angle of rotation"
+                            },
+                            "rescale": {
+                                "type": "boolean",
+                                "title": "Whether or not to scale the faces across the whole block",
+                                "examples": [
+                                    false
+                                ]
+                            }
+                        }
+                    },
+                    "shade": {
+                        "type": "boolean",
+                        "title": "If shadows are rendered",
+                        "examples": [
+                            true
+                        ]
+                    },
+                    "faces": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "down": {
+                                "$ref": "#/definitions/face"
+                            },
+                            "up": {
+                                "$ref": "#/definitions/face"
+                            },
+                            "east": {
+                                "$ref": "#/definitions/face"
+                            },
+                            "west": {
+                                "$ref": "#/definitions/face"
+                            },
+                            "south": {
+                                "$ref": "#/definitions/face"
+                            },
+                            "north": {
+                                "$ref": "#/definitions/face"
+                            }
+                        },
+                        "title": "Hold all the faces of the cube. If a face is left out, it will not be rendered"
+                    }
+                }
+            }
+        },
+        "overrides": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "predicate": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "angle": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximun": 1,
+                                "title": "Used on compasses to determine the current angle",
+                                "description": "Expressed in a decimal value of less than one"
+                            },
+                            "blocking": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on shields to determine if currently blocking"
+                            },
+                            "broken": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on Elytra to determine if broken"
+                            },
+                            "cast": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on fishing rods to determine if the fishing rod has been cast"
+                            },
+                            "cooldown": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximun": 1,
+                                "title": "Used on ender pearls and chorus fruit to determine the remaining cooldown",
+                                "description": "Expressed in a decimal value of less than one"
+                            },
+                            "damage": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximun": 1,
+                                "title": "Used on items with durability to determine the amount of damage",
+                                "description": "Expressed in a decimal value of less than one"
+                            },
+                            "damaged": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on items with durability to determine if it is damaged",
+                                "description": "If an item has the unbreakable tag, this may be 0 while the item has a non-zero 'damage' tag"
+                            },
+                            "lefthanded": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Determine the model used by left handed players"
+                            },
+                            "pull": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximun": 1,
+                                "title": "Determine the amount a bow has been pulled",
+                                "description": "Expressed in a decimal value of less than one"
+                            },
+                            "pulling": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on bows to determine if the bow is being pulled"
+                            },
+                            "throwing": {
+                                "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Used on the trident to determine if the trident is ready to be thrown by the player"
+                            },
+                            "time": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximun": 1,
+                                "title": "Used on clocks to determine the current time",
+                                "description": "Expressed in a decimal value of less than one"
+                            },
+                            "custom_model_data": {
+                                "type": "integer",
+                                "title": "Used on any item to apply custom model"
+                            }
+                        }
+                    },
+                    "model": {
+                        "$ref": "../shared/resource_location.json",
+                        "title": "The path to the model to use if the case is met"
+                    }
+                },
+                "title": "A single case"
+            },
+            "title": "Determine cases which a different model should be used based on item tags"
+        }
     },
     "definitions": {
         "texture": {
@@ -86,6 +325,86 @@
                     "title": "Another texture variable"
                 }
             ]
+        },
+        "position": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "rotation": {
+                    "$ref": "#/definitions/vec3",
+                    "title": "Set the rotation of the model"
+                },
+                "translation": {
+                    "$ref": "#/definitions/vec3",
+                    "title": "Set the position of the model. If the value is greater than 80, it is displayed as 80. If the value is less then -80, it is displayed as -80"
+                },
+                "scale": {
+                    "$ref": "#/definitions/vec3",
+                    "title": "Set the scale of the model. If the value is greater than 4, it is displayed as 4"
+                }
+            },
+            "title": "Translations are applied to the model before rotations"
+        },
+        "vec3": {
+            "type": "array",
+            "minLength": 3,
+            "maxLength": 3,
+            "items": {
+                "type": "number"
+            }
+        },
+        "face": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uv": {
+                    "$ref": "#/definitions/vec4",
+                    "title": "Define the area of the texture to use"
+                },
+                "texture": {
+                    "$ref": "#/definitions/texture",
+                    "title": "Set the texture"
+                },
+                "cullface": {
+                    "type": "string",
+                    "enum": [
+                        "down",
+                        "up",
+                        "east",
+                        "west",
+                        "south",
+                        "north"
+                    ],
+                    "title": "Set whether a face does not need to be rendered when there is a block touching it in the specified position"
+                },
+                "rotation": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        90,
+                        180,
+                        270
+                    ],
+                    "examples": [
+                        0
+                    ],
+                    "title": "Rotate the texture by the specified number of degrees"
+                },
+                "tintindex": {
+                    "type": "integer",
+                    "title": "Determine whether to tint the texture using a hardcoded tint index",
+                    "description": "The default is not using the tint, and any number causes it to use tint. Note that only certain blocks have a tint index, all others will be unaffected"
+                }
+            },
+            "title": "Set the properties of the specified face"
+        },
+        "vec4": {
+            "type": "array",
+            "minLength": 4,
+            "maxLength": 4,
+            "items": {
+                "type": "number"
+            }
         }
     }
 }
