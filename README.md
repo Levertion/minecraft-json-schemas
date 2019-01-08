@@ -18,14 +18,14 @@ At the moment, the following schemas are provided in the `java` folder:
 3. `*.mcmeta` animation files
 4. Loot tables
 5. `sounds.json`
-1. Models
+6. Models
+7. Recipes
 
 ### Future plans
 
 The following files should be supported in the future
 
-1. Recipes
-2. Bedrock schemas
+1. Bedrock schemas
 
 ## License
 
