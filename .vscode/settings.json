@@ -29,6 +29,10 @@
             "url": "/java/data/loot_table.json"
         },
         {
+            "fileMatch": ["/playground/recipes/*.json"],
+            "url": "/java/data/recipe.json"
+        },
+        {
             "fileMatch": ["/playground/resource-pack-mcmeta/*.mcmeta"],
             "url": "/java/assets/pack.mcmeta.json"
         }
