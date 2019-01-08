@@ -1,0 +1,199 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table.json",
+    "type": "object",
+    "title": "Root tag",
+    "properties": {
+        "type": {
+            "title": "The type of crafting recipe",
+            "oneOf": [
+                {
+                    "enum": [
+                        "crafting_shaped"
+                    ],
+                    "description": "Recipe for shaped crafting"
+                },
+                {
+                    "enum": [
+                        "crafting_shapeless"
+                    ],
+                    "description": "Recipe for shapeless crafting"
+                },
+                {
+                    "enum": [
+                        "smelting"
+                    ],
+                    "description": "Recipe for smelting"
+                },
+                {
+                    "enum": [
+                        "smoking"
+                    ],
+                    "description": "Recipe for smoking"
+                },
+                {
+                    "enum": [
+                        "blasting"
+                    ],
+                    "description": "Recipe for blasting"
+                }
+            ]
+        },
+        "group": {
+            "type": "string",
+            "title": "An identifier. Used to group multiple recipes together in the recipe book",
+            "pattern": "^\\w+$"
+        }
+    },
+    "if": {
+        "properties": {
+            "type": {
+                "enum": [
+                    "crafting_shaped"
+                ]
+            }
+        }
+    },
+    "then": {
+        "properties": {
+            "pattern": {
+                "type": "array",
+                "title": "A list of keys used to describe the 3x3 pattern for shaped crafting",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                    "type": "string",
+                    "pattern": "^.{1,3}$"
+                }
+            },
+            "key": {
+                "type": "object",
+                "title": "All keys used for shaped crafting",
+                "additionalProperties": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/input",
+                            "description": "The single character representing this item"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/input"
+                            },
+                            "description": "The single character representing these possible items"
+                        }
+                    ]
+                },
+                "propertyNames": {
+                    "type": "string",
+                    "pattern": "^.$"
+                }
+            },
+            "result": {
+                "$ref": "#/definitions/craft_result"
+            }
+        }
+    },
+    "else": {
+        "if": {
+            "properties": {
+                "type": {
+                    "enum": [
+                        "crafting_shapeless"
+                    ]
+                }
+            }
+        },
+        "then": {
+            "properties": {
+                "ingredients": {
+                    "type": "array",
+                    "title": "A list of ingredients.",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/input",
+                                "description": "An ingridient"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/input"
+                                },
+                                "description": "List of possible ingridients"
+                            }
+                        ]
+                    }
+                },
+                "result": {
+                    "$ref": "#/definitions/craft_result"
+                }
+            }
+        },
+        "else": {
+            "properties": {
+                "ingredient": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/input",
+                            "title": "The ingredient"
+                        },
+                        {
+                            "type": "array",
+                            "title": "The list of ingredients",
+                            "items": {
+                                "$ref": "#/definitions/input"
+                            }
+                        }
+                    ]
+                },
+                "result": {
+                    "$ref": "../shared/item_name.json",
+                    "title": "An item ID. The output item of a smelting recipe"
+                },
+                "experience": {
+                    "type": "number",
+                    "title": "The output experience of a smelting recipe"
+                },
+                "cookingtime": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "title": "The cook time of a smelting recipe in ticks"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "input": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "item": {
+                    "$ref": "../shared/item_name.json",
+                    "title": "An item ID"
+                },
+                "tag": {
+                    "$ref": "../shared/resource_location.json",
+                    "title": "An datapack item tag"
+                }
+            }
+        },
+        "craft_result": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "item": {
+                    "$ref": "../shared/item_name.json",
+                    "title": "An item ID"
+                },
+                "count": {
+                    "type": "integer",
+                    "title": "The amount of the item"
+                }
+            }
+        }
+    },
+    "required": [
+        "type "
+    ]
+}
