@@ -1,0 +1,30 @@
+{
+    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Tag",
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/block.json",
+    "type": "object",
+    "title": "Root tag",
+    "additionalProperties": false,
+    "properties": {
+        "replace": {
+            "type": "boolean",
+            "title": "Whether or not this tag should completely replace tags from different lower priority data packs with the same namespace and name"
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "../../shared/block_name.json",
+                        "description": "A block ID"
+                    },
+                    {
+                        "$ref": "../../shared/tag_location.json",
+                        "description": "A block tag"
+                    }
+                ]
+            },
+            "title": "A list of blocks"
+        }
+    }
+}

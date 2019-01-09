@@ -1,6 +1,7 @@
 {
+    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Recipe",
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/loot_table.json",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/recipe.json",
     "type": "object",
     "title": "Root tag",
     "properties": {
