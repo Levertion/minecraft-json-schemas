@@ -8,7 +8,7 @@
     "properties": {
         "replace": {
             "type": "boolean",
-            "title": "Whether or not this tag should completely replace tags from different lower priority data packs with the same namespace and name"
+            "title": "If true, fluids in this file will compeletely replace fluids of the same tag from lower priority datapacks"
         },
         "values": {
             "type": "array",

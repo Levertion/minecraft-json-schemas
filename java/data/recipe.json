@@ -1,5 +1,5 @@
 {
-    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Recipe",
+    "$comment": "Some descriptions in this file are from https://github.com/skylinerw/guides/blob/master/java/recipes.md",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/recipe.json",
     "type": "object",
@@ -10,8 +10,7 @@
         },
         "group": {
             "type": "string",
-            "title": "An identifier. Used to group multiple recipes together in the recipe book",
-            "pattern": "^\\w+$"
+            "title": "All recipes that have the same 'group' will be shown together in the recipe book"
         }
     },
     "oneOf": [
@@ -27,7 +26,7 @@
                 "group": {},
                 "pattern": {
                     "type": "array",
-                    "title": "A list of keys used to describe the 3x3 pattern for shaped crafting",
+                    "title": "The shape that items must be put in",
                     "minItems": 1,
                     "maxItems": 3,
                     "items": {
@@ -37,7 +36,9 @@
                 },
                 "key": {
                     "type": "object",
-                    "title": "All keys used for shaped crafting",
+                    "title": "All keys used in 'pattern'",
+                    "minItems": 0,
+                    "maxItems": 9,
                     "additionalProperties": {
                         "oneOf": [
                             {
@@ -87,14 +88,14 @@
                         "oneOf": [
                             {
                                 "$ref": "#/definitions/input",
-                                "description": "An ingridient"
+                                "description": "An ingredient"
                             },
                             {
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/definitions/input"
                                 },
-                                "description": "List of possible ingridients"
+                                "description": "List of possible ingredients"
                             }
                         ]
                     }
@@ -115,6 +116,18 @@
                     "oneOf": [
                         {
                             "enum": [
+                                "blasting"
+                            ],
+                            "description": "Recipe for blasting"
+                        },
+                        {
+                            "enum": [
+                                "campfire"
+                            ],
+                            "description": "Recipe for campfire"
+                        },
+                        {
+                            "enum": [
                                 "smelting"
                             ],
                             "description": "Recipe for smelting"
@@ -124,12 +137,6 @@
                                 "smoking"
                             ],
                             "description": "Recipe for smoking"
-                        },
-                        {
-                            "enum": [
-                                "blasting"
-                            ],
-                            "description": "Recipe for blasting"
                         }
                     ]
                 },
@@ -138,11 +145,11 @@
                     "oneOf": [
                         {
                             "$ref": "#/definitions/input",
-                            "title": "The ingredient"
+                            "title": "An ingredient"
                         },
                         {
                             "type": "array",
-                            "title": "The list of ingredients",
+                            "title": "List of possible ingredients",
                             "items": {
                                 "$ref": "#/definitions/input"
                             }
@@ -151,16 +158,16 @@
                 },
                 "result": {
                     "$ref": "../shared/item_name.json",
-                    "title": "An item ID. The output item of a smelting recipe"
+                    "title": "The output item"
                 },
                 "experience": {
                     "type": "number",
-                    "title": "The output experience of a smelting recipe"
+                    "title": "The experience player will be given"
                 },
                 "cookingtime": {
                     "type": "integer",
                     "minimum": 0,
-                    "title": "The cook time of a smelting recipe in ticks"
+                    "title": "The cook time in ticks"
                 }
             },
             "required": [
@@ -176,11 +183,12 @@
             "properties": {
                 "item": {
                     "$ref": "../shared/item_name.json",
-                    "title": "An item ID"
+                    "title": "The input item"
                 },
                 "tag": {
                     "$ref": "../shared/resource_location.json",
-                    "title": "An datapack item tag"
+                    "title": "An datapack item tag",
+                    "description": "All items defined in the tag are acceptable"
                 }
             }
         },
@@ -190,7 +198,7 @@
             "properties": {
                 "item": {
                     "$ref": "../shared/item_name.json",
-                    "title": "An item ID"
+                    "title": "The output item"
                 },
                 "count": {
                     "type": "integer",

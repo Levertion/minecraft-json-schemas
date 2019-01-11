@@ -1,5 +1,4 @@
 {
-    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Model",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/assets/model.json",
     "type": "object",
@@ -40,13 +39,13 @@
                 },
                 {
                     "$ref": "../shared/resource_location.json",
-                    "description": "A specific model location"
+                    "description": "The resource location of a model"
                 }
             ]
         },
         "ambientocclusion": {
             "type": "boolean",
-            "title": "(Block models only) True if you want to use ambient occlusion"
+            "title": "(Block models only) Whether or not to use ambient occlusion"
         },
         "textures": {
             "type": "object",
@@ -82,24 +81,26 @@
                     "$ref": "#/definitions/position"
                 },
                 "gui": {
-                    "$ref": "#/definitions/position"
+                    "$ref": "#/definitions/position",
+                    "description": "Specify the rotation, translation and scale when it is put in GUI"
                 },
                 "head": {
-                    "$ref": "#/definitions/position"
+                    "$ref": "#/definitions/position",
+                    "description": "Specify the rotation, translation and scale when it is put at head"
                 },
                 "ground": {
-                    "$ref": "#/definitions/position"
+                    "$ref": "#/definitions/position",
+                    "description": "Specify the rotation, translation and scale when it is droped on ground"
                 },
                 "fixed": {
                     "$ref": "#/definitions/position",
-                    "description": "Refer to item frames"
+                    "description": "Specify the rotation, translation and scale when it is put in item frames"
                 }
-            },
-            "title": "Hold the rotation, translation and scale for the specified situation"
+            }
         },
         "elements": {
             "type": "array",
-            "title": "Contains all the elements of the model",
+            "title": "All the elements of the model",
             "description": "If both 'parent' and 'elements' are set, the 'elements' tag overrides the 'elements' tag from the previous model",
             "items": {
                 "type": "object",
@@ -155,7 +156,7 @@
                     },
                     "shade": {
                         "type": "boolean",
-                        "title": "If shadows are rendered",
+                        "title": "Whether or not to render shadows",
                         "examples": [
                             true
                         ]

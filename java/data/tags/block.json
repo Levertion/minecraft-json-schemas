@@ -1,5 +1,4 @@
 {
-    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Tag",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/block.json",
     "type": "object",
@@ -8,7 +7,7 @@
     "properties": {
         "replace": {
             "type": "boolean",
-            "title": "Whether or not this tag should completely replace tags from different lower priority data packs with the same namespace and name"
+            "title": "If true, blocks in this file will compeletely replace blocks of the same tag from lower priority datapacks"
         },
         "values": {
             "type": "array",
