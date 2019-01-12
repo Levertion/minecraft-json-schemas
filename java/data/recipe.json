@@ -179,18 +179,27 @@
     "definitions": {
         "input": {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "item": {
-                    "$ref": "../shared/item_name.json",
-                    "title": "The input item"
+            "oneOf": [
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "item": {
+                            "$ref": "../shared/item_name.json",
+                            "title": "The input item"
+                        }
+                    }
                 },
-                "tag": {
-                    "$ref": "../shared/resource_location.json",
-                    "title": "An datapack item tag",
-                    "description": "All items defined in the tag are acceptable"
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "tag": {
+                            "$ref": "../shared/resource_location.json",
+                            "title": "An datapack item tag",
+                            "description": "All items defined in the tag are acceptable"
+                        }
+                    }
                 }
-            }
+            ]
         },
         "craft_result": {
             "type": "object",
