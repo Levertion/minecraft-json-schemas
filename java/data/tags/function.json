@@ -1,5 +1,4 @@
 {
-    "$comment": "Some descriptions in this file are from Minecraft WIKI: http://minecraft.gamepedia.com/Tag",
     "$schema": "http://json-schema.org/schema#",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/function.json",
     "type": "object",
