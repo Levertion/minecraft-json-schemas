@@ -416,7 +416,7 @@
                                 "minecraft:player_hurt_entity"
                             ],
                             "title": "The player hurt an entity",
-                            "description": "This criteria will be checked whenever an entity hurt the player"
+                            "description": "This criteria will be checked whenever player hurt an entity"
                         },
                         "conditions": {
                             "additionalProperties": false,
