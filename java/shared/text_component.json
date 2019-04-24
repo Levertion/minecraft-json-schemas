@@ -38,7 +38,9 @@
                             "with",
                             "score",
                             "selector",
-                            "keybind"
+                            "keybind",
+                            "nbt",
+                            "interpret"
                         ]
                     }
                 },
@@ -59,7 +61,7 @@
                     },
                     "required": ["translate"],
                     "not": {
-                        "required": ["text", "score", "selector", "keybind"]
+                        "required": ["text", "score", "selector", "keybind", "nbt", "interpret"]
                     }
                 },
                 {
@@ -92,7 +94,9 @@
                             "translate",
                             "with",
                             "selector",
-                            "keybind"
+                            "keybind",
+                            "nbt",
+                            "interpret"
                         ]
                     }
                 },
@@ -112,7 +116,9 @@
                             "translate",
                             "with",
                             "score",
-                            "keybind"
+                            "keybind",
+                            "nbt",
+                            "interpret"
                         ]
                     }
                 },
@@ -130,7 +136,65 @@
                             "translate",
                             "with",
                             "score",
-                            "selector"
+                            "selector",
+                            "nbt",
+                            "interpret"
+                        ]
+                    }
+                },                
+                {
+                    "properties": {
+                        "nbt": {
+                            "type": "string",
+                            "title": "The NBT Path"
+                        },
+                        "interpret": {
+                            "type": "boolean",
+                            "title": "Whether contents of selected tags should be interpreted as chat components"
+                        }
+                    },
+                    "required": ["nbt"],
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "block": {
+                                    "type": "string",
+                                    "title": "The coordinates of the block which uses the same format as /setblock"
+                                }
+                            },
+                            "required": [
+                                "block"
+                            ],
+                            "not": {
+                                "required": [
+                                    "entity"
+                                ]
+                            }
+                        },
+                        {
+                            "properties": {
+                                "entity": {
+                                    "type": "string",
+                                    "title": "The target selector"
+                                }
+                            },
+                            "required": [
+                                "entity"
+                            ],
+                            "not": {
+                                "required": [
+                                    "block"
+                                ]
+                            }
+                        }
+                    ],
+                    "not": {
+                        "required": [
+                            "score",
+                            "selector",
+                            "text",
+                            "translate",
+                            "with"
                         ]
                     }
                 }
@@ -143,6 +207,10 @@
                 "score": {},
                 "selector": {},
                 "keybind": {},
+                "nbt": {},
+                "entity": {},
+                "block": {},
+                "interpret": {},
                 "extra": {
                     "type": "array",
                     "$ref": "#/definitions/text_component",
