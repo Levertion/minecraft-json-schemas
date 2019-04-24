@@ -1,6 +1,6 @@
 # minecraft-json-schema
 
-Updated to: Minecraft JE 19w13b
+Updated to: Minecraft Java Edition 1.14
 
 Json schemas for Minecraft files. Information about json schemas can be found at
 [json-schema.org](http://json-schema.org/)
