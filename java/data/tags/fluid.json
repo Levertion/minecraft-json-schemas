@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/fluid.json",
+    "type": "object",
+    "title": "Root tag",
+    "additionalProperties": false,
+    "properties": {
+        "replace": {
+            "type": "boolean",
+            "title": "If true, fluids in this file will compeletely replace fluids of the same tag from lower priority datapacks"
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "../../shared/fluid_name.json",
+                        "description": "A fluid ID"
+                    },
+                    {
+                        "$ref": "../../shared/tag_location.json",
+                        "description": "A fluid tag"
+                    }
+                ]
+            },
+            "title": "A list of fluids"
+        }
+    }
+}

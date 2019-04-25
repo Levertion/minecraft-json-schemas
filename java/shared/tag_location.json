@@ -1,0 +1,5 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/tag_location.json",
+    "pattern": "^#([a-z0-9\\-_]+:)?([a-z0-9\\-_]+/)*[a-z0-9\\-_]+$"
+}

@@ -1,0 +1,225 @@
+{
+    "$comment": "Some descriptions in this file are from https://github.com/skylinerw/guides/blob/master/java/recipes.md",
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/recipe.json",
+    "type": "object",
+    "title": "Root tag",
+    "properties": {
+        "type": {
+            "title": "The type of the recipe"
+        },
+        "group": {
+            "type": "string",
+            "title": "All recipes that have the same 'group' will be shown together in the recipe book"
+        }
+    },
+    "oneOf": [
+        {
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "enum": [
+                        "crafting_shaped"
+                    ],
+                    "description": "Recipe for shaped crafting"
+                },
+                "group": {},
+                "pattern": {
+                    "type": "array",
+                    "title": "The shape that items must be put in",
+                    "minItems": 1,
+                    "maxItems": 3,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^.{1,3}$"
+                    }
+                },
+                "key": {
+                    "type": "object",
+                    "title": "All keys used in 'pattern'",
+                    "minItems": 0,
+                    "maxItems": 9,
+                    "additionalProperties": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/input",
+                                "description": "The single character representing this item"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/input"
+                                },
+                                "description": "The single character representing these possible items"
+                            }
+                        ]
+                    },
+                    "propertyNames": {
+                        "type": "string",
+                        "pattern": "^.$"
+                    }
+                },
+                "result": {
+                    "$ref": "#/definitions/craft_result"
+                }
+            },
+            "required": [
+                "pattern",
+                "key",
+                "result"
+            ]
+        },
+        {
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "enum": [
+                        "crafting_shapeless"
+                    ],
+                    "description": "Recipe for shapeless crafting"
+                },
+                "group": {},
+                "ingredients": {
+                    "type": "array",
+                    "title": "A list of ingredients.",
+                    "minItems": 0,
+                    "maxItems": 9,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/input",
+                                "description": "An ingredient"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/input"
+                                },
+                                "description": "List of possible ingredients"
+                            }
+                        ]
+                    }
+                },
+                "result": {
+                    "$ref": "#/definitions/craft_result"
+                }
+            },
+            "required": [
+                "ingredients",
+                "result"
+            ]
+        },
+        {
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "oneOf": [
+                        {
+                            "enum": [
+                                "blasting"
+                            ],
+                            "description": "Recipe for blasting"
+                        },
+                        {
+                            "enum": [
+                                "campfire"
+                            ],
+                            "description": "Recipe for campfire"
+                        },
+                        {
+                            "enum": [
+                                "smelting"
+                            ],
+                            "description": "Recipe for smelting"
+                        },
+                        {
+                            "enum": [
+                                "smoking"
+                            ],
+                            "description": "Recipe for smoking"
+                        }
+                    ]
+                },
+                "group": {},
+                "ingredient": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/input",
+                            "title": "An ingredient"
+                        },
+                        {
+                            "type": "array",
+                            "title": "List of possible ingredients",
+                            "items": {
+                                "$ref": "#/definitions/input"
+                            }
+                        }
+                    ]
+                },
+                "result": {
+                    "$ref": "../shared/item_name.json",
+                    "title": "The output item"
+                },
+                "experience": {
+                    "type": "number",
+                    "title": "The experience player will be given"
+                },
+                "cookingtime": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "title": "The cook time in ticks"
+                }
+            },
+            "required": [
+                "ingredient",
+                "result"
+            ]
+        }
+    ],
+    "definitions": {
+        "input": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "item": {
+                            "$ref": "../shared/item_name.json",
+                            "title": "The input item"
+                        }
+                    }
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "tag": {
+                            "$ref": "../shared/resource_location.json",
+                            "title": "An datapack item tag",
+                            "description": "All items defined in the tag are acceptable"
+                        }
+                    }
+                }
+            ]
+        },
+        "craft_result": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "item": {
+                    "$ref": "../shared/item_name.json",
+                    "title": "The output item"
+                },
+                "count": {
+                    "type": "integer",
+                    "title": "The amount of the item"
+                }
+            },
+            "required": [
+                "item"
+            ]
+        }
+    },
+    "required": [
+        "type"
+    ]
+}

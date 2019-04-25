@@ -29,6 +29,30 @@
             "url": "/java/data/loot_table.json"
         },
         {
+            "fileMatch": ["/playground/recipes/*.json"],
+            "url": "/java/data/recipe.json"
+        },
+        {
+            "fileMatch": ["/playground/tags/blocks/*.json"],
+            "url": "/java/data/tags/block.json"
+        },
+        {
+            "fileMatch": ["/playground/tags/entity_types/*.json"],
+            "url": "/java/data/tags/entity_type.json"
+        },
+        {
+            "fileMatch": ["/playground/tags/items/*.json"],
+            "url": "/java/data/tags/item.json"
+        },
+        {
+            "fileMatch": ["/playground/tags/functions/*.json"],
+            "url": "/java/data/tags/function.json"
+        },
+        {
+            "fileMatch": ["/playground/tags/fluids/*.json"],
+            "url": "/java/data/tags/fluid.json"
+        },
+        {
             "fileMatch": ["/playground/resource-pack-mcmeta/*.mcmeta"],
             "url": "/java/assets/pack.mcmeta.json"
         }

@@ -18,11 +18,10 @@
                             "title": "Item name",
                             "description": "The name of the item to use as the icon."
                         },
-                        "data": {
-                            "type": "integer",
-                            "default": 0,
-                            "title": "'Meta-data'",
-                            "description": "The metadata value of the item to display"
+                        "nbt": {
+                            "type": "string",
+                            "title": "Item NBT",
+                            "description": "The NBT of the item to display. Can set 'CustomModelData' or 'Damage' to use different textures."
                         }
                     }
                 },
@@ -417,7 +416,7 @@
                                 "minecraft:player_hurt_entity"
                             ],
                             "title": "The player hurt an entity",
-                            "description": "This criteria will be checked whenever an entity hurt the player"
+                            "description": "This criteria will be checked whenever player hurt an entity"
                         },
                         "conditions": {
                             "additionalProperties": false,

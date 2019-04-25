@@ -1,5 +1,7 @@
 # minecraft-json-schema
 
+Updated to: Minecraft Java Edition 1.14
+
 Json schemas for Minecraft files. Information about json schemas can be found at
 [json-schema.org](http://json-schema.org/)
 
@@ -18,14 +20,14 @@ At the moment, the following schemas are provided in the `java` folder:
 3. `*.mcmeta` animation files
 4. Loot tables
 5. `sounds.json`
+6. Models
+7. Recipes
 
 ### Future plans
 
 The following files should be supported in the future
 
-1. models
-2. recipes
-3. Bedrock schemas
+1. Bedrock schemas
 
 ## License
 

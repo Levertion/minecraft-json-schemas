@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/item.json",
+    "type": "object",
+    "title": "Root tag",
+    "additionalProperties": false,
+    "properties": {
+        "replace": {
+            "type": "boolean",
+            "title": "If true, items in this file will compeletely replace items of the same tag from lower priority datapacks"
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "../../shared/item_name.json",
+                        "description": "An item ID"
+                    },
+                    {
+                        "$ref": "../../shared/tag_location.json",
+                        "description": "An item tag"
+                    }
+                ]
+            },
+            "title": "A list of items"
+        }
+    }
+}

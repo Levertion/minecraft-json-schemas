@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/tags/block.json",
+    "type": "object",
+    "title": "Root tag",
+    "additionalProperties": false,
+    "properties": {
+        "replace": {
+            "type": "boolean",
+            "title": "If true, blocks in this file will compeletely replace blocks of the same tag from lower priority datapacks"
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "../../shared/block_name.json",
+                        "description": "A block ID"
+                    },
+                    {
+                        "$ref": "../../shared/tag_location.json",
+                        "description": "A block tag"
+                    }
+                ]
+            },
+            "title": "A list of blocks"
+        }
+    }
+}
