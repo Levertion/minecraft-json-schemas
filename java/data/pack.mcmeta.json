@@ -29,7 +29,7 @@
                     "description": "This is 1 for 1.13"
                 },
                 "description": {
-                    "type": "string",
+                    "$ref": "../shared/text_component.json#",
                     "title": "Pack description",
                     "description": "The description for this pack. Any text which doesn't fit on two lines will be removed"
                 }
