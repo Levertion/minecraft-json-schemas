@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/pack.mcmeta_either.json",
     "title": "An unknown pack.mcmeta",
     "description": "This is either for a resource pack or a data pack",

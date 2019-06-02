@@ -1,6 +1,6 @@
 {
     "$comment": "Some descriptions in this file are from https://github.com/skylinerw/guides/blob/master/java/recipes.md",
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://raw.githubusercontent.com/Levertion/minecraft-json-schemas/master/java/data/recipe.json",
     "type": "object",
     "title": "Root tag",
